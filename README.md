@@ -203,3 +203,7 @@ Launch readiness checklist:
 Content standardization backlog:
 
 - [docs/content-standardization-backlog-2026-03-12.md](/f:/www/www7/docs/content-standardization-backlog-2026-03-12.md)
+
+Deployment playbook:
+
+- [docs/server-multi-site-deploy-playbook-2026-03-15.md](/f:/www/www7/docs/server-multi-site-deploy-playbook-2026-03-15.md)
