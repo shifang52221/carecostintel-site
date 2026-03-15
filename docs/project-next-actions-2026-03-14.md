@@ -5,100 +5,91 @@ Project: `f:\www\www7`
 
 ## Summary
 
-The site is close to launch-readiness.
+The site is not in open-ended build mode anymore.
 
-The rewrite pass is complete for the current known page set, but the final verification pass is still open:
+The clearest next move is a phased submission-readiness route:
 
-- remaining state pages to rewrite: 0
-- remaining guide pages to rewrite: 0
-- remaining QA validation status: open
+1. technical submission audit
+2. trust and content audit
+3. Google and Bing submission
+4. 30-day observation
 
-## Remaining Content Upgrade Tasks
-
-### State pages still pending strict QA confirmation
-
-- `/state-costs/south-dakota/`
-- `/state-costs/west-virginia/`
-- `/state-costs/wyoming/`
-
-### Guide pages still pending strict QA confirmation
-
-- representative guide pages still need launch-pass QA even though no rewrite gap is currently identified
-
-## Recommended Immediate Execution Order
+## Immediate Execution Order
 
 ### Step 1
 
-Run focused manual QA on the most important entry and conversion pages:
-
-- `/`
-- `/estimator/`
-- `/state-costs/`
-- `/guides/`
-- `/state-costs/california/`
-- `/state-costs/texas/`
-- `/state-costs/florida/`
-- `/state-costs/south-dakota/`
-- `/state-costs/west-virginia/`
-- `/state-costs/wyoming/`
-- `/guides/assisted-living-costs-2026/`
-- `/guides/quote-collection-guide/`
-
-### Step 2
-
-Run a targeted QA pass on the final three rewritten state pages:
-
-- `/state-costs/south-dakota/`
-- `/state-costs/west-virginia/`
-- `/state-costs/wyoming/`
+Run the technical submission audit.
 
 Check:
 
-- layout remains stable on mobile
-- headings and sections scan cleanly
-- internal links route correctly
-- estimator CTAs are visible
-- trust and reference sections are present
+- canonical domain behavior
+- homepage and core route availability
+- representative deep-route availability
+- `robots.txt`
+- `sitemap.xml`
+- canonical output
+- release indexing posture
+
+### Step 2
+
+Run the trust and content audit on representative pages.
+
+Review:
+
+- `/`
+- `/about/`
+- `/estimator/`
+- `/guides/`
+- `/state-costs/`
+- `/state-costs/california/`
+- `/state-costs/texas/`
+- `/state-costs/florida/`
+- `/guides/assisted-living-costs-2026/`
+- `/guides/quote-collection-guide/`
+- trust and policy pages
 
 ### Step 3
 
-Confirm production release configuration:
+Lock the initial launch posture.
 
-- `SITE_URL` uses the final production origin
-- `PUBLIC_ALLOW_INDEXING=false` outside production
-- `PUBLIC_ALLOW_INDEXING=true` only when launch is intentional
+Current recommended posture:
 
-Verification commands:
-
-```bash
-npm run build
-Get-Content dist/robots.txt
-Get-Item dist/sitemap.xml | Select-Object Length
-```
+- no ads at submission
+- no non-essential analytics at submission
+- no consent banner required yet if tracking stays off
+- privacy and policy pages must match real behavior
 
 ### Step 4
 
-Confirm deployment source boundaries:
+Submit the site in this order:
 
-- Astro source under `src/` is the only active site source
-- `public/` is the active browser-script layer
-- root-level legacy HTML folders are not part of active deployment
-- `dist/` is treated as generated output
+1. Google Search Console
+2. `sitemap.xml`
+3. Bing Webmaster Tools
+4. `sitemap.xml`
 
-## QA Checklist
+### Step 5
 
-Use this checklist during final review:
+Observe the first 30 days rather than making large structural changes.
 
-- page title is specific and useful
-- meta description is not weak or duplicated
-- hero and first section explain the page clearly
-- next-step CTAs appear early enough
-- estimator links are visible and relevant
-- state/guide cross-links feel intentional
-- trust pages remain reachable from the layout
-- no obvious thin or repetitive sections remain
-- page is readable on desktop and narrow mobile widths
+Watch:
+
+- crawl errors
+- sitemap status
+- core-page indexing
+- canonical issues
+- obvious representative-page quality issues
+
+## Operational Checklist
+
+Use this sequence before submission:
+
+- technical checklist passes
+- trust-content checklist passes
+- production domain is stable
+- indexing posture is intentional
+- policy wording matches actual behavior
 
 ## Project Status In One Line
 
-This project is mostly done, and the clearest next move is to run launch QA, confirm production config, and verify deployment boundaries.
+This project is now primarily a submission-readiness project, not a foundational build project.

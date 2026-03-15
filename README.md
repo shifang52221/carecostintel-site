@@ -178,6 +178,22 @@ Before a real launch, verify:
 5. Homepage, estimator, state hub, guide hub, and representative state/guide pages render correctly on mobile and desktop.
 6. No work was accidentally done in legacy root-level HTML files instead of `src/`.
 
+## Submission Readiness
+
+Use this operating order before asking search engines to index the site:
+
+1. Run the technical submission audit.
+2. Run the trust and content audit.
+3. Submit the live sitemap to Google Search Console and Bing Webmaster Tools.
+4. Observe the site for 30 days before major structural or monetization changes.
+
+Primary documents:
+
+- [docs/submission-technical-checklist-2026-03-15.md](/f:/www/www7/docs/submission-technical-checklist-2026-03-15.md)
+- [docs/submission-trust-content-checklist-2026-03-15.md](/f:/www/www7/docs/submission-trust-content-checklist-2026-03-15.md)
+- [docs/search-submission-runbook-2026-03-15.md](/f:/www/www7/docs/search-submission-runbook-2026-03-15.md)
+- [docs/post-submission-observation-plan-2026-03-15.md](/f:/www/www7/docs/post-submission-observation-plan-2026-03-15.md)
+
 ## Important Notes
 
 - The active estimator behavior is driven by `public/estimator.js`.

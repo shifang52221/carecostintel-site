@@ -5,7 +5,7 @@ Project: `f:\www\www7`
 
 ## Purpose
 
-This checklist captures the minimum privacy and consent decisions that must be closed before real public launch.
+This checklist captures the minimum privacy and consent decisions that must be closed before real public launch and search submission.
 
 It exists to prevent a common failure mode:
 
@@ -15,24 +15,24 @@ It exists to prevent a common failure mode:
 
 ## Current Project Reality
 
-As of 2026-03-14:
+As of 2026-03-15:
 
 - the site has privacy and advertising disclosure pages
-- the project has a `PUBLIC_ADS_ENABLED` environment flag
 - estimator behavior uses browser storage for local planning data
 - there is not yet a real consent banner or preferences center in the active Astro app
+- the current recommended submission posture is no ads and no non-essential analytics
 
-This means privacy and consent work should be treated as a launch blocker if non-essential tracking or advertising is enabled.
+This means privacy and consent work is not the immediate blocker only if production really stays in that low-tracking posture.
 
 ## Launch Decision Gate
 
-Before launch, answer this question clearly:
+Before submission and launch, answer this question clearly:
 
 ### Are analytics, ad tech, or tracking scripts enabled in production?
 
 If the answer is `no`:
 
-- confirm that only necessary/local functionality is active
+- confirm that only necessary or local functionality is active
 - confirm privacy and advertising pages do not overstate active tracking behavior
 - confirm no third-party tracking scripts were added through layout, tag manager, or deployment settings
 
@@ -52,7 +52,7 @@ Confirm whether production includes any of the following:
 - Google Tag Manager
 - AdSense or other ad network scripts
 - Meta Pixel
-- Hotjar, Microsoft Clarity, or similar session/behavior tools
+- Hotjar, Microsoft Clarity, or similar session or behavior tools
 - affiliate tracking scripts
 - third-party embeds that set tracking cookies
 
@@ -107,8 +107,8 @@ Check:
 
 Use this rule for release:
 
-- no ads and no analytics: launch may proceed without a consent banner, but privacy wording must still be accurate
-- ads or analytics enabled: consent and privacy-preferences work becomes a launch blocker
+- no ads and no analytics: launch and search submission may proceed without a consent banner, but privacy wording must still be accurate
+- ads or analytics enabled: consent and privacy-preferences work becomes a blocker before launch
 
 ## Recommended Implementation When Ready
 
@@ -120,6 +120,15 @@ When this work is scheduled, implement at least:
 - a persistent footer link to reopen preferences
 - policy text updated to match the final implementation
 
+## Current Recommended Posture
+
+Current recommended posture for the initial submission phase:
+
+- no advertising scripts
+- no non-essential analytics scripts
+- no consent banner yet
+- accurate privacy and policy wording
+
 ## Status
 
-Current status: `Pending before production launch if tracking or ads are enabled`
+Current status: `Clear for initial search submission only if non-essential tracking remains off`

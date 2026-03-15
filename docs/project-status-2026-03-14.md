@@ -5,36 +5,42 @@ Project: `f:\www\www7`
 
 ## Current Stage
 
-The site is in the final rebuild and launch-preparation phase.
+The site is now in the launch-submission readiness phase.
 
-It is no longer in the initial architecture stage. The Astro site structure, core navigation, trust layer, and main user journeys are already in place. The main remaining work is launch QA, production configuration, and cleanup of legacy ambiguity.
+The project is no longer blocked on deployment or basic page architecture. The Astro site is live, automatic deployment is active, and the current bottleneck is controlled submission readiness:
+
+- technical crawl-readiness verification
+- trust and policy alignment
+- representative page QA
+- search submission sequencing
 
 ## Overall Status
 
 ### Completed
 
-- Active production source of truth is clearly the Astro site under `src/` plus client scripts in `public/`
+- Active production source of truth is clearly the Astro site under `src/` plus browser scripts in `public/`
 - Core page architecture is established
-- Shared layout and footer were rebuilt during the March 12 rebuild pass
-- Homepage is rebuilt as the main routing and trust entry page
-- Estimator page is implemented as the primary planning tool flow
-- State hub and guide hub are in place
-- Trust and compliance pages exist
+- Homepage, estimator, state hub, and guide hub are live
+- Trust and legal/supporting pages exist
+- Automatic deployment from GitHub to the VPS is active
+- Production domain and SSL are live on `https://www.carecostintel.com`
+- The earlier production 404 issue was traced to ignored page source files and has been fixed
+- The missing page source files are now tracked in Git and deployed correctly
 - `robots.txt` and sitemap generation are wired into the Astro app
-- Build output exists in `dist/`
-- Maintenance and launch documentation has been created
+- Launch, deployment, and maintenance documentation exists
 
 ### In Progress
 
-- Preparing the project for controlled launch readiness review
-- Running strict QA on the final rewritten state pages and key entry pages
+- Preparing the site for controlled search-submission readiness
+- Verifying technical indexing behavior before submission
+- Verifying representative trust and content quality before submission
 
 ### Not Yet Confirmed
 
-- Whether the final rewritten state pages pass strict manual QA
-- Whether the root-level legacy HTML folders are excluded from the real deployment path
-- Whether the production environment variables are set correctly for indexing and canonical output
-- Whether the full cross-device QA pass has been completed after the rebuild
+- Final production `SITE_URL` and indexing configuration for intentional submission
+- Final pre-submission `robots.txt` and `sitemap.xml` output behavior
+- Representative-page launch QA on mobile and desktop
+- Policy wording alignment with the final launch behavior
 
 ## What Is Already Working
 
@@ -59,69 +65,68 @@ It is no longer in the initial architecture stage. The Astro site structure, cor
 
 ## What Was Recently Completed
 
-Based on repository timestamps and project docs, the heaviest recent work happened on 2026-03-12 and continued into late-night content upgrades for state pages.
+Recent completed work includes:
 
-Recent documented progress includes:
-
-- rebuild direction clarified in design and plan docs
-- maintainer-facing audit and launch docs added
-- homepage, estimator, guide hub, and state hub upgraded
-- representative guides upgraded
-- many additional state pages upgraded in batches through late March 12 work
-- the final three legacy-style state pages rewritten on 2026-03-14
-- a follow-up review identified at least one broken official source link that required correction before QA sign-off
+- deployment architecture documented
+- multi-site server deployment playbook added
+- GitHub Actions based deployment enabled
+- production route failures diagnosed to a `.gitignore` problem
+- missing source pages restored to version control
+- production deep routes confirmed working again after redeployment
+- launch submission route documented
 
 ## Remaining Work
 
 ### Highest priority
 
-- Run final manual QA on desktop and mobile
-- Confirm production `SITE_URL`
-- Confirm `PUBLIC_ALLOW_INDEXING` is disabled outside production and only enabled when ready
-- Verify final `dist/robots.txt` and `dist/sitemap.xml` behavior for release
-- Close launch compliance checks before enabling ads or analytics
+- Complete technical submission audit
+- Complete trust and content submission audit
+- Confirm production indexing configuration before submission
+- Confirm pre-submission launch posture remains no-ads and no-analytics
+- Submit to Google Search Console and Bing only after those checks pass
 
 ### Medium priority
 
-- Confirm legacy root HTML folders are not part of the active deployment path
-- Reduce ambiguity between legacy static files and Astro source files
-- Clarify estimator data ownership to avoid drift between old and new implementations
+- Complete representative page QA on mobile and desktop
+- Refine policy wording so it matches actual launch behavior exactly
+- Reduce remaining ambiguity between legacy root-level static artifacts and active Astro source files
 
 ### Future refactor
 
 - Move repetitive state-page structure toward a stronger shared template or data-driven system
+- Add a real privacy preferences flow when advertising or analytics become active
 
 ## Risks
 
-### Operational risk
+### Submission risk
 
-- The directory is not currently recognized as a Git repository in this workspace, so normal branch and history workflows are unavailable here
+- If production indexing variables are wrong, the team could submit a site that still discourages crawling or emits incorrect canonical signals
 
 ### Content risk
 
-- The last rewritten pages still require strict manual QA and external-link validation before they should be treated as fully signed off
+- Representative deep pages still need strict manual QA before they should be treated as fully signed off for submission
 
 ### Maintenance risk
 
 - Legacy root-level HTML and `assets/` can still cause editing mistakes if someone changes the wrong files
 
-### Logic drift risk
+### Trust risk
 
-- Estimator-related logic and data assumptions exist across both active and legacy structures
+- Privacy and advertising wording still need to stay aligned with the actual launch posture, especially if tracking stays off initially
 
 ## Recommended Next Actions
 
-1. Run a focused launch QA pass on the homepage, estimator, state hub, guide hub, and a sample of upgraded deep pages.
-2. Confirm the production environment values before enabling indexing.
-3. Verify that legacy root HTML folders are not part of deployment.
-4. Confirm the final rewritten state pages render cleanly on mobile and desktop.
-5. Decide whether to keep the next step as QA only or start the shared state-template refactor.
+1. Run the technical submission checklist.
+2. Run the trust and content submission checklist.
+3. Confirm the production indexing posture before intentional submission.
+4. Submit the site to Google Search Console and Bing only after the audits pass.
+5. Observe crawl and indexing signals for 30 days before introducing monetization work.
 
 ## Short Executive Summary
 
-The project is mostly built.
+The site is live and deploy-stable.
 
-The current bottleneck is not foundational development. The bottleneck is launch verification, production safety checks, and removing ambiguity between active Astro source files and older legacy static files.
+The current bottleneck is no longer foundational development. The current bottleneck is preparing the site for a clean, controlled search submission and making sure trust, policy, and indexing behavior all match the intended launch posture.
 
 ## Compliance Reference
 

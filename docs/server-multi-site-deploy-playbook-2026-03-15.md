@@ -48,6 +48,11 @@ Example:
 - `/root/deploy-configs/site2.conf`
 - `/root/deploy-configs/site3.conf`
 
+Important:
+
+- if a site depends on build-time variables such as `SITE_URL` or `PUBLIC_ALLOW_INDEXING`, export them in the per-site config or in the deploy invocation
+- plain shell assignments without `export` do not reach `npm run build`
+
 ## Repository Standard
 
 Each project repository should contain:
@@ -86,9 +91,16 @@ Each site config should follow this minimum structure:
 SITE_NAME=carecostintel
 PROJECT_DIR=/www/wwwroot/carecostintel-site
 BRANCH=main
+export SITE_URL="https://www.carecostintel.com"
+export PUBLIC_ALLOW_INDEXING="true"
 INSTALL_CMD="npm install"
 BUILD_CMD="npm run build"
 ```
+
+For the current site, keep production indexing values aligned in both places:
+
+- repository workflow `.github/workflows/deploy.yml`
+- server runtime config `/root/deploy-configs/carecostintel.conf`
 
 ## Standard Workflow
 
@@ -132,6 +144,8 @@ When adding a new site to this server, follow this order:
 8. add the 4 GitHub secrets
 9. push a small test change
 10. confirm the Actions run is green
+
+If the live server still uses `/root/deploy-configs/<site-key>.conf` as the runtime source of truth, copy the updated tracked config from the repo to that server path after changing it.
 
 ## Standard Manual Fallback
 
