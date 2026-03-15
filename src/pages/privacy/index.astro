@@ -1,6 +1,156 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Privacy Policy | CareCost Intelligence" description="Read how CareCost Intelligence collects, uses, and protects limited website data, plus your choices for cookies, analytics, and contact submissions on our planning tools.">
-<section class="section"> <div class="container"> <h1>Privacy Policy</h1> <p class="note">Updated: Jan 2026. This policy explains how data is handled on this site.</p> <div class="chip-grid" style="margin-top: 12px;"> <a class="chip" href="#estimator-data">Estimator data</a> <a class="chip" href="#analytics-ads">Analytics</a> <a class="chip" href="#retention">Retention</a> <a class="chip" href="#choices">Your choices</a> <a class="chip" href="#gdpr-ccpa">GDPR/CCPA</a> <a class="chip" href="#privacy-contact">Contact</a> </div> </div> </section> <section class="section" id="estimator-data"> <div class="container card"> <h2>Estimator data</h2> <p>Estimator inputs are processed in the browser and are not stored on our servers. We do not request or store personal health information.</p> <ul class="checklist"> <li>No account required.</li> <li>No input storage on our servers.</li> <li>Calculations run locally in your browser.</li> </ul> </div> </section> <section class="section" id="analytics-ads"> <div class="container card"> <h2>Analytics and advertising</h2> <p>We use analytics and advertising tools to measure site usage and support free access. These tools may use cookies or similar technologies.</p> <ul class="checklist"> <li>Aggregated usage data only.</li> <li>No sale of personal information.</li> <li>Advertising helps fund site operations.</li> </ul> <p class="note">You can manage cookies through your browser settings.</p> </div> </section> <section class="section" id="retention"> <div class="container grid-2"> <div class="card"> <h2>Data we do not collect</h2> <ul class="checklist"> <li>Social Security numbers or government IDs.</li> <li>Medical records or diagnoses.</li> <li>Payment card data.</li> <li>Facility account logins.</li> </ul> </div> <div class="card"> <h2>Links and referrals</h2> <ul class="checklist"> <li>Some links may be affiliate or partner links.</li> <li>We do not share your estimator inputs with partners.</li> <li>Partners follow their own privacy policies.</li> <li>We prioritize relevance over sponsorship.</li> </ul> </div> </div> </section> <section class="section"> <div class="container grid-2"> <div class="card"> <h2>Data retention</h2> <ul class="checklist"> <li>Estimator inputs stay in your browser.</li> <li>No account data is stored on our servers.</li> <li>Shared links only include your inputs in the URL.</li> <li>Clear your browser history to remove links.</li> </ul> </div> <div class="card"> <h2 id="choices">Your choices</h2> <ul class="checklist"> <li>Use private browsing to avoid local storage.</li> <li>Disable cookies in your browser settings.</li> <li>Block ads with privacy tools if preferred.</li> <li>Contact us for data requests.</li> </ul> </div> </div> </section> <section class="section"> <div class="container grid-2"> <div class="card"> <h2>Children's privacy</h2> <p>This site is intended for adults planning senior care. We do not knowingly collect data from children.</p> </div> <div class="card"> <h2>International visitors</h2> <p>Estimator inputs are processed locally in your browser. If you use the site from outside the US, your data stays on your device.</p> </div> </div> </section> <section class="section" id="gdpr-ccpa"> <div class="container card"> <h2>GDPR and CCPA notice</h2> <p>We do not sell personal information. If you are in the EU or California, you may request access or deletion of any data we hold.</p> <p class="note">Because estimator inputs are processed locally, we typically do not hold personal data to retrieve.</p> </div> </section> <section class="section"> <div class="container card"> <h2>External links</h2> <p>Some pages link to external resources. We are not responsible for the privacy practices of third-party sites.</p> </div> </section> <section class="section" id="privacy-contact"> <div class="container card"> <h2>Contact</h2> <p>If you have questions about this policy, contact us at <a href="mailto:hello@carecostintel.com">hello@carecostintel.com</a>.</p> <p class="note">Please avoid sending sensitive medical information by email.</p> </div> </section> <section class="section"> <div class="container card"> <h2>Popular state guides</h2> <p class="note">Use state-level context to validate quotes and adjust your estimate.</p> <div class="grid-3"> <div class="feature"> <strong>California</strong> <p class="note">Metro premiums and staffing costs.</p> <a class="tag" href="/state-costs/california/">Open guide</a> </div> <div class="feature"> <strong>Texas</strong> <p class="note">Growth-driven demand shifts.</p> <a class="tag" href="/state-costs/texas/">Open guide</a> </div> <div class="feature"> <strong>Florida</strong> <p class="note">Retiree demand and waitlists.</p> <a class="tag" href="/state-costs/florida/">Open guide</a> </div> </div> <div class="controls" style="margin-top: 14px;"> <a class="btn secondary" href="/state-costs/">Browse all state guides</a> </div> </div> </section>
+<BaseLayout
+  title="Privacy Policy | CareCost Intelligence"
+  description="Read how CareCost Intelligence handles browser-local estimator inputs, limited contact data, and current site privacy practices for this planning-focused launch."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="note">Updated: Mar 2026. This policy explains how data is handled on this site today.</p>
+      <div class="chip-grid" style="margin-top: 12px;">
+        <a class="chip" href="#estimator-data">Estimator data</a>
+        <a class="chip" href="#tracking-status">Tracking status</a>
+        <a class="chip" href="#retention">Retention</a>
+        <a class="chip" href="#choices">Your choices</a>
+        <a class="chip" href="#gdpr-ccpa">GDPR/CCPA</a>
+        <a class="chip" href="#privacy-contact">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="estimator-data">
+    <div class="container card">
+      <h2>Estimator data</h2>
+      <p>Estimator inputs are processed in the browser and are not stored on our servers. We do not request or store personal health information.</p>
+      <ul class="checklist">
+        <li>No account required.</li>
+        <li>No input storage on our servers.</li>
+        <li>Calculations run locally in your browser.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="tracking-status">
+    <div class="container card">
+      <h2>Current tracking status</h2>
+      <p>Non-essential analytics and advertising technologies are not currently active on this site.</p>
+      <ul class="checklist">
+        <li>No ad network scripts are currently active.</li>
+        <li>No non-essential analytics platform is currently active.</li>
+        <li>Any future change will be reflected in this policy before it goes live.</li>
+      </ul>
+      <p class="note">Browser settings and privacy tools remain available if you want additional control over your own device and browsing environment.</p>
+    </div>
+  </section>
+
+  <section class="section" id="retention">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Data we do not collect</h2>
+        <ul class="checklist">
+          <li>Social Security numbers or government IDs.</li>
+          <li>Medical records or diagnoses.</li>
+          <li>Payment card data.</li>
+          <li>Facility account logins.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Links and referrals</h2>
+        <ul class="checklist">
+          <li>Affiliate or partner monetization links are not currently active on this site.</li>
+          <li>We do not share your estimator inputs with outside partners.</li>
+          <li>Third-party sites linked for research or reference follow their own privacy policies.</li>
+          <li>If monetized links are introduced later, this policy will be updated before launch.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Data retention</h2>
+        <ul class="checklist">
+          <li>Estimator inputs stay in your browser unless you choose to share them.</li>
+          <li>No account data is stored on our servers.</li>
+          <li>Shared links only include your inputs in the URL.</li>
+          <li>Clear your browser history if you want shared URLs removed from your device history.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2 id="choices">Your choices</h2>
+        <ul class="checklist">
+          <li>Use private browsing if you prefer less local history on your device.</li>
+          <li>Manage cookies and site permissions through your browser settings.</li>
+          <li>Contact us if you have a privacy question about current site behavior.</li>
+          <li>Review this page again before relying on any future monetization or tracking disclosures.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Children's privacy</h2>
+        <p>This site is intended for adults planning senior care. We do not knowingly collect data from children.</p>
+      </div>
+      <div class="card">
+        <h2>International visitors</h2>
+        <p>Estimator inputs are processed locally in your browser. If you use the site from outside the US, most planning inputs remain on your device unless you choose to share them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gdpr-ccpa">
+    <div class="container card">
+      <h2>GDPR and CCPA notice</h2>
+      <p>We do not sell personal information. If you are in the EU or California, you may request access or deletion of any personal data we actually hold.</p>
+      <p class="note">Because estimator inputs are processed locally, we typically do not hold personal estimator data to retrieve.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>External links</h2>
+      <p>Some pages link to external resources for research or reference. We are not responsible for the privacy practices of third-party sites.</p>
+    </div>
+  </section>
+
+  <section class="section" id="privacy-contact">
+    <div class="container card">
+      <h2>Contact</h2>
+      <p>If you have questions about this policy, contact us at <a href="mailto:hello@carecostintel.com">hello@carecostintel.com</a>.</p>
+      <p class="note">Please avoid sending sensitive medical information by email.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>Popular state guides</h2>
+      <p class="note">Use state-level context to validate quotes and adjust your estimate.</p>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>California</strong>
+          <p class="note">Metro premiums and staffing costs.</p>
+          <a class="tag" href="/state-costs/california/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Texas</strong>
+          <p class="note">Growth-driven demand shifts.</p>
+          <a class="tag" href="/state-costs/texas/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Florida</strong>
+          <p class="note">Retiree demand and waitlists.</p>
+          <a class="tag" href="/state-costs/florida/">Open guide</a>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/state-costs/">Browse all state guides</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
