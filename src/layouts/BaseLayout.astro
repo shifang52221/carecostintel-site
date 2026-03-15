@@ -1,0 +1,415 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const { title, description, robots } = Astro.props;
+const pathName = Astro.url?.pathname ?? '/';
+const configuredSiteUrl = Astro.site?.origin ?? process.env.SITE_URL ?? import.meta.env.SITE_URL ?? Astro.url?.origin ?? 'http://localhost:4321';
+const siteHostname = (() => {
+  try {
+    return new URL(configuredSiteUrl).hostname.toLowerCase();
+  } catch {
+    return 'localhost';
+  }
+})();
+const hasProductionSiteUrl = !['localhost', '127.0.0.1'].includes(siteHostname);
+const siteUrl = configuredSiteUrl;
+const canonical = `${siteUrl}${pathName}`;
+const ogImage = `${siteUrl}/og-default.png`;
+const shouldLoadStateTools = pathName.startsWith('/state-costs');
+const shouldLoadGuideTools = pathName.startsWith('/guides');
+const adsEnabled = import.meta.env.PUBLIC_ADS_ENABLED === 'true';
+const indexingEnabled = (
+  import.meta.env.PUBLIC_ALLOW_INDEXING === 'true' ||
+  process.env.PUBLIC_ALLOW_INDEXING === 'true'
+);
+const allowIndexing = indexingEnabled && hasProductionSiteUrl;
+const isLegalPage = [
+  '/privacy/',
+  '/terms/',
+  '/disclaimer/',
+  '/accessibility/',
+  '/advertising-disclosure/'
+].includes(pathName);
+const isContentPage = (
+  pathName.startsWith('/state-costs/') ||
+  pathName.startsWith('/guides/') ||
+  pathName.startsWith('/care-types/')
+) && !['/state-costs/', '/guides/', '/care-types/'].includes(pathName);
+const shouldShowAds = adsEnabled && !isLegalPage && isContentPage;
+const robotsValue = robots ?? (allowIndexing ? 'index, follow' : 'noindex, nofollow');
+const ogType = isContentPage ? 'article' : 'website';
+
+const formatSegment = (segment) =>
+  segment
+    .split('-')
+    .map((part) => (part ? part[0].toUpperCase() + part.slice(1) : part))
+    .join(' ');
+
+const breadcrumbLabelMap = {
+  'state-costs': 'State Guides',
+  'care-types': 'Care Types',
+  'data-sources': 'Data Sources',
+  'editorial-policy': 'Editorial Policy',
+  'methodology': 'Methodology'
+};
+
+const breadcrumbItems = (() => {
+  const segments = pathName.split('/').filter(Boolean);
+  const items = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: `${siteUrl}/`
+    }
+  ];
+  if (!segments.length) return items;
+  let current = '';
+  segments.forEach((segment, index) => {
+    current += `/${segment}`;
+    const label = breadcrumbLabelMap[segment] ?? formatSegment(segment);
+    items.push({
+      "@type": "ListItem",
+      position: index + 2,
+      name: label,
+      item: `${siteUrl}${current}/`
+    });
+  });
+  return items;
+})();
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "CareCost Intelligence",
+  url: siteUrl,
+  email: "hello@carecostintel.com",
+  logo: `${siteUrl}/logo.svg`,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: "hello@carecostintel.com",
+      url: `${siteUrl}/contact/`
+    }
+  ]
+};
+
+const pageType = (() => {
+  if (pathName === '/about/') return 'AboutPage';
+  if (pathName === '/contact/') return 'ContactPage';
+  return 'WebPage';
+})();
+
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "CareCost Intelligence",
+  url: siteUrl,
+  inLanguage: "en"
+};
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": pageType,
+  name: title,
+  description,
+  url: canonical,
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: ogImage
+  },
+  isPartOf: {
+    "@type": "WebSite",
+    name: "CareCost Intelligence",
+    url: siteUrl
+  },
+  inLanguage: "en"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems
+};
+
+const trustLinks = [
+  { href: '/methodology/', label: 'Methodology' },
+  { href: '/editorial-policy/', label: 'Editorial Policy' },
+  { href: '/data-sources/', label: 'Data Sources' },
+  { href: '/updates/', label: 'Updates & Corrections' }
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="CareCost Intelligence" />
+    <meta name="robots" content={robotsValue} />
+    {!allowIndexing ? <meta name="googlebot" content="noindex, nofollow" /> : null}
+    {!hasProductionSiteUrl ? <meta name="x-site-config" content="missing-production-site-url" /> : null}
+    <meta name="theme-color" content="#0e3a5d" />
+    <meta name="application-name" content="CareCost Intelligence" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600&display=swap" />
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="CareCost Intelligence" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="CareCost Intelligence planning tools for senior care costs." />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    {allowIndexing ? <link rel="canonical" href={canonical} /> : null}
+    {allowIndexing ? <link rel="alternate" hreflang="en" href={canonical} /> : null}
+    {allowIndexing ? <link rel="alternate" hreflang="x-default" href={canonical} /> : null}
+    {allowIndexing ? <link rel="sitemap" type="application/xml" href={`${siteUrl}/sitemap.xml`} /> : null}
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(siteSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="reading-progress" data-reading-progress aria-hidden="true">
+      <span></span>
+    </div>
+    <Nav />
+    <div class="notice-bar" role="note">
+      <div class="container">
+        Planning-only guidance. Not medical or financial advice. Verify all quotes with local providers.
+      </div>
+    </div>
+    <div class="trust-bar" aria-label="Site trust links">
+      <div class="container trust-bar-inner">
+        <span class="trust-bar-label">Trust & transparency</span>
+        <div class="trust-bar-links">
+          {trustLinks.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+    <main id="main-content">
+      {shouldShowAds ? (
+        <div class="ad-slot ad-slot-top" aria-label="Advertisement">
+          <div class="ad-badge">Sponsored</div>
+          <div class="ad-placeholder">Ad space (728 x 90 / responsive)</div>
+        </div>
+      ) : null}
+      <slot />
+      {shouldShowAds ? (
+        <div class="ad-slot ad-slot-bottom" aria-label="Advertisement">
+          <div class="ad-badge">Sponsored</div>
+          <div class="ad-placeholder">Ad space (728 x 90 / responsive)</div>
+        </div>
+      ) : null}
+    </main>
+    <a class="back-to-top" href="#main-content" aria-label="Back to top">Back to top</a>
+    <Footer />
+    {shouldLoadStateTools ? <script src="/state-tools.js" defer is:inline></script> : null}
+    {shouldLoadGuideTools ? <script src="/guide-tools.js" defer is:inline></script> : null}
+    <script>
+      const tocDetails = document.querySelectorAll('.toc details[open]');
+      if (tocDetails.length && window.matchMedia('(max-width: 960px)').matches) {
+        tocDetails.forEach((details) => details.removeAttribute('open'));
+      }
+    </script>
+    <script>
+      const toc = document.querySelector('.toc');
+      if (toc) {
+        const chipGrid = toc.querySelector('.chip-grid');
+        const chips = chipGrid ? Array.from(chipGrid.querySelectorAll('a.chip')) : [];
+        if (chipGrid && chips.length > 10) {
+          const groups = [
+            {
+              title: 'Overview',
+              match: (href) => [
+                '#key-takeaways',
+                '#market-overview',
+                '#how-to-use-guides',
+                '#regional-context',
+                '#local-pricing-verification'
+              ].includes(href)
+            },
+            {
+              title: 'Programs & sources',
+              match: (href) => href === '#state-programs' || href.includes('-sources')
+            },
+            {
+              title: 'Comparisons & validation',
+              match: (href) => [
+                '#local-context',
+                '#market-signals',
+                '#local-playbook',
+                '#local-differentiators',
+                '#cost-levers',
+                '#example-state-scenario',
+                '#quote-validation',
+                '#city-comparison',
+                '#quote-comparison',
+                '#state-questions',
+                '#care-type-patterns',
+                '#decision-checklist'
+              ].includes(href)
+            },
+            {
+              title: 'Next steps',
+              match: (href) => ['#related-guides', '#next-steps', '#back-to-estimate'].includes(href)
+            }
+          ];
+
+          const grouped = groups.map((group) => ({ ...group, items: [] }));
+          const overflow = { title: 'More', items: [] };
+
+          chips.forEach((chip) => {
+            const href = chip.getAttribute('href') || '';
+            const match = grouped.find((group) => group.match(href));
+            if (match) {
+              match.items.push(chip);
+            } else {
+              overflow.items.push(chip);
+            }
+          });
+
+          if (overflow.items.length) grouped.push(overflow);
+
+          chipGrid.innerHTML = '';
+          const isMobile = window.matchMedia('(max-width: 900px)').matches;
+          grouped.forEach((group) => {
+            if (!group.items.length) return;
+            const groupWrap = document.createElement('details');
+            groupWrap.className = 'toc-group';
+            if (!isMobile) {
+              groupWrap.setAttribute('open', 'true');
+            }
+            const title = document.createElement('summary');
+            title.className = 'toc-group-title';
+            title.textContent = group.title;
+            const list = document.createElement('div');
+            list.className = 'toc-group-chips';
+            group.items.forEach((chip) => list.appendChild(chip));
+            groupWrap.appendChild(title);
+            groupWrap.appendChild(list);
+            chipGrid.appendChild(groupWrap);
+          });
+        }
+      }
+    </script>
+    <script>
+      const tocLinks = Array.from(document.querySelectorAll('.toc a[href^="#"]'));
+      if (tocLinks.length) {
+        const linkMap = new Map();
+        tocLinks.forEach((link) => {
+          const id = link.getAttribute('href')?.slice(1);
+          if (!id) return;
+          const section = document.getElementById(id);
+          if (section) {
+            linkMap.set(section, link);
+          }
+        });
+
+        let activeLink = null;
+        const setActiveLink = (link) => {
+          if (activeLink === link) return;
+          if (activeLink) {
+            activeLink.classList.remove('active');
+            activeLink.removeAttribute('aria-current');
+          }
+          if (link) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'true');
+            const group = link.closest('details');
+            if (group && !group.hasAttribute('open')) {
+              group.setAttribute('open', 'true');
+            }
+          }
+          activeLink = link;
+        };
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const link = linkMap.get(entry.target);
+                if (link) setActiveLink(link);
+              });
+            },
+            {
+              rootMargin: '-20% 0px -70% 0px',
+              threshold: [0, 1]
+            }
+          );
+          linkMap.forEach((_, section) => observer.observe(section));
+        }
+      }
+    </script>
+    <script>
+      const progressBar = document.querySelector('[data-reading-progress]');
+      const progressFill = progressBar?.querySelector('span');
+      let progressTicking = false;
+
+      const updateProgress = () => {
+        if (!progressBar || !progressFill) return;
+        const doc = document.documentElement;
+        const scrollHeight = doc.scrollHeight - window.innerHeight;
+        if (scrollHeight <= window.innerHeight * 0.6) {
+          progressBar.setAttribute('data-hidden', 'true');
+          progressFill.style.width = '0%';
+          return;
+        }
+        progressBar.removeAttribute('data-hidden');
+        const progress = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
+        progressFill.style.width = `${Math.min(Math.max(progress, 0), 100)}%`;
+      };
+
+      const onProgressScroll = () => {
+        if (progressTicking) return;
+        progressTicking = true;
+        window.requestAnimationFrame(() => {
+          updateProgress();
+          progressTicking = false;
+        });
+      };
+
+      window.addEventListener('scroll', onProgressScroll);
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+    </script>
+    <script>
+      const backToTop = document.querySelector('.back-to-top');
+      let backTicking = false;
+      const updateBackToTop = () => {
+        if (!backToTop) return;
+        const shouldShow = window.scrollY > 480;
+        backToTop.setAttribute('data-visible', shouldShow ? 'true' : 'false');
+      };
+      const onBackScroll = () => {
+        if (backTicking) return;
+        backTicking = true;
+        window.requestAnimationFrame(() => {
+          updateBackToTop();
+          backTicking = false;
+        });
+      };
+      window.addEventListener('scroll', onBackScroll);
+      updateBackToTop();
+    </script>
+  </body>
+</html>

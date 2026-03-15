@@ -1,0 +1,230 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Which terms are most important for comparing quotes?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Focus on base rent, care tier, room type, and any required add-ons."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "How should I ask about care tier changes?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ask for the reassessment schedule and a written tier pricing table."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Do facilities define tiers the same way?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Always compare quotes using the same care plan and services list."
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Senior Care Cost Glossary | Key Terms and Definitions" description="Use this glossary to understand senior care pricing terms, care levels, facility fees, and budgeting language used across our estimator, guides, and state pages.">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+  <section class="section">
+    <div class="container">
+      <h1>Senior Care Glossary</h1>
+      <p class="note">Updated: Jan 2026. Use this glossary to understand terms used across the estimator and guides.</p>
+      <div class="chip-grid" style="margin-top: 12px;">
+        <a class="chip" href="#glossary-how">How to use</a>
+        <a class="chip" href="#glossary-fees">Fee categories</a>
+        <a class="chip" href="#glossary-terms">Key terms</a>
+        <a class="chip" href="#glossary-faq">FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card glossary" id="glossary-terms">
+      <div>
+        <strong>Assisted living</strong>
+        <p class="note">Residential care for daily living support with light medical oversight.</p>
+      </div>
+      <div>
+        <strong>Memory care</strong>
+        <p class="note">Specialized care for cognitive conditions with trained staff and secure units.</p>
+      </div>
+      <div>
+        <strong>Nursing home</strong>
+        <p class="note">Facility providing 24 hour clinical oversight and skilled nursing care.</p>
+      </div>
+      <div>
+        <strong>Home care</strong>
+        <p class="note">Care delivered at home, typically billed hourly by agencies.</p>
+      </div>
+      <div>
+        <strong>Care tier</strong>
+        <p class="note">A level that reflects care intensity and determines pricing.</p>
+      </div>
+      <div>
+        <strong>Room type</strong>
+        <p class="note">Private or shared accommodations, which affect base rent.</p>
+      </div>
+      <div>
+        <strong>Community fee</strong>
+        <p class="note">One-time move-in or administrative fee charged by some facilities.</p>
+      </div>
+      <div>
+        <strong>Medication management</strong>
+        <p class="note">Assistance with medication setup, reminders, or administration.</p>
+      </div>
+      <div>
+        <strong>Skilled nursing</strong>
+        <p class="note">Clinical care provided by licensed nurses, often in nursing homes.</p>
+      </div>
+      <div>
+        <strong>Respite care</strong>
+        <p class="note">Short-term care stays used for recovery or caregiver relief.</p>
+      </div>
+      <div>
+        <strong>Activities of daily living (ADLs)</strong>
+        <p class="note">Basic tasks such as bathing, dressing, eating, and mobility.</p>
+      </div>
+      <div>
+        <strong>Instrumental activities of daily living (IADLs)</strong>
+        <p class="note">Tasks such as cooking, housekeeping, transportation, and finances.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2" id="glossary-how">
+      <div class="card">
+        <h2>How to use this glossary</h2>
+        <ul class="checklist">
+          <li>Scan terms before calling facilities to ask clearer questions.</li>
+          <li>Use the estimator to translate terms into cost drivers.</li>
+          <li>Compare quotes using the same care tier language.</li>
+          <li>Clarify what is included in base rent vs add-ons.</li>
+        </ul>
+        <a class="tag" href="/estimator/">Open the estimator</a>
+      </div>
+      <div class="card">
+        <h2 id="glossary-fees">Common fee categories</h2>
+        <ul class="checklist">
+          <li>Base rent and room type premium.</li>
+          <li>Care tier or level-of-care add-ons.</li>
+          <li>Medication management and wellness checks.</li>
+          <li>Transportation and therapy services.</li>
+        </ul>
+        <p class="note">Ask for a written fee schedule and reassessment cadence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card glossary">
+      <div>
+        <strong>Level of care reassessment</strong>
+        <p class="note">Scheduled review that can move a resident to a higher or lower tier.</p>
+      </div>
+      <div>
+        <strong>Care plan</strong>
+        <p class="note">Document outlining daily assistance needs and staffing requirements.</p>
+      </div>
+      <div>
+        <strong>Base rent</strong>
+        <p class="note">The housing portion of a facility quote before care add-ons.</p>
+      </div>
+      <div>
+        <strong>All-inclusive pricing</strong>
+        <p class="note">Single bundled price covering rent and most care services.</p>
+      </div>
+      <div>
+        <strong>Tiered pricing</strong>
+        <p class="note">Price increases by care level based on assistance needed.</p>
+      </div>
+      <div>
+        <strong>À la carte pricing</strong>
+        <p class="note">Each service is billed separately from base rent.</p>
+      </div>
+      <div>
+        <strong>Private duty caregiver</strong>
+        <p class="note">Individual caregiver hired outside a facility or agency.</p>
+      </div>
+      <div>
+        <strong>Care hours</strong>
+        <p class="note">Daily or weekly hours of support in home care settings.</p>
+      </div>
+      <div>
+        <strong>Continuum of care</strong>
+        <p class="note">A community that offers multiple care levels on one campus.</p>
+      </div>
+      <div>
+        <strong>Memory care unit</strong>
+        <p class="note">Secured area with staff trained in cognitive support.</p>
+      </div>
+      <div>
+        <strong>Skilled nursing facility (SNF)</strong>
+        <p class="note">Clinical setting offering medical oversight and rehab.</p>
+      </div>
+      <div>
+        <strong>Activities program</strong>
+        <p class="note">Structured social and wellness programming at a facility.</p>
+      </div>
+      <div>
+        <strong>Move-in fee</strong>
+        <p class="note">One-time fee for administrative or community setup.</p>
+      </div>
+      <div>
+        <strong>Deposit</strong>
+        <p class="note">Refundable or non-refundable payment to secure a room.</p>
+      </div>
+      <div>
+        <strong>Second person fee</strong>
+        <p class="note">Added charge for a spouse or roommate in the same unit.</p>
+      </div>
+      <div>
+        <strong>Care coordinator</strong>
+        <p class="note">Staff member managing assessments and care plans.</p>
+      </div>
+      <div>
+        <strong>Geriatric care manager</strong>
+        <p class="note">Professional advisor coordinating care and placements.</p>
+      </div>
+      <div>
+        <strong>Hospice support</strong>
+        <p class="note">End-of-life care services delivered in facilities or homes.</p>
+      </div>
+      <div>
+        <strong>Rehabilitation therapy</strong>
+        <p class="note">PT, OT, or speech therapy services billed separately.</p>
+      </div>
+      <div>
+        <strong>Waitlist</strong>
+        <p class="note">Queue for admission when a community is at capacity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card" id="glossary-faq">
+      <h2>Frequently asked questions</h2>
+      <details class="guide-toggle">
+        <summary>Which terms are most important for comparing quotes?</summary>
+        <p class="note">Focus on base rent, care tier, room type, and any required add-ons.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>How should I ask about care tier changes?</summary>
+        <p class="note">Ask for the reassessment schedule and a written tier pricing table.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do facilities define tiers the same way?</summary>
+        <p class="note">No. Always compare quotes using the same care plan and services list.</p>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

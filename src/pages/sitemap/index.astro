@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const corePages = [
+  { label: 'Estimator', href: '/estimator/' },
+  { label: 'State Guides', href: '/state-costs/' },
+  { label: 'Care Types', href: '/care-types/' },
+  { label: 'Guides', href: '/guides/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Editorial Policy', href: '/editorial-policy/' },
+  { label: 'Privacy', href: '/privacy/' },
+  { label: 'Terms of Use', href: '/terms/' },
+  { label: 'Disclaimer', href: '/disclaimer/' },
+  { label: 'Accessibility', href: '/accessibility/' },
+  { label: 'Advertising Disclosure', href: '/advertising-disclosure/' },
+  { label: 'Updates & Corrections', href: '/updates/' },
+  { label: 'Contact', href: '/contact/' },
+  { label: 'Data Sources', href: '/data-sources/' },
+  { label: 'Glossary', href: '/glossary/' }
+];
+
+const guidePages = [
+  { label: 'Why Assisted Living Costs Are Rising in 2026', href: '/guides/assisted-living-costs-2026/' },
+  { label: 'Assisted Living vs Nursing Home', href: '/guides/assisted-vs-nursing-home/' },
+  { label: 'How to Afford Assisted Living in 2026', href: '/guides/affording-assisted-living/' },
+  { label: 'What Impacts Senior Care Pricing the Most', href: '/guides/price-factors/' },
+  { label: 'Choosing a Senior Care Facility: Full Checklist', href: '/guides/choosing-a-facility-checklist/' },
+  { label: 'Memory Care Costs in 2026', href: '/guides/memory-care-costs/' },
+  { label: 'Nursing Home Costs in 2026', href: '/guides/nursing-home-costs/' },
+  { label: 'Home Care vs Assisted Living', href: '/guides/home-care-vs-assisted/' },
+  { label: 'Senior Care Cost Planning Checklist', href: '/guides/cost-planning-checklist/' },
+  { label: 'How to Collect Reliable Senior Care Quotes', href: '/guides/quote-collection-guide/' },
+  { label: 'Understanding Care Tier Pricing and Reassessments', href: '/guides/care-tier-pricing/' },
+  { label: 'Move-In Fees and One-Time Costs Explained', href: '/guides/move-in-fees/' },
+  { label: 'Home Care Hourly vs Live-In: When the Math Flips', href: '/guides/home-care-hourly-vs-live-in/' }
+];
+
+const statePages = [
+  { label: 'Alabama', href: '/state-costs/alabama/' },
+  { label: 'Alaska', href: '/state-costs/alaska/' },
+  { label: 'Arizona', href: '/state-costs/arizona/' },
+  { label: 'Arkansas', href: '/state-costs/arkansas/' },
+  { label: 'California', href: '/state-costs/california/' },
+  { label: 'Colorado', href: '/state-costs/colorado/' },
+  { label: 'Connecticut', href: '/state-costs/connecticut/' },
+  { label: 'Delaware', href: '/state-costs/delaware/' },
+  { label: 'District of Columbia', href: '/state-costs/district-of-columbia/' },
+  { label: 'Florida', href: '/state-costs/florida/' },
+  { label: 'Georgia', href: '/state-costs/georgia/' },
+  { label: 'Hawaii', href: '/state-costs/hawaii/' },
+  { label: 'Idaho', href: '/state-costs/idaho/' },
+  { label: 'Illinois', href: '/state-costs/illinois/' },
+  { label: 'Indiana', href: '/state-costs/indiana/' },
+  { label: 'Iowa', href: '/state-costs/iowa/' },
+  { label: 'Kansas', href: '/state-costs/kansas/' },
+  { label: 'Kentucky', href: '/state-costs/kentucky/' },
+  { label: 'Louisiana', href: '/state-costs/louisiana/' },
+  { label: 'Maine', href: '/state-costs/maine/' },
+  { label: 'Maryland', href: '/state-costs/maryland/' },
+  { label: 'Massachusetts', href: '/state-costs/massachusetts/' },
+  { label: 'Michigan', href: '/state-costs/michigan/' },
+  { label: 'Minnesota', href: '/state-costs/minnesota/' },
+  { label: 'Mississippi', href: '/state-costs/mississippi/' },
+  { label: 'Missouri', href: '/state-costs/missouri/' },
+  { label: 'Montana', href: '/state-costs/montana/' },
+  { label: 'Nebraska', href: '/state-costs/nebraska/' },
+  { label: 'Nevada', href: '/state-costs/nevada/' },
+  { label: 'New Hampshire', href: '/state-costs/new-hampshire/' },
+  { label: 'New Jersey', href: '/state-costs/new-jersey/' },
+  { label: 'New Mexico', href: '/state-costs/new-mexico/' },
+  { label: 'New York', href: '/state-costs/new-york/' },
+  { label: 'North Carolina', href: '/state-costs/north-carolina/' },
+  { label: 'North Dakota', href: '/state-costs/north-dakota/' },
+  { label: 'Ohio', href: '/state-costs/ohio/' },
+  { label: 'Oklahoma', href: '/state-costs/oklahoma/' },
+  { label: 'Oregon', href: '/state-costs/oregon/' },
+  { label: 'Pennsylvania', href: '/state-costs/pennsylvania/' },
+  { label: 'Rhode Island', href: '/state-costs/rhode-island/' },
+  { label: 'South Carolina', href: '/state-costs/south-carolina/' },
+  { label: 'South Dakota', href: '/state-costs/south-dakota/' },
+  { label: 'Tennessee', href: '/state-costs/tennessee/' },
+  { label: 'Texas', href: '/state-costs/texas/' },
+  { label: 'Utah', href: '/state-costs/utah/' },
+  { label: 'Vermont', href: '/state-costs/vermont/' },
+  { label: 'Virginia', href: '/state-costs/virginia/' },
+  { label: 'Washington', href: '/state-costs/washington/' },
+  { label: 'West Virginia', href: '/state-costs/west-virginia/' },
+  { label: 'Wisconsin', href: '/state-costs/wisconsin/' },
+  { label: 'Wyoming', href: '/state-costs/wyoming/' }
+];
+---
+<BaseLayout title="CareCost Intelligence Sitemap | Tools, Guides, and States" description="Browse every estimator tool, state guide, care type comparison, policy page, and planning article to quickly find the senior care cost resource you need.">
+  <section class="section">
+    <div class="container">
+      <h1>Sitemap</h1>
+      <p class="note">Updated: Feb 2026. Use this page to navigate all tools, guides, and state pages.</p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">Navigation and taxonomy updated annually. Read our <a href="/editorial-policy/">Editorial Policy</a>, <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 12px;">
+        <a class="chip" href="#sitemap-maintenance">How this page is updated</a>
+        <a class="chip" href="#sitemap-core">Core pages</a>
+        <a class="chip" href="#sitemap-guides">Guides</a>
+        <a class="chip" href="#sitemap-states">State guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card" id="sitemap-maintenance">
+      <h2>How this page is updated</h2>
+      <ul class="checklist">
+        <li>Updated automatically during site builds to reflect new or removed pages.</li>
+        <li>Cross-checked with the XML sitemap and robots.txt.</li>
+        <li>Internal links are reviewed to prevent dead or orphaned pages.</li>
+        <li>Corrections or missing links can be reported on the contact page.</li>
+      </ul>
+      <div class="controls" style="margin-top: 12px;">
+        <a class="btn secondary" href="/contact/">Report a link issue</a>
+        <a class="btn" href="/sitemap.xml">XML sitemap</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>How to use this sitemap</h2>
+      <ul class="checklist">
+        <li>Start with the estimator to model a baseline range.</li>
+        <li>Use state guides to validate local context before comparing quotes.</li>
+        <li>Open guides for deeper pricing drivers and checklists.</li>
+        <li>Return to the estimator to test a second scenario.</li>
+      </ul>
+      <p class="note">If you are new to the site, begin with the planning checklist and glossary.</p>
+      <div class="controls" style="margin-top: 12px;">
+        <a class="btn secondary" href="/guides/cost-planning-checklist/">Planning checklist</a>
+        <a class="btn" href="/glossary/">Glossary</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sitemap-core">
+    <div class="container card">
+      <h2>Core pages</h2>
+      <div class="grid-3">
+        {corePages.map((page) => (
+          <a class="tag" href={page.href}>{page.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sitemap-guides">
+    <div class="container card">
+      <h2>Guides</h2>
+      <div class="grid-2">
+        {guidePages.map((page) => (
+          <a class="tag" href={page.href}>{page.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sitemap-states">
+    <div class="container card">
+      <h2>State cost guides</h2>
+      <div class="grid-3">
+        {statePages.map((page) => (
+          <a class="tag" href={page.href}>{page.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,6 @@
+{
+  "careLevelWeight": { "basic": 0.9, "moderate": 1.0, "high": 1.15 },
+  "roomWeight": { "shared": 0.9, "private": 1.1 },
+  "locationWeight": { "urban": 1.1, "suburban": 1.0, "rural": 0.9 },
+  "amenitiesWeight": { "meals": 0.03, "rehab": 0.05, "transport": 0.03, "specialized": 0.05 }
+}

@@ -1,0 +1,67 @@
+---
+const pathName = Astro.url?.pathname ?? '/';
+const isActive = (href) => pathName === href || (href !== '/' && pathName.startsWith(href));
+---
+<header>
+  <div class="container nav">
+    <a class="logo" href="/">
+      <img class="logo-mark" src="/logo.svg" width="32" height="32" alt="CareCost Intelligence logo" />
+      <span class="logo-text">CareCost Intelligence</span>
+    </a>
+    <nav class="nav-links" id="nav-menu" aria-label="Primary">
+      <a href="/estimator/" class:list={{ active: isActive('/estimator/') }} aria-current={isActive('/estimator/') ? 'page' : undefined}>Estimator</a>
+      <a href="/state-costs/" class:list={{ active: isActive('/state-costs/') }} aria-current={isActive('/state-costs/') ? 'page' : undefined}>State Guides</a>
+      <a href="/care-types/" class:list={{ active: isActive('/care-types/') }} aria-current={isActive('/care-types/') ? 'page' : undefined}>Care Types</a>
+      <a href="/guides/" class:list={{ active: isActive('/guides/') }} aria-current={isActive('/guides/') ? 'page' : undefined}>Guides</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn nav-cta" href="/estimator/">Start Assessment</a>
+      <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false">
+        <span class="visually-hidden">Toggle navigation</span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+  <script>
+    const header = document.querySelector('header');
+    const toggle = header?.querySelector('.nav-toggle');
+    const navMenu = header?.querySelector('#nav-menu');
+
+    const setMenuOpen = (isOpen) => {
+      if (!header || !toggle) return;
+      header.setAttribute('data-nav-open', String(isOpen));
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const isOpen = header?.getAttribute('data-nav-open') === 'true';
+        setMenuOpen(!isOpen);
+      });
+    }
+
+    if (navMenu) {
+      navMenu.addEventListener('click', (event) => {
+        if (event.target instanceof Element && event.target.tagName === 'A') {
+          setMenuOpen(false);
+        }
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      if (!header) return;
+      const isOpen = header.getAttribute('data-nav-open') === 'true';
+      if (!isOpen) return;
+      if (event.target instanceof Node && !header.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        toggle?.focus();
+      }
+    });
+  </script>
+</header>

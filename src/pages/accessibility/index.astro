@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Accessibility | CareCost Intelligence" description="See our accessibility commitment, known limitations, and contact path for reporting barriers so we can improve navigation, readability, and tool usability.">
+  <section class="section">
+    <div class="container">
+      <h1>Accessibility</h1>
+      <p class="note">Updated: Feb 2026. We aim to make this site accessible to as many people as possible.</p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Accessibility review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">We welcome feedback on barriers or missing accommodations. You can <a href="/contact/">report a correction</a> or request alternate formats.</p>
+          </div>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 12px;">
+        <a class="chip" href="#commitment">Our commitment</a>
+        <a class="chip" href="#standards">Standards</a>
+        <a class="chip" href="#testing">Testing</a>
+        <a class="chip" href="#assistive-tech">Assistive technology</a>
+        <a class="chip" href="#known-issues">Known limitations</a>
+        <a class="chip" href="#alternatives">Alternate formats</a>
+        <a class="chip" href="#feedback">Feedback</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="commitment">
+    <div class="container card">
+      <h2>Our commitment</h2>
+      <p>We design and build with accessibility in mind, including keyboard navigation, readable contrast, and clear structure.</p>
+    </div>
+  </section>
+
+  <section class="section" id="standards">
+    <div class="container card">
+      <h2>Standards</h2>
+      <p>We aim to align with WCAG 2.1 AA guidelines and improve the site as new content is added.</p>
+      <ul class="checklist">
+        <li>Semantic headings and landmarks.</li>
+        <li>Keyboard-friendly controls and focus states.</li>
+        <li>Readable text sizes and line spacing.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="testing">
+    <div class="container card">
+      <h2>Testing and improvements</h2>
+      <p>We review accessibility when we ship new pages, update the estimator, or change navigation. This includes keyboard checks, color contrast reviews, and screen reader spot checks for critical flows.</p>
+      <p class="note">If you encounter an issue, sharing the page URL, device, and browser helps us reproduce and fix it faster.</p>
+    </div>
+  </section>
+
+  <section class="section" id="assistive-tech">
+    <div class="container card">
+      <h2>Assistive technology support</h2>
+      <p>We aim to keep compatibility with current versions of major browsers and assistive technologies. If a tool or browser combination causes issues, report it and we will prioritize a fix or provide an alternate format.</p>
+      <ul class="checklist">
+        <li>Keyboard navigation for all primary actions.</li>
+        <li>Visible focus states for links, buttons, and inputs.</li>
+        <li>Text alternatives for key images and charts.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="known-issues">
+    <div class="container card">
+      <h2>Known limitations</h2>
+      <p>Some interactive charts and tools may not fully convey information to all assistive technologies. We are actively improving these areas.</p>
+      <ul class="checklist">
+        <li>Some charts may rely on color alone without a text equivalent.</li>
+        <li>Range sliders can be harder to use on some screen readers.</li>
+        <li>Dense comparison tables may require additional navigation support.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="alternatives">
+    <div class="container card">
+      <h2>Alternate formats</h2>
+      <p>If you need content in an alternate format, such as a plain text summary or a simplified table, contact us and we will provide it when possible.</p>
+      <p class="note">We can also help translate estimator guidance into a step-by-step checklist if a visual tool is not usable for you.</p>
+    </div>
+  </section>
+
+  <section class="section" id="feedback">
+    <div class="container card">
+      <h2>Feedback and support</h2>
+      <p>If you encounter accessibility barriers, let us know and we will try to provide the information in a more accessible format.</p>
+      <p>Contact: <a href="mailto:hello@carecostintel.com">hello@carecostintel.com</a></p>
+    </div>
+  </section>
+</BaseLayout>

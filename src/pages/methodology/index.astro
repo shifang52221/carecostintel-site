@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is the estimator based on official facility pricing?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. It is a planning model built to help families pressure-test quotes and budget scenarios."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "How often is the methodology reviewed?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Core methodology is reviewed annually and sooner when major policy or market conditions change."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What makes an estimate more reliable?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Using a recent local quote, accurate care intensity, room type, and known add-on services improves the planning range."
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Methodology | How CareCost Intelligence Builds Planning Estimates" description="Learn how CareCost Intelligence models senior care cost ranges, what assumptions shape results, and how to use the estimator responsibly alongside local provider quotes.">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+  <section class="section">
+    <div class="container">
+      <span class="pill">Transparency first</span>
+      <h1>How we build planning estimates</h1>
+      <p class="note">Updated: Mar 2026. This methodology explains what the estimator does, what it does not do, and how to use the results responsibly.</p>
+      <div class="tag">Last updated: Mar 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Methodology review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">See our <a href="/editorial-policy/">Editorial Policy</a>, <a href="/data-sources/">Data Sources</a>, or <a href="/updates/">Updates &amp; Corrections</a> for related documentation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 12px;">
+        <a class="chip" href="#what-this-model-is">What the model is</a>
+        <a class="chip" href="#what-goes-in">Inputs</a>
+        <a class="chip" href="#what-comes-out">Outputs</a>
+        <a class="chip" href="#how-to-use-it">How to use it</a>
+        <a class="chip" href="#limitations">Limitations</a>
+        <a class="chip" href="#methodology-faq">FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-this-model-is">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What this model is</h2>
+        <p>The estimator is a browser-based planning model that helps families compare senior care scenarios before they collect final provider quotes.</p>
+        <ul class="checklist">
+          <li>It creates low, median, and high planning ranges.</li>
+          <li>It helps compare care types and care intensity shifts.</li>
+          <li>It highlights affordability pressure and likely tradeoffs.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What this model is not</h2>
+        <p>It is not an official pricing database or a substitute for local provider documentation.</p>
+        <ul class="checklist">
+          <li>No binding quote guarantees.</li>
+          <li>No medical, legal, or financial advice.</li>
+          <li>No licensed dataset republishing.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-goes-in">
+    <div class="container card">
+      <h2>Inputs that shape the estimate</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Primary inputs</h3>
+          <ul class="checklist">
+            <li>State and location type.</li>
+            <li>Care type and care intensity.</li>
+            <li>Room type or daily home care hours.</li>
+            <li>Budget or local baseline quote.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Secondary inputs</h3>
+          <ul class="checklist">
+            <li>Optional add-on services.</li>
+            <li>Projected annual increase.</li>
+            <li>Move-in timing and comparison scenarios.</li>
+            <li>ZIP code when available for extra context.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">The more specific your local quote and care details, the more useful the planning range becomes.</p>
+    </div>
+  </section>
+
+  <section class="section" id="what-comes-out">
+    <div class="container grid-3">
+      <div class="card feature">
+        <h3>Range outputs</h3>
+        <p>Low, median, and high monthly estimates are used instead of a single number because senior care pricing changes with care tier, room type, and included services.</p>
+      </div>
+      <div class="card feature">
+        <h3>Budget signals</h3>
+        <p>The tool compares your median estimate against the monthly budget you provide to show potential gaps or buffer.</p>
+      </div>
+      <div class="card feature">
+        <h3>Scenario support</h3>
+        <p>You can save a baseline, compare alternatives, and pressure-test higher care needs before touring providers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-to-use-it">
+    <div class="container card">
+      <h2>How to use the estimator responsibly</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Best practice</h3>
+          <ul class="checklist">
+            <li>Start with one recent local quote or budget baseline.</li>
+            <li>Keep room type and care assumptions consistent when comparing.</li>
+            <li>Run at least one higher-care scenario before deciding.</li>
+            <li>Validate with state guides and written provider fee schedules.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What improves reliability</h3>
+          <ul class="checklist">
+            <li>Written care tier schedules.</li>
+            <li>Known add-ons such as medication help or transport.</li>
+            <li>Recent rather than outdated quotes.</li>
+            <li>Separate tracking of move-in and community fees.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn" href="/estimator/">Open the estimator</a>
+        <a class="btn secondary" href="/guides/cost-planning-checklist/">Planning checklist</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="limitations">
+    <div class="container card">
+      <h2>Important limitations</h2>
+      <ul class="checklist">
+        <li>Facilities package services differently, even within the same city.</li>
+        <li>Care reassessments can move costs quickly after move-in.</li>
+        <li>Waitlists, deposits, and one-time fees are often separate from monthly pricing.</li>
+        <li>Public planning references can describe context without publishing provider-level prices.</li>
+      </ul>
+      <p class="note">That is why the site emphasizes planning ranges, validation workflows, and source transparency instead of exact price claims.</p>
+    </div>
+  </section>
+
+  <section class="section" id="methodology-faq">
+    <div class="container card">
+      <h2>FAQs</h2>
+      <details class="guide-toggle">
+        <summary>Is the estimator based on official facility pricing?</summary>
+        <p class="note">No. It is a planning model built to help families pressure-test quotes and budget scenarios.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>How often is the methodology reviewed?</summary>
+        <p class="note">Core methodology is reviewed annually and sooner when major policy or market conditions change.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What makes an estimate more reliable?</summary>
+        <p class="note">Using a recent local quote, accurate care intensity, room type, and known add-on services improves the planning range.</p>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

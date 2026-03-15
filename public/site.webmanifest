@@ -1,0 +1,16 @@
+{
+  "name": "CareCost Intelligence",
+  "short_name": "CareCost Intel",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f4ef",
+  "theme_color": "#0e3a5d",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
