@@ -77,6 +77,65 @@ Preview build:
 npm run preview
 ```
 
+## Deployment
+
+Production is designed to deploy automatically from pushes to `main`.
+
+Current deployment flow:
+
+1. Push code to `main`
+2. GitHub Actions connects to the VPS over SSH
+3. The VPS runs `bash /root/deploy-site.sh carecostintel`
+4. The deploy script pulls the latest code and rebuilds the static site
+
+Tracked deployment files in this repository:
+
+- `scripts/deploy-site.sh`
+- `deploy-configs/carecostintel.conf`
+- `.github/workflows/deploy.yml`
+
+One-time server bootstrap:
+
+```bash
+mkdir -p /root/deploy-configs
+cp /www/wwwroot/carecostintel-site/scripts/deploy-site.sh /root/deploy-site.sh
+chmod +x /root/deploy-site.sh
+cp /www/wwwroot/carecostintel-site/deploy-configs/carecostintel.conf /root/deploy-configs/carecostintel.conf
+```
+
+Required GitHub repository secrets:
+
+- `SERVER_HOST`
+- `SERVER_USER`
+- `SERVER_PORT`
+- `SERVER_SSH_KEY`
+
+Multi-site pattern:
+
+- keep one shared server deployer at `/root/deploy-site.sh`
+- add one config file per site under `/root/deploy-configs/<site-key>.conf`
+- give each repository its own thin workflow that calls the shared deployer with the right `site-key`
+
+For another site, the server-side deploy command would follow the same pattern:
+
+```bash
+bash /root/deploy-site.sh another-site
+```
+
+## Rollback
+
+Preferred rollback is Git-based so the repository and VPS stay aligned.
+
+Typical rollback flow:
+
+```bash
+git log --oneline -n 5
+git revert <bad-commit-sha>
+git push origin main
+```
+
+If the issue is small, fix forward and push again. Avoid editing production code directly on the VPS unless you are actively recovering access.
+
 ## Production Indexing Contract
 
 The site should only be indexable when both of these are true:
