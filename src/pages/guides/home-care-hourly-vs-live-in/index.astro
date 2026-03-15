@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Home Care Hourly vs Live-In: When the Cost Math Changes',
+  datePublished: '2026-03-12',
+  dateModified: '2026-03-12',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'When does hourly home care start getting expensive?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Hourly home care usually becomes much harder to carry once coverage stretches into long daily schedules, overnight support, or multiple caregivers.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is live-in care the same as 24-hour care?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Live-in care and round-the-clock shift care are not the same thing, and families should ask exactly how sleep time, breaks, and backup coverage are handled.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How should families compare home care with assisted living?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use the same resident profile, add housing and household costs to the home-care side, and compare a realistic weekly schedule against a real assisted living quote.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Home Care Hourly vs Live-In: When the Cost Math Changes"
+  description="A practical guide to hourly home care vs live-in care, with budgeting logic, agency questions, and clear breakpoints for when assisted living or nursing care deserve comparison."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Home care pricing guide</span>
+      <h1>Home care hourly vs live-in: when the cost math changes</h1>
+      <p class="section-lead">
+        Updated: Mar 2026. Home care can look flexible and lower-risk at first, but the math changes fast when daily hours,
+        overnight needs, and agency policies are layered in. This guide helps families compare hourly schedules, live-in models,
+        and the point where residential care deserves a fresh look.
+      </p>
+      <div class="tag">Last updated: Mar 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Hourly care usually works best for shorter daily coverage, while live-in or other residential options become important as support hours stretch.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Main trap</strong>
+          <p>Families compare only agency rates and forget the rest of the household cost, overtime rules, and backup coverage reality.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Model your current weekly schedule, then test a heavier schedule that reflects the next likely support need.</p>
+        </div>
+      </div>
+      <div class="toc">
+        <details open>
+          <summary><span class="toc-title">On this page</span></summary>
+          <div class="chip-grid">
+            <a class="chip" href="#how-hourly-care-works">How hourly care works</a>
+            <a class="chip" href="#how-live-in-care-works">How live-in care works</a>
+            <a class="chip" href="#when-the-math-flips">When the math flips</a>
+            <a class="chip" href="#compare-with-assisted-living">Compare with assisted living</a>
+            <a class="chip" href="#agency-questions">Agency questions</a>
+            <a class="chip" href="#warning-signs">Warning signs</a>
+            <a class="chip" href="#official-references">Official references</a>
+            <a class="chip" href="#guide-actions">Next actions</a>
+          </div>
+        </details>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Model your schedule</a>
+        <a class="btn secondary" href="/guides/home-care-vs-assisted/">Compare with assisted living</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-hourly-care-works">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Where hourly home care works well</h2>
+        <ul class="checklist">
+          <li>Support is needed for part of the day, not most of the day and night.</li>
+          <li>The resident can still stay safe for meaningful stretches without hands-on supervision.</li>
+          <li>The family needs flexibility more than round-the-clock structure.</li>
+          <li>The household can still absorb housing and daily living costs outside the care bill.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Why hourly care becomes costly faster than expected</h2>
+        <ul class="checklist">
+          <li>Longer schedules multiply quickly across a full month.</li>
+          <li>Evening, weekend, and holiday policies may raise the real hourly cost.</li>
+          <li>Higher-acuity tasks can bring a different rate or staffing requirement.</li>
+          <li>Families often add unpaid coordination labor on top of paid care.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-live-in-care-works">
+    <div class="container card">
+      <h2>How live-in care should be understood before you compare it</h2>
+      <div class="grid-2">
+        <div>
+          <h3>What families hope it means</h3>
+          <p>One caregiver who stays in the home and provides broad support, with fewer handoffs and less schedule management than hourly coverage.</p>
+        </div>
+        <div>
+          <h3>What agencies may define differently</h3>
+          <p>Sleep rules, uninterrupted rest requirements, break policies, backup staffing, and whether the arrangement is truly suitable for overnight supervision.</p>
+        </div>
+        <div>
+          <h3>Why the distinction matters</h3>
+          <p>Live-in care can sound like 24-hour coverage even when the household actually needs shift-based round-the-clock care.</p>
+        </div>
+        <div>
+          <h3>What to ask for in writing</h3>
+          <p>Exact coverage assumptions, who fills in when the caregiver is unavailable, and how extra overnight needs are billed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="when-the-math-flips">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Signals the math is starting to flip</h2>
+        <ul class="checklist">
+          <li>The care day is becoming long enough that it resembles a staffing schedule more than a household helper plan.</li>
+          <li>Overnight safety concerns are no longer occasional.</li>
+          <li>Two caregivers, split shifts, or frequent schedule changes are becoming normal.</li>
+          <li>The family is still paying all housing costs while also carrying most of a residential care bill in practice.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What to compare at that point</h2>
+        <ul class="checklist">
+          <li>Total home-care schedule cost, not only the posted hourly rate.</li>
+          <li>Whether live-in care truly covers the supervision need.</li>
+          <li>The cost of an assisted living baseline for the same resident profile.</li>
+          <li>Whether nursing-level care should already be in the comparison set.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="compare-with-assisted-living">
+    <div class="container card">
+      <h2>How to compare home care with assisted living fairly</h2>
+      <ul class="checklist">
+        <li>Use the same resident need profile on both sides.</li>
+        <li>Include rent, utilities, meals, transportation, and household support on the home-care side if those costs still stay with the family.</li>
+        <li>Compare a realistic weekly schedule instead of a best-case schedule that is already starting to break down.</li>
+        <li>Run a heavier-care scenario so you can see whether the home plan is still stable six months from now.</li>
+      </ul>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn" href="/estimator/">Run the comparison</a>
+        <a class="btn secondary" href="/guides/assisted-vs-nursing-home/">See higher-acuity comparison</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="agency-questions">
+    <div class="container card">
+      <h2>Agency questions that expose the real cost</h2>
+      <ul class="checklist">
+        <li>How are overtime, nights, weekends, and holidays billed?</li>
+        <li>What does the agency mean by live-in, and what limits come with that model?</li>
+        <li>What happens if the caregiver calls out or the resident suddenly needs more hands-on support?</li>
+        <li>Are minimum shift lengths or special task rates part of the agreement?</li>
+        <li>Which tasks would force a change in staffing model or price?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="warning-signs">
+    <div class="container card">
+      <h2>Warning signs your family should also compare nursing-level care</h2>
+      <ul class="checklist">
+        <li>The resident now needs continuous safety monitoring, not just household help.</li>
+        <li>Transfers, medical complexity, or rehabilitation are becoming central needs.</li>
+        <li>The home setting requires multiple caregivers to stay workable.</li>
+        <li>The family is trying to hold onto home care mainly because the transition feels hard, not because the support model still fits well.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>When does hourly home care start getting expensive?</summary>
+        <p class="note">Hourly home care usually becomes much harder to carry once coverage stretches into long daily schedules, overnight support, or multiple caregivers.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Is live-in care the same as 24-hour care?</summary>
+        <p class="note">No. Live-in care and round-the-clock shift care are not the same thing, and families should ask exactly how sleep time, breaks, and backup coverage are handled.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>How should families compare home care with assisted living?</summary>
+        <p class="note">Use the same resident profile, add housing and household costs to the home-care side, and compare a realistic weekly schedule against a real assisted living quote.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Use your state guide to verify local licensing and oversight rules for home care, home health, and community-based service programs.</p>
+      <ul class="checklist">
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for consumer-facing home health and care coverage guidance.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for home health and long-term care program context.</li>
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for community-based support resources and aging-service navigation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Use state-specific rules and market context to pressure-test the plan.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Compare your current schedule against a heavier support scenario.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Quote checklist</strong>
+          <p class="note">Use a structured list before you sign an agency agreement.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>California</strong>
+          <p class="note">High labor pressure makes home-care comparisons especially useful.</p>
+          <a class="tag" href="/state-costs/california/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Texas</strong>
+          <p class="note">Wide market spread helps families stress-test staffing assumptions.</p>
+          <a class="tag" href="/state-costs/texas/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Florida</strong>
+          <p class="note">Strong retiree demand often makes side-by-side care comparisons important.</p>
+          <a class="tag" href="/state-costs/florida/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

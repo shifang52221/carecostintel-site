@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Louisiana',
+  metroA: 'New Orleans',
+  metroB: 'Baton Rouge',
+  updated: 'Mar 2026',
+  description:
+    'Louisiana senior care planning guide with city-comparison cues, assisted living oversight checks, and OAAS HCBS context.'
+};
+
+const sources = [
+  {
+    label: 'Louisiana Health Standards Section',
+    href: 'https://ldh.la.gov/health-standards-section',
+    note: 'Official Louisiana Department of Health page for facility oversight and assisted living licensing context.'
+  },
+  {
+    label: 'Louisiana OAAS Home and Community Based Services',
+    href: 'https://www.ldh.la.gov/office-of-aging-and-adult-services/home-and-community-based-services',
+    note: 'Official Louisiana OAAS page for home and community-based support and waiver context.'
+  },
+  {
+    label: 'Louisiana Office of Aging and Adult Services',
+    href: 'https://www.ldh.la.gov/office-of-aging-and-adult-services',
+    note: 'Official statewide aging-services hub for family navigation and long-term support resources.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Louisiana Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-03-12',
+  dateModified: '2026-03-12',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should families use the Louisiana guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare local market signals, confirm assisted living oversight and OAAS HCBS context, and then model a real Louisiana quote inside the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do New Orleans and Baton Rouge price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Labor pressure, operator mix, local inventory, and neighborhood demand can create meaningful pricing gaps between those two Louisiana markets.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should families validate first in Louisiana quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with room type, care tier structure, add-on fees, and the exact assisted living or HCBS language behind the quote.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Louisiana Senior Care Costs | Louisiana Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Louisiana senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Louisiana is a useful planning state because assisted living oversight should be checked
+        directly, OAAS HCBS context still matters in many affordability conversations, and city-to-city pricing can stay
+        meaningfully different even when families are comparing similar care needs.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Louisiana families should compare city, care tier, and public-program context together instead of relying on one statewide impression.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Hold room type and support level steady, then compare {page.metroA} and {page.metroB} before narrowing to one provider.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Take one Louisiana quote, then model a second market or higher-support version of the same plan in the estimator.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Louisiana market snapshot</h2>
+        <ul class="checklist">
+          <li>Metro-level comparison matters because the same resident profile can price differently across Louisiana markets.</li>
+          <li>Care tier design and included services often explain more than base rent alone.</li>
+          <li>Assisted living language and HCBS language should be checked before providers are treated as interchangeable.</li>
+          <li>Written fee schedules remain the safest comparison tool.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written Louisiana quote from the market you actually want.</li>
+          <li>Use a second city to pressure-test whether the first quote is unusually high or low.</li>
+          <li>Check the official state pages before relying on provider summaries of licensure or waiver fit.</li>
+          <li>Run one higher-support scenario if the resident may need more help soon.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where families usually learn the most</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful as a larger-market anchor when you want to see how one of Louisiana's busiest care markets prices the same support plan.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as an in-state contrast when families need to separate market spread from provider-specific differences.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the city comparison stays clean.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Louisiana checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these official pages to confirm facility oversight, public-program context, and aging-support language behind provider explanations.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>Louisiana facility oversight matters because the licensing category affects what families are actually comparing.</li>
+          <li>OAAS HCBS programs matter when home and community-based support is still part of the affordability discussion.</li>
+          <li>State aging navigation matters when families need help beyond provider marketing language.</li>
+          <li>These checks reduce the risk of comparing options that sound similar but fit different regulatory or program assumptions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for Louisiana</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-ons in writing.</li>
+          <li>Ask whether the quote is being framed in a straight private-pay context or alongside HCBS planning.</li>
+          <li>Separate one-time move-in charges from recurring monthly costs.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before narrowing to a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common Louisiana quote traps</h2>
+        <ul class="checklist">
+          <li>Assisted living or HCBS language discussed casually without showing how it applies to the resident.</li>
+          <li>Base rent shown without a clear care tier schedule.</li>
+          <li>Move-in fees and first-year increases separated from the monthly conversation.</li>
+          <li>Providers compared with different room or support assumptions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Normalize each option in the estimator.</li>
+          <li>Keep room, care, and add-on assumptions constant across the comparison.</li>
+          <li>Use the official Louisiana pages to verify the licensing and HCBS language behind the quote.</li>
+          <li>Ask for recent rate-increase patterns if the provider will share them.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Shows how one major Louisiana market prices the same support plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, reassessment structure, move-in fees</td>
+            <td>Provides a second in-state anchor before provider-by-provider comparison.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Use the estimator after filling this table so the monthly and annual difference is easier for the family to judge.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Louisiana</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">The biggest differences usually show up in care tiers, add-ons, and how assisted living expectations are described in writing.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security and staffing assumptions can widen the premium quickly across cities and operators.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Community-based alternatives still deserve comparison, especially when HCBS planning remains part of the discussion.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the structure enough that direct comparisons need separate care-level review.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should families use the Louisiana guide?</summary>
+        <p class="note">Use it to compare local market signals, confirm assisted living oversight and OAAS HCBS context, and then model a real Louisiana quote inside the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Labor pressure, operator mix, local inventory, and neighborhood demand can create meaningful pricing gaps between those two metros.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should families validate first in Louisiana quotes?</summary>
+        <p class="note">Start with room type, care tier structure, add-on fees, and the exact assisted living or HCBS language behind the quote.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a Louisiana plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Louisiana quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Louisiana preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

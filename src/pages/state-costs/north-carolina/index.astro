@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'North Carolina',
+  metroA: 'Charlotte',
+  metroB: 'Raleigh',
+  updated: 'Mar 2026',
+  description:
+    'North Carolina senior care planning guide with city-comparison cues, official licensing and waiver checks, and estimator-first next steps.'
+};
+
+const sources = [
+  {
+    label: 'North Carolina Adult Care Licensure Section',
+    href: 'https://info.ncdhhs.gov/dhsr/acls/',
+    note: 'Official licensing oversight for adult care settings.'
+  },
+  {
+    label: 'North Carolina adult care home rules and forms',
+    href: 'https://info.ncdhhs.gov/dhsr/floadult.htm',
+    note: 'State rules and forms that help families verify facility category and oversight context.'
+  },
+  {
+    label: 'North Carolina CAP/DA',
+    href: 'https://medicaid.ncdhhs.gov/providers/programs-and-services/long-term-services-and-supports/community-alternatives-program-for-disabled-adults-capda',
+    note: 'Official Medicaid pathway relevant when community-based support is still in the comparison.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'North Carolina Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-03-12',
+  dateModified: '2026-03-12',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should families use the North Carolina guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare local market signals, confirm licensing and waiver context, and then model a real North Carolina quote inside the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Charlotte and Raleigh price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Staffing pressure, demand, building costs, and operator mix can create meaningful differences between those two markets.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should families validate first in North Carolina quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with room type, care tier structure, add-on fees, and the exact licensure or program language the provider is using.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="North Carolina Senior Care Costs | North Carolina Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>North Carolina senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. North Carolina is a strong planning state for side-by-side comparisons because metro markets
+        can behave differently, adult care licensing terminology matters, and community-based program fit can change how a quote
+        should be interpreted.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>North Carolina families should compare city, care tier, and licensure context together instead of trusting a simple statewide average.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Hold room type and support level constant, then compare {page.metroA} and {page.metroB} before narrowing to one operator.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Take one local quote, then test a second market or higher-support version of that plan inside the estimator.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>North Carolina market snapshot</h2>
+        <ul class="checklist">
+          <li>Metro-to-metro comparison matters because provider mix and demand can shift the same support plan noticeably.</li>
+          <li>Adult care licensing language is important when families compare settings that sound similar but are regulated differently.</li>
+          <li>Care tier design and add-on structure often explain more than the base quote.</li>
+          <li>Written fee schedules remain the safest comparison tool.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written North Carolina quote from the target market.</li>
+          <li>Use a second city to test whether the first quote is unusually aggressive.</li>
+          <li>Check the official state pages before relying on provider summaries of licensure or CAP/DA fit.</li>
+          <li>Run a higher-support scenario if needs are likely to rise soon.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where families usually learn the most</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful as a strong comparison point when you want to see how a larger, fast-moving market prices the same resident profile.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as a second in-state anchor when families need to separate metro cost pressure from provider-specific differences.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the market difference is easy to read.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official North Carolina checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these official pages to confirm facility category, oversight context, and the state terminology behind provider explanations.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>The Adult Care Licensure Section helps families verify what setting they are actually comparing.</li>
+          <li>The adult care home rules and forms matter when a provider uses category language loosely during sales conversations.</li>
+          <li>CAP/DA matters when in-home or community-based support is still a serious alternative.</li>
+          <li>These checks reduce the risk of comparing two options that sound similar but operate under different rules.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for North Carolina</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-ons in writing.</li>
+          <li>Ask whether the quote assumes a specific licensure interpretation or community-based program fit.</li>
+          <li>Separate one-time move-in charges from recurring monthly costs.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before building a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common North Carolina quote traps</h2>
+        <ul class="checklist">
+          <li>Facility category or program language used vaguely without proving it matches the resident profile.</li>
+          <li>Base price shown without a clear care tier schedule.</li>
+          <li>Move-in fees and first-year increases discussed outside the monthly quote.</li>
+          <li>Providers compared with different room or support assumptions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Normalize each option in the estimator.</li>
+          <li>Keep room, care, and add-on assumptions consistent across the comparison.</li>
+          <li>Use the official North Carolina pages to verify the licensure and CAP/DA language behind the quote.</li>
+          <li>Ask for recent rate-increase patterns if the provider will share them.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Shows how a larger North Carolina market prices the same support plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, reassessment structure, move-in fees</td>
+            <td>Provides a second in-state anchor before provider-by-provider comparison.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Use the estimator after filling this table so the family can see the monthly and annual effect more clearly.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in North Carolina</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">Compare facility category, care tier design, and included services before trusting the headline number.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security and staffing assumptions can widen premiums quickly between operators and metros.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Community-based support still deserves comparison, especially when CAP/DA is part of the planning discussion.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the structure enough that direct comparisons need separate care-level review.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should families use the North Carolina guide?</summary>
+        <p class="note">Use it to compare local market signals, confirm licensing and waiver context, and then model a real North Carolina quote inside the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Staffing pressure, demand, building costs, and operator mix can create meaningful differences between those two markets.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should families validate first in North Carolina quotes?</summary>
+        <p class="note">Start with room type, care tier structure, add-on fees, and the exact licensure or program language the provider is using.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a North Carolina plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your North Carolina quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before narrowing the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with North Carolina preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

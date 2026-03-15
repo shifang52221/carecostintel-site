@@ -1,0 +1,301 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Nursing Home Costs in 2026: What to Expect and How to Plan',
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is nursing home care covered by Medicare?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Medicare may cover certain short-term skilled nursing situations after a qualifying hospital stay, but it does not cover long-term custodial nursing home care.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Why is nursing home care usually more expensive than assisted living?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nursing homes operate with more clinical staffing, more regulatory requirements, and more medically intensive resident support than assisted living.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should families compare first in a nursing home quote?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with room type, level of care, therapy or clinical add-ons, and whether the quote reflects short-term rehab or long-term residency.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Nursing Home Costs in 2026: What to Expect and How to Plan"
+  description="A practical guide to nursing home costs in 2026, including what the quote covers, how payment paths differ, and what to compare before you decide."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Care cost guide</span>
+      <h1>Nursing home costs in 2026</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. Nursing home care is usually the highest-cost senior care setting because the care model is
+        more clinical, more regulated, and less flexible than residential care settings such as assisted living.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Quick answer</strong>
+          <p>The price is usually driven more by clinical intensity and room type than by the same factors families use in assisted living comparisons.</p>
+        </div>
+        <div class="summary-card">
+          <strong>What families miss</strong>
+          <p>Short-term rehab pricing, long-term residency pricing, and therapy-related charges can follow very different rules.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Compare one nursing home scenario against another care option in the estimator so the cost difference has decision context.</p>
+        </div>
+      </div>
+      <div class="toc">
+        <details open>
+          <summary><span class="toc-title">On this page</span></summary>
+          <div class="chip-grid">
+            <a class="chip" href="#what-the-quote-covers">What the quote covers</a>
+            <a class="chip" href="#why-costs-are-higher">Why costs are higher</a>
+            <a class="chip" href="#payment-paths">Payment paths</a>
+            <a class="chip" href="#quote-comparison">Quote comparison</a>
+            <a class="chip" href="#care-fit">When it fits</a>
+            <a class="chip" href="#official-references">Official references</a>
+            <a class="chip" href="#guide-actions">Next actions</a>
+          </div>
+        </details>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Estimate nursing home costs</a>
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-the-quote-covers">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What a nursing home quote is usually trying to cover</h2>
+        <ul class="checklist">
+          <li>Room and board in a clinically supervised setting.</li>
+          <li>24-hour nursing and personal care support.</li>
+          <li>Ongoing monitoring, documentation, and care-plan execution.</li>
+          <li>Some combination of therapy, supplies, and medically related services depending on the resident profile.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What makes comparisons difficult</h2>
+        <ul class="checklist">
+          <li>Short-term rehab and long-term care may not be priced the same way.</li>
+          <li>Private versus semi-private room assumptions change the total quickly.</li>
+          <li>Clinical add-ons may sit outside the headline rate.</li>
+          <li>Payment source rules can shape what the family sees in the first quote.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why-costs-are-higher">
+    <div class="container card">
+      <h2>Why nursing home care usually costs more than assisted living</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Clinical staffing</h3>
+          <p>Licensed staff coverage and more medically intensive support raise operating costs meaningfully.</p>
+        </div>
+        <div>
+          <h3>Regulatory intensity</h3>
+          <p>Inspection, documentation, and compliance requirements are deeper than in most residential care settings.</p>
+        </div>
+        <div>
+          <h3>Resident acuity</h3>
+          <p>The setting serves people who often need more hands-on and medically coordinated support.</p>
+        </div>
+        <div>
+          <h3>Therapy and clinical services</h3>
+          <p>Therapy, equipment, and clinical oversight can change the total cost structure beyond room and care alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="payment-paths">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Payment paths families usually need to separate</h2>
+        <ul class="checklist">
+          <li>Private pay for long-term residency.</li>
+          <li>Short-term Medicare-related skilled nursing episodes when eligibility rules are met.</li>
+          <li>Medicaid pathways for eligible long-term residents.</li>
+          <li>Long-term care insurance or other policy-based support.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Why the distinction matters</h2>
+        <ul class="checklist">
+          <li>The first conversation may sound more affordable if it is framed around a short-term rehab episode.</li>
+          <li>Long-term residency costs can look very different after the initial period ends.</li>
+          <li>Insurance-related assumptions need to be verified before the family uses them in a care budget.</li>
+          <li>Eligibility-driven pathways should be checked with the facility and the relevant state resources early.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quote-comparison">
+    <div class="container card">
+      <h2>What to compare before you trust two nursing home quotes</h2>
+      <ul class="checklist">
+        <li>Room type and occupancy assumption.</li>
+        <li>Level of care and therapy-related services.</li>
+        <li>Whether the quote reflects short-term rehab, long-term residency, or both.</li>
+        <li>Recurring versus one-time clinical or admission charges.</li>
+        <li>How the facility explains reassessments, discharge planning, and ongoing care-plan changes.</li>
+      </ul>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/guides/quote-collection-guide/">Quote workflow</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="care-fit">
+    <div class="container card">
+      <h2>When nursing home care is usually the right comparison</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Signs the setting may fit</h3>
+          <ul class="checklist">
+            <li>Ongoing clinical monitoring is needed.</li>
+            <li>Mobility or medical complexity is too high for a lighter setting.</li>
+            <li>Rehab or skilled services are central to the care plan.</li>
+            <li>Round-the-clock nursing availability is a priority.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Alternatives still worth checking</h3>
+          <ul class="checklist">
+            <li>Assisted living with a higher care tier.</li>
+            <li>Memory care if the primary issue is cognitive support and safety.</li>
+            <li>Home care with clinical support if the home setting remains workable.</li>
+            <li>A lower-cost market if the care model is right but the location is not.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Use the estimator to compare the nursing home path against at least one realistic alternative before the family decides the cost is unavoidable.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>Is nursing home care covered by Medicare?</summary>
+        <p class="note">Medicare may cover certain short-term skilled nursing situations after a qualifying hospital stay, but it does not cover long-term custodial nursing home care.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Why is nursing home care usually more expensive than assisted living?</summary>
+        <p class="note">Nursing homes operate with more clinical staffing, more regulatory requirements, and more medically intensive resident support than assisted living.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should families compare first in a nursing home quote?</summary>
+        <p class="note">Start with room type, level of care, therapy or clinical add-ons, and whether the quote reflects short-term rehab or long-term residency.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Use your state guide to verify nursing facility oversight and local program details.</p>
+      <ul class="checklist">
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for nursing facility oversight context.</li>
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for consumer-facing coverage guidance.</li>
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for long-term services and aging support context.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Planning checklist</strong>
+          <p class="note">Gather the inputs that make clinical-cost comparisons clearer.</p>
+          <a class="tag" href="/guides/cost-planning-checklist/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>New York</strong>
+          <p class="note">Urban spread and program context.</p>
+          <a class="tag" href="/state-costs/new-york/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Pennsylvania</strong>
+          <p class="note">Regional comparisons and licensing context.</p>
+          <a class="tag" href="/state-costs/pennsylvania/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Illinois</strong>
+          <p class="note">Program checks and market comparisons.</p>
+          <a class="tag" href="/state-costs/illinois/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

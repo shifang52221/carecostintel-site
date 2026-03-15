@@ -1,0 +1,297 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Texas',
+  metroA: 'Dallas',
+  metroB: 'Austin',
+  region: 'South',
+  updated: 'Feb 2026',
+  description:
+    'Texas senior care planning guide with metro comparison cues, official state checks, and estimator-driven next steps.'
+};
+
+const sources = [
+  {
+    label: 'Texas Register assisted living rules',
+    href: 'https://www.sos.texas.gov/texreg/archive/May232003/adopted/26.PUBLIC%20HEALTH.html',
+    note: 'Adopted assisted living rule context.'
+  },
+  {
+    label: 'HHSC ALF pre-licensure training',
+    href: 'https://apps.hhs.texas.gov/providers/alf/training/cbt/',
+    note: 'Operator and licensing preparation context.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the Texas guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare Texas metro patterns, identify official checks, and then model your own range in the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Dallas and Austin price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Market growth, housing pressure, and operator mix can create meaningful differences between the two metros.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in Texas quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with the care tier schedule, included services, and the provider licensing context.'
+      }
+    }
+  ]
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Texas Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+---
+<BaseLayout title="Texas Senior Care Costs | Texas Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Texas senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Texas is useful for planning because fast-growth metros can price very differently from nearby markets.
+        This guide helps you compare {page.metroA} and {page.metroB}, validate the basics of a quote, and move into a personalized estimate.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides updated annually. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Texas often looks affordable at first glance, but metro growth can change pricing and availability quickly.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First thing to compare</strong>
+          <p>Keep care tier and room type fixed, then compare {page.metroA} and {page.metroB} to see the market spread.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Anchor the estimator with one Texas quote, save the baseline, and test a higher-care version before deciding.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Texas market snapshot</h2>
+        <ul class="checklist">
+          <li>Growth markets can tighten availability and change quote leverage.</li>
+          <li>Operator mix matters because bundled-service structures vary widely.</li>
+          <li>Metro comparisons are often more useful than broad statewide assumptions.</li>
+          <li>Care tier schedules usually explain more of the price difference than headline rent.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written Texas quote.</li>
+          <li>Compare a major metro against a second metro before comparing multiple providers.</li>
+          <li>Use official rule context to confirm how the provider describes the setting.</li>
+          <li>Model a second scenario so growth-market optimism does not hide budget risk.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful as a broad comparison market when you want to see how operator variety affects the same care plan.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful when you want to stress-test how fast-growth pressure and local demand can change the monthly total.</p>
+        </div>
+      </div>
+      <p class="note">Keep the same care level, room type, and add-on assumptions so the metro difference stays easy to interpret.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Texas checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these references to understand the licensing and rule context before you compare provider descriptions on price alone.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Quote validation workflow</h2>
+        <ul class="checklist">
+          <li>Ask for the full care tier schedule and what triggers reassessment.</li>
+          <li>Separate base rent from all recurring add-ons.</li>
+          <li>Document what is bundled differently across Texas operators.</li>
+          <li>Compare one quote from each metro before narrowing to a provider shortlist.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Common Texas quote traps</h2>
+        <ul class="checklist">
+          <li>Fast-growth market language used without a written fee schedule.</li>
+          <li>Bundled service claims that hide recurring care charges.</li>
+          <li>Move-in timing pressure used before you can compare another metro.</li>
+          <li>Comparing two quotes that use different room types or care assumptions.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier, bundled services</td>
+            <td>Useful for a broad Texas baseline.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, care tier, premium location spread</td>
+            <td>Shows how growth pressure can change the same plan.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Once this table is filled, use the estimator to see what the monthly and annual delta means for affordability.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Texas</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">Bundled pricing language can look simple until you ask how care reassessments change the monthly total.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Premiums can vary with staffing, security assumptions, and the way a provider structures support services.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Hourly totals are especially useful to compare against assisted living once daily coverage rises.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the cost structure enough that direct comparisons need extra care.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the Texas guide?</summary>
+        <p class="note">Use it to compare Texas metro patterns, identify official checks, and then model your own range in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Growth, housing pressure, and operator mix can create meaningful differences between the two metros.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in Texas quotes?</summary>
+        <p class="note">Start with the care tier schedule, included services, and the provider licensing context.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a Texas plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Texas quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Texas preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

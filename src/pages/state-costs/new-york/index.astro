@@ -1,0 +1,330 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'New York',
+  metroA: 'New York City',
+  metroB: 'Buffalo',
+  updated: 'Feb 2026',
+  description:
+    'New York senior care planning guide with city comparison cues, official state checks, and estimator-first next steps.'
+};
+
+const sources = [
+  {
+    label: 'NY Adult Care Facility Profiles',
+    href: 'https://profiles.health.ny.gov/acf/',
+    note: 'Facility lookup and oversight context for adult care settings.'
+  },
+  {
+    label: 'New York Assisted Living Program (ALP)',
+    href: 'https://www.health.ny.gov/health_care/medicaid/program/longterm/alp.htm',
+    note: 'Program context for Medicaid-related assisted living support.'
+  },
+  {
+    label: 'Managed Long Term Care (MLTC)',
+    href: 'https://www.health.ny.gov/health_care/managed_care/mltc/',
+    note: 'Community-based long-term care program context.'
+  },
+  {
+    label: 'New York State Office for the Aging',
+    href: 'https://aging.ny.gov/',
+    note: 'State aging resources and local support navigation.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'New York Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the New York guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare metro pressure, check the relevant state oversight pages, and then model your own quote in the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do New York City and Buffalo price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Labor pressure, housing costs, provider mix, and market competition can create meaningful differences between those two markets.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in New York quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with room type, care tier structure, add-on fees, and the provider or program context shown in official state sources.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="New York Senior Care Costs | New York Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>New York senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. New York is rarely a one-number market. This guide helps families compare
+        {page.metroA} and {page.metroB}, check the right state sources, and move from broad research into a cleaner estimate.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>New York often requires a wider planning buffer because metro spreads can be large even before care level changes are added.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Hold room type and care tier steady, then compare {page.metroA} against {page.metroB} before comparing providers.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Put one New York quote into the estimator, save the baseline, and then stress-test a higher-care scenario.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>New York market snapshot</h2>
+        <ul class="checklist">
+          <li>High-density markets can widen the gap between base rent and the true monthly total.</li>
+          <li>Provider mix and local competition change quote structure, not just price level.</li>
+          <li>Care tier schedules matter more than headline rates when you compare two urban quotes.</li>
+          <li>Families should compare at least one lower-pressure New York market before deciding a quote is normal.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written quote from your target market.</li>
+          <li>Use this page to choose the right second market for comparison.</li>
+          <li>Check the official program and oversight pages before trusting a provider summary.</li>
+          <li>Model one higher-support version of the same plan before you commit.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful when you want to see how dense urban demand, staffing pressure, and broader operator complexity affect the same care plan.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as a second anchor when you want to see how a lower-pressure market changes the same room type and care assumptions.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so location is the only meaningful variable.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official New York checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use the official pages above to confirm provider oversight, understand program terms, and avoid relying only on provider marketing language.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>Adult care facilities have their own oversight context and documentation trail.</li>
+          <li>ALP can matter when families are exploring Medicaid-related support in assisted living-like settings.</li>
+          <li>MLTC matters when the family is still comparing community-based long-term support.</li>
+          <li>Local aging resources can help clarify what services exist outside a residential move.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for New York</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-ons in writing.</li>
+          <li>Document whether the quote assumes a specific assessment outcome.</li>
+          <li>Ask how reassessments and move-in fees change the first-year total.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before narrowing to a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common New York quote traps</h2>
+        <ul class="checklist">
+          <li>Base rent shown without the care tier schedule.</li>
+          <li>Urban premium language used without line-item detail.</li>
+          <li>Move-in timing pressure before you have a second market comparison.</li>
+          <li>Program names mentioned without explaining whether they apply to your situation.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Normalize every quote in the estimator.</li>
+          <li>Compare like-for-like room and care assumptions only.</li>
+          <li>Ask which fees are recurring versus one-time.</li>
+          <li>Use official state pages to confirm the terminology behind the provider pitch.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Shows how a high-pressure New York market prices the plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, room type spread, reassessment structure</td>
+            <td>Gives you a cleaner contrast inside the same state.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Use the estimator after filling this comparison so the family can see the monthly and annual delta clearly.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in New York</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">Large spreads often show up in care-tier design and add-on structure, not only in base rent.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security assumptions, staffing intensity, and urban premium layers can widen the difference fast.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Hourly math can escalate quickly in dense markets, especially as daily coverage grows.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the quote structure enough that direct comparisons need extra caution.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the New York guide?</summary>
+        <p class="note">Use it to compare metro pressure, check the relevant state oversight pages, and then model your own quote in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Labor pressure, housing costs, provider mix, and market competition can create meaningful differences between those two markets.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in New York quotes?</summary>
+        <p class="note">Start with room type, care tier structure, add-on fees, and the provider or program context shown in official state sources.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a New York plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your New York quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with New York preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

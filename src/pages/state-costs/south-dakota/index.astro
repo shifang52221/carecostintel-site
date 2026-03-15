@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'South Dakota',
+  metroA: 'Sioux Falls',
+  metroB: 'Rapid City',
+  region: 'Midwest',
+  updated: 'Mar 2026',
+  description:
+    'South Dakota senior care planning guide with metro comparison cues, official state checks, and estimator-first next steps.'
+};
+
+const sources = [
+  {
+    label: 'South Dakota Department of Health Assisted Living Centers',
+    href: 'https://doh.sd.gov/healthcare-professionals/health-facility-licensure/facility-types/assisted-living-centers/',
+    note: 'Licensing and oversight context for assisted living communities.'
+  },
+  {
+    label: 'South Dakota Department of Social Services HCBS waivers',
+    href: 'https://dss.sd.gov/medicaid/hcbs.aspx',
+    note: 'Home and community-based waiver context for long-term services.'
+  },
+  {
+    label: 'South Dakota Medicaid program overview',
+    href: 'https://dss.sd.gov/medicaid/',
+    note: 'Program-level eligibility and coverage language.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'South Dakota Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-03-14',
+  dateModified: '2026-03-14',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the South Dakota guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare Sioux Falls and Rapid City planning signals, check official state pages, and then model your own quote in the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Sioux Falls and Rapid City price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Staffing pressure, provider mix, and local availability can change the same care plan across those markets.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in South Dakota quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with the care tier schedule, room type, add-on fees, and the state licensing or waiver context behind the quote.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="South Dakota Senior Care Costs | South Dakota Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>South Dakota senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. South Dakota is useful for planning because families can compare a larger in-state
+        anchor like {page.metroA} against {page.metroB} while checking state licensing and Medicaid waiver context
+        before they trust a quote.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial
+              Policy</a>, <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>South Dakota planning gets clearer when families compare two local markets instead of relying on one headline quote.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Keep room type and care tier fixed, then compare {page.metroA} against {page.metroB} before comparing operators.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Open the estimator with one South Dakota quote and then stress-test a higher-care scenario before deciding what feels affordable.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>South Dakota market snapshot</h2>
+        <ul class="checklist">
+          <li>Location differences inside the state can still change the same care plan materially.</li>
+          <li>Provider availability and reassessment rules matter as much as the first monthly number.</li>
+          <li>Written care tier schedules are the cleanest way to compare two South Dakota communities fairly.</li>
+          <li>Official state pages help families separate marketing language from program and oversight reality.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written South Dakota quote.</li>
+          <li>Use a second market to test whether location is the real driver.</li>
+          <li>Check licensing and Medicaid waiver pages before relying on provider summaries.</li>
+          <li>Run a higher-support scenario if the family expects needs to rise.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful when you want a larger-market anchor for provider choice, staffing pressure, and fee structure comparisons.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as an in-state contrast when you want to see whether the quote issue is really market pressure or provider design.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the location comparison stays meaningful.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official South Dakota checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these state pages to confirm licensure, waiver language, and program context before you compare two communities on price alone.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>Department of Health licensing pages help clarify what type of community and oversight framework you are actually comparing.</li>
+          <li>HCBS waiver pages matter when the family is evaluating community-based alternatives or support pathways.</li>
+          <li>Medicaid overview pages help ground provider claims in the real eligibility and coverage language.</li>
+          <li>These checks usually make quote comparisons less noisy and more trustworthy.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for South Dakota</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-on fees in writing.</li>
+          <li>Confirm whether the quote assumes a particular assessment result or service bundle.</li>
+          <li>Separate one-time move-in charges from recurring monthly costs.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before narrowing to a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common South Dakota quote traps</h2>
+        <ul class="checklist">
+          <li>Base rent shown without a transparent care-tier structure.</li>
+          <li>Small-market availability pressure treated as if it were a permanent statewide average.</li>
+          <li>Waiver or Medicaid fit implied without documentation.</li>
+          <li>Different room types compared as if they were the same plan.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Normalize every option in the estimator.</li>
+          <li>Keep room and care assumptions fixed across comparisons.</li>
+          <li>Use official state pages to confirm what provider labels actually mean.</li>
+          <li>Ask how reassessments and add-ons change the monthly number over time.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Gives you a stronger statewide anchor for a South Dakota comparison.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, staffing pressure, room type spread</td>
+            <td>Shows whether a second in-state market changes the same plan enough to affect the budget.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Fill this table with real quotes, then use the estimator to turn it into a true monthly and annual scenario.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in South Dakota</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">Watch for base-rent comparisons that hide tier jumps, medication support fees, or recurring add-ons.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Secure-unit assumptions and staffing intensity can widen the premium even when room types appear similar.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Hourly schedules can become expensive quickly once daily hours rise or travel and staffing constraints show up.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity and reimbursement context make the price structure very different from residential care settings.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the South Dakota guide?</summary>
+        <p class="note">Use it to compare Sioux Falls and Rapid City planning signals, check official state pages, and then model your own quote in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Staffing pressure, provider mix, and local availability can change the same care plan across those markets.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in South Dakota quotes?</summary>
+        <p class="note">Start with the care tier schedule, room type, add-on fees, and the state licensing or waiver context behind the quote.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a South Dakota plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your South Dakota quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with South Dakota in mind and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

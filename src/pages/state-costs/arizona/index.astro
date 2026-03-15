@@ -1,0 +1,330 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Arizona',
+  metroA: 'Phoenix',
+  metroB: 'Tucson',
+  updated: 'Feb 2026',
+  description:
+    'Arizona senior care planning guide with city comparison cues, official ALTCS and licensing checks, and estimator-first next steps.'
+};
+
+const sources = [
+  {
+    label: 'Arizona Long Term Care System (ALTCS)',
+    href: 'https://www.azahcccs.gov/Members/ALTCS/',
+    note: 'Official long-term services and supports program information.'
+  },
+  {
+    label: 'ADHS Residential Facilities Licensing',
+    href: 'https://www.azdhs.gov/licensing/residential-facilities/index.php',
+    note: 'Licensing and oversight context for assisted living-related settings.'
+  },
+  {
+    label: 'Arizona DES older adult services',
+    href: 'https://des.az.gov/services/older-adults',
+    note: 'State aging support and local program navigation.'
+  },
+  {
+    label: 'Arizona home and community-based services',
+    href: 'https://des.az.gov/home-community-services',
+    note: 'In-home support context when community care is still being compared.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Arizona Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the Arizona guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare market differences inside Arizona, check ALTCS and licensing context, and then model your own quote in the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Phoenix and Tucson price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Market size, staffing pressure, provider mix, and local demand can create meaningful differences across those two metros.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in Arizona quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with room type, care tier structure, add-on fees, and the relevant ALTCS or licensing context in official state sources.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Arizona Senior Care Costs | Arizona Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Arizona senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Arizona is a useful planning state because families can compare two large in-state markets
+        while also checking whether ALTCS, residential licensing, or community-based supports change the decision path.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Arizona cost planning improves when families compare city differences and program fit together, not as separate questions.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Keep room type and care tier fixed, then compare {page.metroA} against {page.metroB} before choosing between providers.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Use one Arizona quote as the estimator baseline, then test either a second city or a higher-support version of the same plan.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Arizona market snapshot</h2>
+        <ul class="checklist">
+          <li>City-level differences can matter more than broad statewide assumptions.</li>
+          <li>Provider structure and care-tier design often explain quote spread better than base rent alone.</li>
+          <li>Program fit matters because families may still be comparing residential and community-based paths.</li>
+          <li>Written fee schedules remain the cleanest way to compare Arizona options fairly.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written Arizona quote.</li>
+          <li>Use a second Arizona market to test whether the first quote is unusual.</li>
+          <li>Check ALTCS and licensing pages before relying on provider summaries.</li>
+          <li>Run a higher-support scenario if care needs may rise soon.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful when you want to see how a larger Arizona market prices room, staffing pressure, and the full care package.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as a second in-state anchor when you want to know if the cost problem is the market, the provider, or the care model itself.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the city comparison stays meaningful.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Arizona checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these official pages to understand state program language, facility oversight, and community-based alternatives before comparing two quotes on price alone.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>ALTCS matters when the family is exploring Medicaid-linked long-term support.</li>
+          <li>Residential licensing matters because provider categories and service claims should match the state framework.</li>
+          <li>DES older adult services and HCBS pages matter when community support is still in the decision set.</li>
+          <li>These checks reduce the risk of comparing settings that look similar but operate very differently.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for Arizona</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-ons in writing.</li>
+          <li>Ask whether the quote assumes a particular support level or program fit.</li>
+          <li>Separate move-in fees from recurring monthly costs.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before narrowing to a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common Arizona quote traps</h2>
+        <ul class="checklist">
+          <li>Program names mentioned without clarifying whether they actually apply to the resident path.</li>
+          <li>Base rent shown without the care-tier structure.</li>
+          <li>Different room types compared as though they are the same plan.</li>
+          <li>City-specific pricing pressure described vaguely instead of with written detail.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Normalize every option in the estimator.</li>
+          <li>Keep room, care, and add-on assumptions fixed across comparisons.</li>
+          <li>Use official state pages to confirm the meaning of program or licensing terms.</li>
+          <li>Ask for the first-year total, not only the move-in number.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Shows how one larger Arizona market prices the plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, move-in structure, reassessment rules</td>
+            <td>Gives you a second in-state anchor before provider-by-provider comparison.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Move this comparison into the estimator so the monthly and annual impact is clearer for the family.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Arizona</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">The real spread often comes from care-tier design and add-ons, not just from the first monthly number.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security and staffing assumptions can widen the premium quickly across cities and operators.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Community-based options still deserve comparison, especially if HCBS pathways are part of the family's plan.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the price structure enough that direct comparisons need separate care-level review.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the Arizona guide?</summary>
+        <p class="note">Use it to compare market differences inside Arizona, check ALTCS and licensing context, and then model your own quote in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Market size, staffing pressure, provider mix, and local demand can create meaningful differences across those two metros.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in Arizona quotes?</summary>
+        <p class="note">Start with room type, care tier structure, add-on fees, and the relevant ALTCS or licensing context in official state sources.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for an Arizona plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Arizona quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Arizona preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

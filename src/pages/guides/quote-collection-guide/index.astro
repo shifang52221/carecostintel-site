@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How many quotes should I collect?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Aim for at least three comparable quotes using the same room type, care level, and fee structure assumptions.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What if a provider will not give a written quote?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ask for a written fee schedule and enough detail to separate base rent, care tier, and recurring add-ons before you compare it.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="How to Collect Reliable Senior Care Quotes"
+  description="Learn how to gather comparable senior care quotes, normalize fee schedules, and turn a confusing provider conversation into a clean planning baseline."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Quote workflow guide</span>
+      <h1>How to collect reliable senior care quotes</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. The goal is not to collect more quotes. It is to collect quotes you can actually compare.
+        This guide shows what information to ask for, what to normalize, and when to move into the estimator.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Quick answer</strong>
+          <p>Three comparable quotes are usually more useful than ten inconsistent ones.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Most important habit</strong>
+          <p>Keep room type, care tier, and recurring add-ons consistent across every quote you compare.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Use the estimator as soon as you have one written quote so you can see the real planning delta.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 16px;">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">Use state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What a usable quote should include</h2>
+        <ul class="checklist">
+          <li>Room type and unit details.</li>
+          <li>Care tier or support level and the monthly charge.</li>
+          <li>Recurring add-ons and bundled-service assumptions.</li>
+          <li>One-time move-in, community, or assessment fees.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What makes quotes impossible to compare</h2>
+        <ul class="checklist">
+          <li>Different room types across providers.</li>
+          <li>Missing care tier schedules.</li>
+          <li>Bundled services in one quote but not another.</li>
+          <li>Marketing language with no written fee detail.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>Simple quote collection workflow</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Step 1: Define the comparison</h3>
+          <p>Choose the care setting, room type, likely care level, and expected move-in timeline before you call anyone.</p>
+        </div>
+        <div>
+          <h3>Step 2: Request written detail</h3>
+          <p>Ask for base rent, care tier schedule, recurring add-ons, and one-time fees in writing.</p>
+        </div>
+        <div>
+          <h3>Step 3: Normalize the quotes</h3>
+          <p>Use the estimator and a simple worksheet so every quote reflects the same assumptions.</p>
+        </div>
+        <div>
+          <h3>Step 4: Stress-test one scenario</h3>
+          <p>Raise care intensity or support hours once so you can see whether the budget still holds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>Questions to ask on the first call</h2>
+      <ul class="checklist">
+        <li>What is the room type and what does the base rent include?</li>
+        <li>How is the care tier determined and what changes the price later?</li>
+        <li>Which fees are monthly versus one-time?</li>
+        <li>What services are optional and how are they billed?</li>
+        <li>Can you send the information in writing?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Red flags to treat carefully</h2>
+        <ul class="checklist">
+          <li>The quote is verbal only.</li>
+          <li>The provider will not show the care tier schedule.</li>
+          <li>The monthly number excludes common recurring services.</li>
+          <li>You feel rushed before getting a comparable second quote.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>When to move into the estimator</h2>
+        <ul class="checklist">
+          <li>As soon as you have one written quote.</li>
+          <li>When you want to test a different room type or care level.</li>
+          <li>When two providers look close and you need a clearer comparison.</li>
+          <li>When the family needs a monthly and annual planning view.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Compare quotes using state licensing pages as a validation layer.</p>
+      <ul class="checklist">
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for state aging networks and local resources.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for long-term care oversight context.</li>
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for consumer guidance and terminology.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Planning checklist</strong>
+          <p class="note">Prepare the inputs you need before you make more calls.</p>
+          <a class="tag" href="/guides/cost-planning-checklist/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

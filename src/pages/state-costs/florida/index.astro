@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Florida',
+  metroA: 'Miami',
+  metroB: 'Orlando',
+  region: 'South',
+  updated: 'Feb 2026',
+  description:
+    'Florida senior care planning guide with metro comparison cues, official state checks, and estimator-driven next steps.'
+};
+
+const sources = [
+  {
+    label: 'Florida AHCA assisted living facility licensing',
+    href: 'https://ahca.myflorida.com/health-quality-assurance/bureau-of-health-facility-regulation/assisted-living-unit/assisted-living-facility',
+    note: 'Facility oversight and licensing context.'
+  },
+  {
+    label: 'Community Care for the Elderly',
+    href: 'https://elderaffairs.org/programs-and-services/community-care-for-the-elderly-cce-program/',
+    note: 'State support program context.'
+  },
+  {
+    label: 'Home Care for the Elderly',
+    href: 'https://elderaffairs.org/home-care-for-the-elderly-hce-program/',
+    note: 'Home-based support and subsidy context.'
+  },
+  {
+    label: 'Statewide Medicaid Managed Care Long-Term Care',
+    href: 'https://ahca.myflorida.com/medicaid/statewide-medicaid-managed-care/long-term-care-program',
+    note: 'Long-term care program context.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the Florida guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare Florida metro patterns, identify official checks, and then model your own range in the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Miami and Orlando price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Demand, operator mix, and local market pressure can create meaningful differences between those metros.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in Florida quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with the care tier schedule, included services, and the provider licensing context.'
+      }
+    }
+  ]
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Florida Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+---
+<BaseLayout title="Florida Senior Care Costs | Florida Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Florida senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Florida is one of the clearest examples of how retiree demand and local provider mix can shape care pricing.
+        Use this page to compare {page.metroA} and {page.metroB}, check the official basics, and move into a more personalized plan.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides updated annually. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Florida often rewards better comparison work because local demand can make similar communities look farther apart than they really are.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First thing to compare</strong>
+          <p>Hold care tier and room type steady, then compare {page.metroA} and {page.metroB} before evaluating provider quality.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Use one Florida quote in the estimator, save the baseline, and test how a higher-support plan changes affordability.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Florida market snapshot</h2>
+        <ul class="checklist">
+          <li>Retiree demand can raise both pricing pressure and waitlist risk.</li>
+          <li>Coastal and inland comparisons can matter more than statewide assumptions.</li>
+          <li>Operator mix changes how bundled services appear in quotes.</li>
+          <li>Care tier language should always be translated into a written monthly schedule.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Anchor with one written Florida quote.</li>
+          <li>Compare two metros before comparing multiple providers in one city.</li>
+          <li>Use official program and licensing pages to validate care-setting claims.</li>
+          <li>Stress-test the estimate with a higher-care scenario before you commit to a budget.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful when you want to see how a higher-demand market affects the same care plan and fee structure.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as a comparison market when you want to test whether the pricing difference is really about location pressure.</p>
+        </div>
+      </div>
+      <p class="note">Keep the same care level, room type, and add-on assumptions so the location spread is easy to interpret.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Florida checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these references to confirm licensure, state program context, and long-term care language before you compare a provider on price alone.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Quote validation workflow</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and recurring add-ons in writing.</li>
+          <li>Confirm whether support services are bundled or assessed separately.</li>
+          <li>Document what changes when care needs rise.</li>
+          <li>Compare one quote from each metro before you narrow to a final shortlist.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Common Florida quote traps</h2>
+        <ul class="checklist">
+          <li>Demand pressure used as a vague explanation instead of a clear written fee structure.</li>
+          <li>Move-in timing or availability pressure before you compare another local market.</li>
+          <li>Bundled service claims that hide the care tier jump.</li>
+          <li>Two quotes compared even though room type or included services differ.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier, bundled services</td>
+            <td>Useful for a higher-pressure Florida baseline.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, room spread, add-on structure</td>
+            <td>Shows whether the budget difference is really driven by location.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Use the estimator after this comparison so you can see the monthly and annual difference with the same care assumptions.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Florida</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">Watch for comparisons that make one community look cheaper only because the care tier schedule is less explicit.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Premiums often reflect staffing, safety structure, and support intensity more than headline rent alone.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Hourly totals can become the most useful comparison once daily support hours rise.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical care changes the pricing structure enough that direct comparisons need extra caution.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the Florida guide?</summary>
+        <p class="note">Use it to compare Florida metro patterns, identify official checks, and then model your own range in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Demand, operator mix, and local market pressure can create meaningful differences between those metros.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in Florida quotes?</summary>
+        <p class="note">Start with the care tier schedule, included services, and the provider licensing context.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a Florida plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Florida quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Florida preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

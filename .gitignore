@@ -10,15 +10,15 @@ dev.err.log
 .env.*
 !.env.example
 
-about/
-assets/
-care-types/
-contact/
-data/
-estimator/
-guides/
-privacy/
-state-costs/
-home.html
-index.html
+/about/
+/assets/
+/care-types/
+/contact/
+/data/
+/estimator/
+/guides/
+/privacy/
+/state-costs/
+/home.html
+/index.html
 .worktrees/

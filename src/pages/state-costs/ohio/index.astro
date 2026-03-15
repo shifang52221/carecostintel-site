@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Ohio',
+  metroA: 'Columbus',
+  metroB: 'Cleveland',
+  updated: 'Feb 2026',
+  description:
+    'Ohio senior care planning guide with city comparison cues, official waiver and licensing checks, and estimator-first next steps.'
+};
+
+const sources = [
+  {
+    label: 'Ohio Assisted Living Waiver rule',
+    href: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-06.5',
+    note: 'Official waiver rule for assisted living-related Medicaid support.'
+  },
+  {
+    label: 'Ohio PASSPORT Waiver rule',
+    href: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-31-03',
+    note: 'Community-based waiver rule that matters when in-home support is still being compared.'
+  },
+  {
+    label: 'Ohio residential care facility rules',
+    href: 'https://codes.ohio.gov/oac/3701-16',
+    note: 'Licensing and operational rules for residential care settings.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Ohio Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the Ohio guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare in-state market differences, check waiver and licensing context, and then model your own quote in the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Columbus and Cleveland price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Staffing pressure, provider mix, and local market conditions can create meaningful differences between those two metros.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in Ohio quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with room type, care tier structure, add-on fees, and the relevant licensing or waiver context in official state sources.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Ohio Senior Care Costs | Ohio Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Ohio senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Ohio is a good planning state because families can compare one larger metro market
+        against another while also checking how waiver and licensing context may affect the real affordability picture.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Ohio often looks straightforward, but city-level differences and waiver fit can change what a quote really means.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Hold room type and care tier steady, then compare {page.metroA} against {page.metroB} before narrowing to one provider.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Put one Ohio quote into the estimator, then test a second market or higher-care version of the same plan.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Ohio market snapshot</h2>
+        <ul class="checklist">
+          <li>City-to-city comparison matters more than broad statewide assumptions.</li>
+          <li>Fee structure and care tier design often explain quote spread better than base rent alone.</li>
+          <li>Waiver fit can matter when a family is still deciding between community and residential paths.</li>
+          <li>Written fee schedules remain the best way to compare options fairly.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written Ohio quote from the target market.</li>
+          <li>Use a second Ohio market to test whether the first quote is unusually high or low.</li>
+          <li>Check the official rule pages before relying on provider summaries of waiver or licensing fit.</li>
+          <li>Run one higher-support scenario if care needs may rise soon.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful when you want to see how one of Ohio's larger, faster-moving care markets prices the same support plan.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as a second in-state anchor when you want to know whether the difference is the provider, the market, or both.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the city difference stays easy to read.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Ohio checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these official rules to understand waiver language, residential care requirements, and the state terms behind a provider pitch.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>The assisted living waiver can matter when the family is testing Medicaid-related support in a residential setting.</li>
+          <li>PASSPORT matters when in-home support is still a serious alternative.</li>
+          <li>Residential care rules help families understand what a provider category is expected to cover.</li>
+          <li>These checks reduce the risk of comparing two options that sound similar but operate under different assumptions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for Ohio</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-ons in writing.</li>
+          <li>Ask whether the quote assumes a specific assessment result or waiver fit.</li>
+          <li>Separate one-time move-in costs from recurring monthly costs.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before narrowing to a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common Ohio quote traps</h2>
+        <ul class="checklist">
+          <li>Waiver language used vaguely without explaining if the resident is actually likely to qualify.</li>
+          <li>Base rent shown without a clear care tier schedule.</li>
+          <li>Move-in fees and first-year charges discussed separately from affordability.</li>
+          <li>Two different room or support profiles compared as though they are the same plan.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Normalize every option in the estimator.</li>
+          <li>Keep the same room, care, and add-on assumptions across comparisons.</li>
+          <li>Use the official state rule pages to confirm the program language behind the quote.</li>
+          <li>Ask for recent rate increase patterns if the provider will share them.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Shows how one larger Ohio market prices the plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, reassessment structure, move-in fees</td>
+            <td>Gives you a second in-state anchor before provider-by-provider comparison.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Use the estimator after filling this comparison so the monthly and annual difference is easier for the family to judge.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Ohio</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">The biggest differences often show up in tier design and included services, not just in the first monthly number.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security and staffing assumptions can widen the premium quickly across cities and providers.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Community-based support still deserves comparison, especially if the family is looking at PASSPORT-related paths.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the structure enough that direct comparisons need separate care-level review.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the Ohio guide?</summary>
+        <p class="note">Use it to compare in-state market differences, check waiver and licensing context, and then model your own quote in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Staffing pressure, provider mix, and local market conditions can create meaningful differences between those two metros.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in Ohio quotes?</summary>
+        <p class="note">Start with room type, care tier structure, add-on fees, and the relevant licensing or waiver context in official state sources.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for an Ohio plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Ohio quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Ohio preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

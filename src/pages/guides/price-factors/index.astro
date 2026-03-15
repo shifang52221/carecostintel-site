@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Which factor usually changes price the most?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Location is often the largest market-level driver, followed by care intensity and room type.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I compare across two facilities?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Compare the total monthly cost, care tier schedule, reassessment rules, room type, and recurring add-ons.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="What Impacts Senior Care Pricing the Most"
+  description="Learn which pricing levers move senior care costs the fastest and how to compare them without getting misled by base rent alone."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Pricing guide</span>
+      <h1>What impacts senior care pricing the most</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. If you only compare base rent, you will usually miss the real cost story. This guide isolates
+        the five drivers that matter most and shows how to test them one by one.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Top driver</strong>
+          <p>Location usually changes the market baseline the most.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Most overlooked driver</strong>
+          <p>Care tier structure often matters more than a small difference in rent.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Run one scenario, then change only one lever at a time inside the estimator.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 16px;">
+        <a class="btn" href="/estimator/">Estimate your range</a>
+        <a class="btn secondary" href="/state-costs/">Browse state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>The five pricing drivers that matter most</h2>
+        <ul class="checklist">
+          <li>Location and local market pressure.</li>
+          <li>Care intensity and reassessment rules.</li>
+          <li>Room type and privacy preference.</li>
+          <li>Recurring add-ons and bundled-service structure.</li>
+          <li>Staffing and quality expectations.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to compare them cleanly</h2>
+        <ul class="checklist">
+          <li>Change one variable at a time.</li>
+          <li>Keep the room type and care setting fixed when you compare locations.</li>
+          <li>Keep the location fixed when you compare provider fee structures.</li>
+          <li>Use the estimator to translate quote differences into a monthly and annual delta.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>What each driver tends to change</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Location</h3>
+          <p>Changes the baseline before you even get into the provider-level fee schedule.</p>
+        </div>
+        <div>
+          <h3>Care intensity</h3>
+          <p>Often changes the bill more abruptly than families expect because of tier jumps and add-on support.</p>
+        </div>
+        <div>
+          <h3>Room type</h3>
+          <p>Changes rent quickly, but does not usually remove care-related charges.</p>
+        </div>
+        <div>
+          <h3>Service bundle</h3>
+          <p>Changes how transparent the quote is and how predictable the future bill will feel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>Questions to ask before you trust a lower quote</h2>
+      <ul class="checklist">
+        <li>Is the lower quote using a different room type or unit size?</li>
+        <li>Is the care tier schedule missing or described only verbally?</li>
+        <li>Are transportation, medication support, or therapies outside the monthly total?</li>
+        <li>How often can reassessments change the bill?</li>
+        <li>What one-time charges are not included in the headline number?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Use state sources to validate labor and compliance drivers in your market.</p>
+      <ul class="checklist">
+        <li><a href="https://www.bls.gov/">US Bureau of Labor Statistics (BLS)</a> for labor market context.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for long-term care oversight context.</li>
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for coverage language and consumer guidance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Quote checklist</strong>
+          <p class="note">Use a consistent list before you compare providers.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

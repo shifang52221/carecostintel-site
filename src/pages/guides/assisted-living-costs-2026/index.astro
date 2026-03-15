@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is assisted living cheaper than a nursing home in 2026?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'In most markets, yes, but the difference depends on care intensity, room type, and local staffing pressure.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Why do assisted living costs rise after move-in?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Costs often rise because of care tier changes, annual rent increases, and add-on services that were not obvious in the first quote.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the safest planning buffer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A 10 percent buffer above the median estimate is a practical starting point, especially when care needs may change.'
+      }
+    }
+  ]
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Why Assisted Living Costs Are Rising in 2026',
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+---
+<BaseLayout
+  title="Why Assisted Living Costs Are Rising in 2026"
+  description="Understand the biggest assisted living pricing drivers in 2026, what changes costs after move-in, and how to build a safer planning range."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Care cost guide</span>
+      <h1>Why assisted living costs are rising in 2026</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. The short answer is that wage pressure, higher-acuity residents, and fee structures are moving
+        faster than many families expect. This guide helps you see what is really changing and what to compare before you sign.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides updated annually. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Quick answer</strong>
+          <p>Assisted living is rising mainly because staffing, care intensity, and post-move fee structures are getting more expensive.</p>
+        </div>
+        <div class="summary-card">
+          <strong>What families miss</strong>
+          <p>The first quote often understates the long-term cost because it hides care tier changes and add-ons.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Run the estimator with one real quote, then model a higher-care scenario and a 10 percent planning buffer.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#pricing-snapshot">Pricing snapshot</a>
+        <a class="chip" href="#what-is-driving-costs">What is driving costs</a>
+        <a class="chip" href="#what-to-check-in-a-quote">What to check in a quote</a>
+        <a class="chip" href="#official-references">Official references</a>
+        <a class="chip" href="#guide-actions">Next actions</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Use the estimator</a>
+        <a class="btn secondary" href="/state-costs/">See state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>2026 assisted living snapshot</h2>
+        <ul class="checklist">
+          <li>Base rent still matters, but care tier structure often matters more.</li>
+          <li>Annual increases are only part of the story because reassessments can move cost sooner.</li>
+          <li>Room type changes the range fast, but it does not remove care-related fees.</li>
+          <li>Location is still the strongest single market-level driver.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Read it before you compare two quotes that look surprisingly far apart.</li>
+          <li>Use it with the pricing drivers guide and the estimator, not on its own.</li>
+          <li>Compare today’s care level with one likely higher-support scenario.</li>
+          <li>Treat the median estimate as the budget baseline, not the low end of the range.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-is-driving-costs">
+    <div class="container card">
+      <h2>What is driving assisted living costs higher</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Staffing pressure</h3>
+          <p>Facilities compete with hospitals, agencies, and other employers for the same labor pool. That pressure flows into monthly pricing.</p>
+        </div>
+        <div>
+          <h3>Higher-acuity residents</h3>
+          <p>Residents often move in later and with greater support needs, which pushes more people into higher care tiers.</p>
+        </div>
+        <div>
+          <h3>Fee complexity</h3>
+          <p>Base rent can stay stable while add-ons, reassessments, and service fees raise the true monthly total.</p>
+        </div>
+        <div>
+          <h3>Location pressure</h3>
+          <p>Metro housing, insurance, and operator constraints can widen the difference between two similar-looking communities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What to check in the first quote</h2>
+        <ul class="checklist">
+          <li>Is the care tier schedule attached or only described verbally?</li>
+          <li>Are medication support, transport, and assessments included or separate?</li>
+          <li>How often can reassessments change the bill?</li>
+          <li>Are move-in fees, deposits, or community fees outside the monthly total?</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Where families usually under-budget</h2>
+        <ul class="checklist">
+          <li>Using the low end of the range instead of the median.</li>
+          <li>Ignoring the premium for a private room or a future room change.</li>
+          <li>Skipping the cost of likely care tier progression.</li>
+          <li>Leaving out annual increases when planning more than one year ahead.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-to-check-in-a-quote">
+    <div class="container card">
+      <h2>What to check in a quote before you compare providers</h2>
+      <ul class="checklist">
+        <li>Room type and unit size.</li>
+        <li>Care tier and reassessment trigger.</li>
+        <li>Add-on services and recurring fees.</li>
+        <li>Move-in, community, and one-time charges.</li>
+        <li>Historical rent or fee increases if the provider will share them.</li>
+      </ul>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/guides/quote-collection-guide/">Quote workflow</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>Example planning workflow</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Scenario A: Current quote</h3>
+          <p>Enter the current care level, room type, and one real assisted living quote. Save this as the baseline.</p>
+        </div>
+        <div>
+          <h3>Scenario B: Higher care tier</h3>
+          <p>Raise care intensity by one level and compare the monthly and annual delta. This is where many budgets break.</p>
+        </div>
+      </div>
+      <p class="note">Use the report view to share the comparison with family members or advisors.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Use your state guide to verify licensing terms referenced here.</p>
+      <ul class="checklist">
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for state aging and community-based service context.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for long-term care oversight context.</li>
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for consumer coverage information and care-setting terminology.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Quote checklist</strong>
+          <p class="note">Prepare questions before you call providers.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>California</strong>
+          <p class="note">Metro premiums and staffing pressure.</p>
+          <a class="tag" href="/state-costs/california/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Texas</strong>
+          <p class="note">Growth-driven demand and operator mix.</p>
+          <a class="tag" href="/state-costs/texas/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Florida</strong>
+          <p class="note">Retiree demand and local market spreads.</p>
+          <a class="tag" href="/state-costs/florida/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

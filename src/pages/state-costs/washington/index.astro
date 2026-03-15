@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Washington',
+  metroA: 'Seattle',
+  metroB: 'Spokane',
+  updated: 'Feb 2026',
+  description:
+    'Washington senior care planning guide with city comparison cues, official licensing and LTSS checks, and estimator-first next steps.'
+};
+
+const sources = [
+  {
+    label: 'DSHS Residential Care Services',
+    href: 'https://www.dshs.wa.gov/altsa/residential-care-services/residential-care-services',
+    note: 'Licensing and oversight context for residential care settings in Washington.'
+  },
+  {
+    label: 'Washington Apple Health long-term care and hospice',
+    href: 'https://www.hca.wa.gov/free-or-low-cost-health-care/i-need-medical-dental-or-vision-care/long-term-care-and-hospice',
+    note: 'Official long-term services and supports overview from the state.'
+  },
+  {
+    label: 'Washington HCS home and community-based waivers',
+    href: 'https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/hcs-home-and-community-based-hcb-waivers',
+    note: 'Waiver pathway context including community-based long-term support.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Washington Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the Washington guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare in-state market differences, check licensing and LTSS context, and then model your own quote in the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Seattle and Spokane price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Market pressure, staffing costs, provider mix, and local demand can create meaningful differences between those two cities.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in Washington quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with room type, care tier structure, add-on fees, and the relevant licensing or long-term care program context in official state sources.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Washington Senior Care Costs | Washington Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Washington senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Washington is useful for planning because a high-pressure market and a lower-pressure
+        market can look very different inside the same state, especially once licensing and long-term care program context are added.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Washington often requires wider comparison work because market pressure and program fit can shift the true total fast.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Keep room type and care tier fixed, then compare {page.metroA} against {page.metroB} before comparing providers.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Use one Washington quote as your estimator baseline and then test a second market or higher-support version of the same plan.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Washington market snapshot</h2>
+        <ul class="checklist">
+          <li>City-level pressure can make in-state differences large enough to change the whole affordability picture.</li>
+          <li>Provider structure and care-tier design often matter more than base rent alone.</li>
+          <li>Long-term care program fit may still matter if the family is comparing residential and community-based paths.</li>
+          <li>Written fee schedules are the best starting point for a fair comparison.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written Washington quote from your target market.</li>
+          <li>Use a second Washington market to test whether the first quote is unusually high.</li>
+          <li>Check official licensing and LTSS pages before relying on provider summaries.</li>
+          <li>Run one higher-support scenario if the family's needs may rise soon.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful when you want to see how a higher-pressure Washington market prices the full care package, not only the room.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as a second in-state anchor when you want to test whether the difference is the city, the provider, or the care model itself.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the city comparison remains meaningful.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Washington checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these official state pages to understand residential care oversight and long-term support language before comparing two quotes on price alone.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>Residential Care Services matters because provider claims should match the state licensing framework.</li>
+          <li>Apple Health long-term care context matters when the family is exploring Medicaid-linked support paths.</li>
+          <li>Home and community-based waivers matter when staying outside a residential setting is still realistic.</li>
+          <li>These checks reduce the risk of comparing options that sound similar but are funded or structured differently.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for Washington</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-ons in writing.</li>
+          <li>Ask whether the quote assumes a particular support level or program fit.</li>
+          <li>Separate one-time move-in charges from recurring monthly costs.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before narrowing to a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common Washington quote traps</h2>
+        <ul class="checklist">
+          <li>Long-term care program language used vaguely without clarifying actual resident fit.</li>
+          <li>Base rent shown without the care-tier schedule.</li>
+          <li>Different room or care assumptions compared as if they were the same plan.</li>
+          <li>Market pressure described generally instead of with written fee detail.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Normalize every option in the estimator.</li>
+          <li>Keep room, care, and add-on assumptions fixed across comparisons.</li>
+          <li>Use official state pages to confirm the meaning of licensing and LTSS terms.</li>
+          <li>Ask for the first-year total, not only the advertised starting number.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Shows how one higher-pressure Washington market prices the plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, move-in structure, reassessment rules</td>
+            <td>Gives you a second in-state anchor before provider-by-provider comparison.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Move this comparison into the estimator so the monthly and annual impact becomes easier to judge.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Washington</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">The biggest differences often come from care-tier design and add-ons, not only from the first monthly number.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security and staffing assumptions can widen the premium quickly across cities and operators.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Community-based options still deserve comparison, especially when waiver or LTSS fit may change the path.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the price structure enough that direct comparisons need separate care-level review.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the Washington guide?</summary>
+        <p class="note">Use it to compare in-state market differences, check licensing and LTSS context, and then model your own quote in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Market pressure, staffing costs, provider mix, and local demand can create meaningful differences between those two cities.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in Washington quotes?</summary>
+        <p class="note">Start with room type, care tier structure, add-on fees, and the relevant licensing or long-term care program context in official state sources.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a Washington plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Washington quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Washington preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

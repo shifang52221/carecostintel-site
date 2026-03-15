@@ -1,0 +1,807 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Senior Care Cost Estimator',
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Web',
+  description:
+    'Estimate assisted living, memory care, home care, and nursing home costs with transparent ranges and care-fit insights.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD'
+  }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How accurate is the estimate?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We provide a modeled range based on your baseline inputs, care profile, and planning assumptions.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you publish state averages?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. We model around your baseline or budget and recommend validating with local quotes.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this medical or financial advice?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. This tool is for planning and comparison only.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What makes the estimate more useful?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A real quote, a clear care level, room type, and location details will make the estimate more decision-ready.'
+      }
+    }
+  ]
+};
+
+const prepCards = [
+  {
+    title: 'Bring one real anchor',
+    text: 'A recent quote, a working monthly budget, or a home care hourly rate makes the range much more useful.'
+  },
+  {
+    title: 'Match the care level honestly',
+    text: 'Understating support needs creates a false sense of affordability. Use the higher tier when you are unsure.'
+  },
+  {
+    title: 'Use the result as a planning floor',
+    text: 'Treat the median as your working baseline, then test a second scenario so your budget is not fragile.'
+  }
+];
+
+const interpretationCards = [
+  {
+    title: 'Use the median for budgeting',
+    text: 'The midpoint is the cleanest starting line for a working plan and family conversations.'
+  },
+  {
+    title: 'Use the high range for stress testing',
+    text: 'The top of the range helps you see what happens if care needs rise or add-ons show up quickly.'
+  },
+  {
+    title: 'Use the report to guide calls',
+    text: 'Take the risk flags, care type, and state link into your next provider or facility conversation.'
+  }
+];
+
+const insights = [
+  {
+    title: 'Start with care needs',
+    text: 'Care type and intensity usually move the number faster than families expect.'
+  },
+  {
+    title: 'Then lock location',
+    text: 'State and metro context explain why two similar communities can still price far apart.'
+  },
+  {
+    title: 'Then compare scenarios',
+    text: 'Save a baseline, raise one variable, and use the delta to understand your risk.'
+  },
+  {
+    title: 'Then validate with quotes',
+    text: 'Use the report as a planning draft, not a substitute for written fee schedules.'
+  }
+];
+---
+<BaseLayout
+  title="Assisted Living Cost Estimator | Senior Care Tool"
+  description="Estimate assisted living, memory care, home care, and nursing home costs with transparent ranges, affordability context, and next-step planning guidance."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+  <section class="section">
+    <div class="container">
+      <span class="pill">Primary planning workspace</span>
+      <h1>Senior care cost estimator</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. Build a realistic monthly and annual care plan for assisted living, memory care,
+        home care, or nursing home support. The goal is not to impress you with one number. It is to help you
+        make the next decision with fewer surprises.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guidance updated annually. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, <a href="/methodology/">Methodology</a>, or
+              <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Best when you have</strong>
+          <p>One quote, one real budget, or a home care hourly rate you can trust.</p>
+        </div>
+        <div class="summary-card">
+          <strong>What you will get</strong>
+          <p>A modeled range, affordability signal, risk flags, and a route into the right state and guide pages.</p>
+        </div>
+        <div class="summary-card">
+          <strong>What to do next</strong>
+          <p>Use the report to collect like-for-like quotes and compare one higher-care scenario before deciding.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#estimator-tool">Jump to estimator</a>
+        <a class="chip" href="#how-to-use-your-result">How to use your result</a>
+        <a class="chip" href="#report">Jump to report</a>
+        <a class="chip" href="/guides/cost-planning-checklist/">Planning checklist</a>
+        <a class="chip" href="/guides/quote-collection-guide/">Quote collection guide</a>
+        <a class="chip" href="/guides/price-factors/">Pricing drivers</a>
+        <a class="chip" href="/state-costs/">State guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-3">
+      {prepCards.map((card) => (
+        <div class="card feature">
+          <h2>{card.title}</h2>
+          <p class="note">{card.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" id="estimator-tool">
+    <div class="container estimator">
+      <div class="estimator-left">
+        <form class="card" data-estimator-form>
+          <div class="stepper">
+            <div class="step active" data-step></div>
+            <div class="step" data-step></div>
+            <div class="step" data-step></div>
+            <div class="step" data-step></div>
+          </div>
+          <div class="step-status" data-step-status>Step 1 of 4</div>
+
+          <div class="step-panel active" data-step-panel>
+            <h3>Step 1: Care needs</h3>
+            <p class="note">Pick the care setting first. Then match the intensity to the real support needed today, not the lowest possible tier.</p>
+            <div class="field">
+              <label for="careType">Care type</label>
+              <select id="careType" data-care-type>
+                <option value="assisted_living">Assisted Living</option>
+                <option value="memory_care">Memory Care</option>
+                <option value="home_care">Home Care (hourly)</option>
+                <option value="nursing_home">Nursing Home</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Quick profiles</label>
+              <div class="profile-grid">
+                <button class="profile-btn" type="button" data-profile="independent">Independent support</button>
+                <button class="profile-btn" type="button" data-profile="memory">Memory care needs</button>
+                <button class="profile-btn" type="button" data-profile="inhome">In-home support</button>
+                <button class="profile-btn" type="button" data-profile="nursing">Skilled nursing</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="careLevelRange">Care intensity</label>
+              <div class="range-group">
+                <input id="careLevelRange" type="range" min="0" max="2" step="1" value="1" data-care-level-range />
+                <div class="range-output" data-care-level-label>Moderate</div>
+              </div>
+              <input type="hidden" data-care-level value="moderate" />
+              <p class="note">If the family is already debating a higher tier, run that higher tier too. It is usually the safer planning assumption.</p>
+            </div>
+            <div class="controls">
+              <button class="btn" type="button" data-step-next>Next</button>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel>
+            <h3>Step 2: Location</h3>
+            <p class="note">State and ZIP do not replace real quotes, but they help you choose the right local context before you compare providers.</p>
+            <div class="input-row three">
+              <div class="field">
+                <label for="state">State</label>
+                <select id="state" data-state required>
+                  <option value="">Select a state</option>
+                </select>
+                <p class="field-error" aria-live="polite" data-error="state"></p>
+              </div>
+              <div class="field">
+                <label for="zip">ZIP (optional)</label>
+                <input
+                  id="zip"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="postal-code"
+                  pattern="\d{5}(-\d{4})?"
+                  maxlength="10"
+                  placeholder="e.g., 90210"
+                  data-zip
+                />
+                <p class="field-error" aria-live="polite" data-error="zip"></p>
+              </div>
+              <div class="field">
+                <label for="locationType">Location type</label>
+                <select id="locationType" data-location>
+                  <option value="urban">Urban</option>
+                  <option value="suburban" selected>Suburban</option>
+                  <option value="rural">Rural</option>
+                </select>
+              </div>
+            </div>
+            <div class="controls">
+              <button class="btn secondary" type="button" data-step-prev>Back</button>
+              <button class="btn" type="button" data-step-next>Next</button>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel>
+            <h3>Step 3: Living preferences</h3>
+            <p class="note">Keep room type and add-ons consistent when you compare two scenarios. That is how you isolate the real driver.</p>
+            <div class="field">
+              <label for="roomType">Room type</label>
+              <select id="roomType" data-room-type>
+                <option value="shared">Shared</option>
+                <option value="private" selected>Private</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="moveTimeline">Move-in timeline</label>
+              <select id="moveTimeline" data-move>
+                <option value="0-30">0-30 days</option>
+                <option value="30-90" selected>30-90 days</option>
+                <option value="90-180">90-180 days</option>
+                <option value="180+">180+ days</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Optional services</label>
+              <label class="tag"><input type="checkbox" data-amenity value="meals" /> Meals</label>
+              <label class="tag"><input type="checkbox" data-amenity value="rehab" /> Rehab</label>
+              <label class="tag"><input type="checkbox" data-amenity value="transport" /> Transportation</label>
+              <label class="tag"><input type="checkbox" data-amenity value="specialized" /> Specialized staff</label>
+            </div>
+            <div class="controls">
+              <button class="btn secondary" type="button" data-step-prev>Back</button>
+              <button class="btn" type="button" data-step-next>Next</button>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step-panel>
+            <h3>Step 4: Budget and baseline</h3>
+            <p class="note">This is the most important step. If you have a real quote, use it. If not, use the most realistic budget the family can sustain.</p>
+            <div class="input-row">
+              <div class="field">
+                <label for="budget">Monthly budget (USD)</label>
+                <input id="budget" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g., 5000" data-budget />
+                <p class="field-error" aria-live="polite" data-error="budget"></p>
+              </div>
+              <div class="field">
+                <label for="baseline">Local baseline quote (monthly)</label>
+                <input
+                  id="baseline"
+                  type="number"
+                  min="0"
+                  step="1"
+                  inputmode="numeric"
+                  placeholder="e.g., 5200"
+                  data-baseline
+                />
+                <p class="field-error" aria-live="polite" data-error="baseline"></p>
+                <p class="note">A written quote usually beats a generic budget for planning confidence.</p>
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="field" data-hours-field>
+                <label for="hours">Home care hours per day</label>
+                <input id="hours" type="number" min="1" max="24" step="1" inputmode="numeric" value="6" data-hours />
+                <p class="field-error" aria-live="polite" data-error="hours"></p>
+              </div>
+              <div class="field" data-hourly-field>
+                <label for="hourlyRate">Home care hourly rate (optional)</label>
+                <input
+                  id="hourlyRate"
+                  type="number"
+                  min="0"
+                  step="0.5"
+                  inputmode="decimal"
+                  placeholder="e.g., 28"
+                  data-hourly
+                />
+                <p class="field-error" aria-live="polite" data-error="hourly"></p>
+                <p class="note">If provided, we estimate monthly using your daily hours and care profile.</p>
+              </div>
+            </div>
+            <p class="field-error" aria-live="polite" data-error="anchor"></p>
+            <div class="field">
+              <label for="budgetRange">Budget dial</label>
+              <div class="range-group">
+                <input id="budgetRange" type="range" min="0" max="15000" step="250" value="5000" data-budget-range />
+                <div class="range-output" data-budget-output>$5,000</div>
+              </div>
+              <p class="note">Use the dial to see when your plan starts to feel tight or flexible.</p>
+            </div>
+            <div class="field">
+              <label for="inflationRange">Projected annual increase</label>
+              <div class="range-group">
+                <input id="inflationRange" type="range" min="0" max="8" step="0.5" value="4" data-inflation-range />
+                <div class="range-output" data-inflation-output>4.0%</div>
+              </div>
+              <p class="note">Used for the 3-year and 5-year totals so you can see whether the plan stays realistic.</p>
+            </div>
+            <div class="controls">
+              <button class="btn secondary" type="button" data-step-prev>Back</button>
+              <button class="btn" type="button" data-step-next>Finish</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="left-stack">
+          <div class="card">
+            <strong data-workspace-title>Set up a realistic baseline</strong>
+            <p class="note" data-workspace-note>
+              Start with one real quote or budget, then compare one higher-care scenario before you treat the result as decision-ready.
+            </p>
+          </div>
+          <div class="card">
+            <strong>Plan summary</strong>
+            <div class="chip-grid">
+              <span class="chip" data-summary-state>State</span>
+              <span class="chip" data-summary-type>Care type</span>
+              <span class="chip" data-summary-level>Care level</span>
+              <span class="chip" data-summary-room>Room type</span>
+              <span class="chip" data-summary-location>Location</span>
+              <span class="chip" data-summary-move>Timeline</span>
+            </div>
+          </div>
+          <div class="card">
+            <strong>Risk flags</strong>
+            <ul class="risk-list">
+              <li data-risk-1>Complete the form to unlock risk checks.</li>
+              <li data-risk-2></li>
+              <li data-risk-3></li>
+            </ul>
+          </div>
+          <div class="card">
+            <strong>Smart analysis</strong>
+            <p class="note" data-ai-analysis>Provide details to generate a tailored planning insight.</p>
+          </div>
+          <div class="card">
+            <strong>Analysis</strong>
+            <p class="note" data-result-analysis>Add a baseline quote or monthly budget to generate a personalized range.</p>
+            <p class="note" data-result-note></p>
+          </div>
+          <div class="card">
+            <strong>Distribution</strong>
+            <div class="distribution">
+              <div class="distribution-track">
+                <span class="marker low" data-dist-low></span>
+                <span class="marker median" data-dist-median></span>
+                <span class="marker high" data-dist-high></span>
+              </div>
+              <div class="distribution-labels">
+                <span>Low</span>
+                <span>Median</span>
+                <span>High</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <strong>Cost drivers</strong>
+            <ul class="driver-list">
+              <li><span>Care intensity</span><span data-driver-care>+0%</span></li>
+              <li><span>Room type</span><span data-driver-room>+0%</span></li>
+              <li><span>Location</span><span data-driver-location>+0%</span></li>
+              <li><span>Services</span><span data-driver-amenities>+0%</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <strong>Scenario comparison</strong>
+            <p class="note">Save a baseline and compare changes instantly.</p>
+            <button class="btn secondary" type="button" data-save-baseline>Save as baseline</button>
+            <div class="compare-table" data-compare-table>
+              <div class="compare-row header">
+                <span></span>
+                <span>Baseline</span>
+                <span>Current</span>
+              </div>
+              <div class="compare-row">
+                <span>Monthly median</span>
+                <span data-compare-baseline-month>$0</span>
+                <span data-compare-current-month>$0</span>
+              </div>
+              <div class="compare-row">
+                <span>Annual total</span>
+                <span data-compare-baseline-annual>$0</span>
+                <span data-compare-current-annual>$0</span>
+              </div>
+              <div class="compare-row">
+                <span>Budget gap</span>
+                <span data-compare-baseline-gap>$0</span>
+                <span data-compare-current-gap>$0</span>
+              </div>
+              <div class="compare-row">
+                <span>Delta vs baseline</span>
+                <span class="delta" data-compare-delta-month>$0</span>
+                <span class="delta" data-compare-delta-annual>$0</span>
+              </div>
+            </div>
+            <div class="note" data-compare-status role="status" aria-live="polite">No baseline saved yet.</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="results">
+        <p class="visually-hidden" data-result-status aria-live="polite"></p>
+        <div class="kpi">
+          <div class="label">Estimated monthly range</div>
+          <div class="value" data-result-range>$0 - $0</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Median monthly cost</div>
+          <div class="value" data-result-median>$0</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Estimated annual cost</div>
+          <div class="value" data-result-annual>$0</div>
+        </div>
+        <div class="kpi">
+          <div class="label">3-year projection</div>
+          <div class="value" data-result-three>$0</div>
+        </div>
+        <div class="kpi">
+          <div class="label">5-year projection</div>
+          <div class="value" data-result-five>$0</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Affordability score</div>
+          <div class="value" data-result-affordability>N/A</div>
+          <div class="bar"><span data-affordability-bar style="width: 0%"></span></div>
+        </div>
+        <div class="kpi">
+          <div class="label" data-gap-label>Budget gap</div>
+          <div class="value" data-result-gap>$0</div>
+          <div class="note">Calculated from the median monthly estimate.</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Care fit score</div>
+          <div class="value" data-result-carefit>0 / 100</div>
+          <div class="bar"><span data-carefit-bar style="width: 0%"></span></div>
+        </div>
+        <div class="card full">
+          <strong>What this estimate means</strong>
+          <p class="note" data-result-readiness>Complete your inputs to see how decision-ready this estimate feels.</p>
+          <p class="note" data-result-anchor-tip>Use a written quote or budget to make the range more practical.</p>
+          <p class="note" data-budget-story>Once you add a budget, this panel will explain where the plan feels tight or flexible.</p>
+        </div>
+        <div class="card full">
+          <strong>Next actions</strong>
+          <p class="note" data-next-actions-note>Validate your estimate with the right local context.</p>
+          <div class="controls">
+            <a class="btn secondary" href="/state-costs/" data-next-actions-state>Open state guide</a>
+            <a class="btn" href="/guides/cost-planning-checklist/">Planning checklist</a>
+          </div>
+          <a class="tag" href="/guides/quote-collection-guide/">Quote collection guide</a>
+        </div>
+        <div class="card full">
+          <strong>Savings path</strong>
+          <ul class="insight-list">
+            <li data-suggestion-1>Adjust care intensity to reduce monthly cost.</li>
+            <li data-suggestion-2>Compare nearby suburban options.</li>
+            <li data-suggestion-3>Review optional services.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Estimate confidence</strong>
+          <div class="chip" data-confidence>High</div>
+          <p class="note">Confidence rises when you add real location and care details.</p>
+          <div class="controls" style="margin-top: 10px;">
+            <a class="btn secondary" href="/glossary/">Glossary</a>
+          </div>
+        </div>
+        <div class="card full">
+          <strong>12-month cost curve</strong>
+          <div class="curve" data-curve>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+            <div class="curve-bar" data-curve-bar></div>
+          </div>
+          <p class="note">Uses your inflation rate to project monthly trend.</p>
+        </div>
+        <div class="card full">
+          <strong>City comparison</strong>
+          <p class="note" data-next-city-compare-note>Use your state guide to compare two cities.</p>
+          <a class="tag" href="/state-costs/" data-next-city-compare>Open city comparison</a>
+        </div>
+        <div class="card full">
+          <strong>Share plan</strong>
+          <p class="note">Copy a link with your current inputs to revisit or share.</p>
+          <button class="btn secondary" type="button" data-share>Copy share link</button>
+          <span class="note" data-share-status role="status" aria-live="polite"></span>
+        </div>
+        <div class="card full">
+          <strong>How to interpret your estimate</strong>
+          <ul class="checklist">
+            <li>Use the median as your planning baseline.</li>
+            <li>Add a 10 percent buffer when care needs could rise.</li>
+            <li>Compare at least one alternative scenario before deciding.</li>
+            <li>Validate the range with written local quotes and fee schedules.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="how-to-use-your-result">
+    <div class="container">
+      <h2>How to use your result without over-trusting it</h2>
+      <p class="section-lead">
+        The output is strongest when it helps you ask better questions, choose the next comparison, and pressure-test the budget. It should not be the only number you use.
+      </p>
+      <div class="grid-3">
+        {interpretationCards.map((card) => (
+          <div class="card feature">
+            <h3>{card.title}</h3>
+            <p class="note">{card.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container cta-strip">
+      <div>
+        <div class="badge">Best practice</div>
+        <strong>Save one baseline, then compare one higher-care scenario before you move forward.</strong>
+      </div>
+      <div class="controls">
+        <a class="btn secondary" href="/state-costs/">State guides</a>
+        <a class="btn" href="/guides/quote-collection-guide/">Quote workflow</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container guide-shell">
+      <details class="guide-toggle" open>
+        <summary>
+          <h2>Decision workflow</h2>
+          <span class="tag">Quick view</span>
+        </summary>
+        <div class="guide-premium">
+          {insights.map((item, index) => (
+            <div class="guide-item" style={`--delay: ${index * 80}ms;`}>
+              <div class="guide-index">{String(index + 1).padStart(2, '0')}</div>
+              <span class="guide-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                  <path
+                    fill="currentColor"
+                    d="M12 2 4 6v6c0 5.25 3.5 9.88 8 11 4.5-1.12 8-5.75 8-11V6l-8-4zm0 2.2 6 3v4.8c0 4.14-2.56 7.98-6 9.12-3.44-1.14-6-4.98-6-9.12V7.2l6-3z"
+                  ></path>
+                </svg>
+              </span>
+              <div class="guide-text">
+                <h3>{item.title}</h3>
+                <p class="note">{item.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </details>
+
+      <aside class="guide-aside card">
+        <strong>When this tool is most helpful</strong>
+        <ul class="checklist">
+          <li>You need a first-pass monthly range before collecting more quotes.</li>
+          <li>You already have one quote and want to compare a second scenario fast.</li>
+          <li>You need to explain budget tradeoffs clearly to family members.</li>
+          <li>You want a cleaner handoff into state guides and planning checklists.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQs</h2>
+      <p><strong>How accurate is the estimate?</strong> We provide a modeled range based on your baseline inputs and care profile.</p>
+      <p><strong>Is this medical or financial advice?</strong> No. This tool is for planning and comparison only.</p>
+      <p><strong>Do you publish state averages?</strong> No. We model around your baseline or budget and recommend validating with local quotes.</p>
+      <p><strong>Why a range instead of one number?</strong> Prices vary by facility, care intensity, room type, and location.</p>
+      <p><strong>Can I compare multiple care options?</strong> Yes. Switch care types and inputs to compare scenarios.</p>
+    </div>
+  </section>
+
+  <section class="section report" id="report" data-report>
+    <div class="container">
+      <details class="guide-toggle report-toggle" open>
+        <summary>
+          <span>Report</span>
+          <span class="tag">Expand</span>
+        </summary>
+        <div class="report-header">
+          <div>
+            <span class="pill">Full result</span>
+            <h2>Your personalized care cost report</h2>
+            <p class="note">Use this summary to compare options with family, advisors, or providers.</p>
+          </div>
+          <div class="report-actions">
+            <button class="btn secondary" type="button" data-print>Print report</button>
+            <button class="btn secondary" type="button" data-share-report>Copy share link</button>
+            <a class="btn" href="/estimator/">Adjust inputs</a>
+          </div>
+        </div>
+
+        <div class="report-snapshot">
+          <div class="snapshot-card">
+            <span class="label">Monthly range</span>
+            <strong class="value" data-report-range>$0 - $0</strong>
+          </div>
+          <div class="snapshot-card">
+            <span class="label">Median monthly</span>
+            <strong class="value" data-report-median>$0</strong>
+          </div>
+          <div class="snapshot-card">
+            <span class="label">Annual total</span>
+            <strong class="value" data-report-annual>$0</strong>
+          </div>
+          <div class="snapshot-card">
+            <span class="label" data-report-gap-label>Budget gap</span>
+            <strong class="value" data-report-gap>$0</strong>
+          </div>
+        </div>
+
+        <p class="note" data-report-anchor-note>Model anchor: baseline quote.</p>
+
+        <div class="report-grid">
+          <div class="card">
+            <strong>Long-term outlook</strong>
+            <div class="kpi">
+              <div class="label">3-year projection</div>
+              <div class="value" data-report-three>$0</div>
+            </div>
+            <div class="kpi">
+              <div class="label">5-year projection</div>
+              <div class="value" data-report-five>$0</div>
+            </div>
+            <p class="note">Projection uses your inflation input.</p>
+          </div>
+
+          <div class="card">
+            <strong>Affordability and fit</strong>
+            <div class="kpi">
+              <div class="label">Affordability</div>
+              <div class="value" data-report-affordability>N/A</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Care fit score</div>
+              <div class="value" data-report-carefit>0 / 100</div>
+            </div>
+            <p class="note">Scores update as you refine care intensity, location, and budget.</p>
+          </div>
+
+          <div class="card">
+            <strong>Plan summary</strong>
+            <div class="chip-grid">
+              <a class="chip" data-report-state data-report-state-link href="/state-costs/">State</a>
+              <span class="chip" data-report-type>Care type</span>
+              <span class="chip" data-report-level>Care level</span>
+              <span class="chip" data-report-room>Room type</span>
+              <span class="chip" data-report-location>Location</span>
+              <span class="chip" data-report-move>Timeline</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <strong>Smart analysis</strong>
+            <p class="note" data-report-analysis></p>
+            <ul class="insight-list">
+              <li data-report-suggestion-1></li>
+              <li data-report-suggestion-2></li>
+              <li data-report-suggestion-3></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <strong>Risk flags</strong>
+            <ul class="risk-list">
+              <li data-report-risk-1></li>
+              <li data-report-risk-2></li>
+              <li data-report-risk-3></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <strong>Share</strong>
+            <p class="note">Copy the link from the address bar to share this report.</p>
+            <div class="tag">Auto-saved to the URL</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <h3>Next steps based on your estimate</h3>
+          <p class="note">Use these guides to refine your inputs, then validate the range with state-level context.</p>
+          <div class="grid-3">
+            <div class="feature">
+              <strong>Cost planning checklist</strong>
+              <p class="note">Prepare questions and inputs before facility calls.</p>
+              <a class="tag" href="/guides/cost-planning-checklist/">Open guide</a>
+            </div>
+            <div class="feature">
+              <strong>What impacts pricing most</strong>
+              <p class="note">Understand which inputs move the range fastest.</p>
+              <a class="tag" href="/guides/price-factors/">Open guide</a>
+            </div>
+            <div class="feature">
+              <strong>Choosing a facility checklist</strong>
+              <p class="note">Compare quotes with a consistent scorecard.</p>
+              <a class="tag" href="/guides/choosing-a-facility-checklist/">Open guide</a>
+            </div>
+          </div>
+          <div class="grid-3" style="margin-top: 16px;">
+            <div class="feature">
+              <strong data-next-state-title>Your state cost guide</strong>
+              <p class="note" data-next-state-note>Local pricing context for your estimate.</p>
+              <a class="tag" href="/state-costs/" data-next-state-link>Open guide</a>
+            </div>
+            <div class="feature">
+              <strong>Texas cost guide</strong>
+              <p class="note">Growth-driven demand shifts.</p>
+              <a class="tag" href="/state-costs/texas/">Open guide</a>
+            </div>
+            <div class="feature">
+              <strong>Florida cost guide</strong>
+              <p class="note">Retiree demand and waitlists.</p>
+              <a class="tag" href="/state-costs/florida/">Open guide</a>
+            </div>
+          </div>
+          <div class="controls" style="margin-top: 16px;">
+            <a class="btn secondary" href="/state-costs/">Browse all state guides</a>
+            <a class="btn" href="/guides/">Explore all guides</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <script>
+    const reportToggle = document.querySelectorAll('.report-toggle');
+    if (reportToggle.length && window.matchMedia('(max-width: 960px)').matches) {
+      reportToggle.forEach((item) => item.removeAttribute('open'));
+    }
+  </script>
+  <script src="/estimator.js" is:inline></script>
+</BaseLayout>

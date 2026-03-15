@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'California',
+  metroA: 'Los Angeles',
+  metroB: 'San Francisco',
+  region: 'West',
+  updated: 'Feb 2026',
+  description:
+    'California senior care planning guide with metro comparison cues, official state checks, and strong routing into the estimator and quote workflow.'
+};
+
+const sources = [
+  {
+    label: 'CDSS Senior Care Licensing Program',
+    href: 'https://www.cdss.ca.gov/inforesources/community-care-licensing/senior-care-licensing-program',
+    note: 'RCFE licensing and oversight.'
+  },
+  {
+    label: 'California Department of Aging',
+    href: 'https://aging.ca.gov/Programs_and_Services/Assisted_Living_Facilities/',
+    note: 'Assisted living guidance and local support resources.'
+  },
+  {
+    label: 'DHCS Assisted Living Waiver',
+    href: 'https://www.dhcs.ca.gov/services/ltc/Pages/Assisted-Living-Waiver-Provider-Enroll.aspx',
+    note: 'Waiver and provider enrollment context.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the California guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to understand local pricing pressure and official checks, then model your own range with a quote or budget in the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Los Angeles and San Francisco price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Metro labor, housing, and operator mix can create meaningful differences even for similar care levels.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in California quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with the care tier schedule, room type, add-on fees, and the provider licensure context.'
+      }
+    }
+  ]
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'California Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+---
+<BaseLayout title="California Senior Care Costs | California Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>California senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Use this page to understand how California market pressure shows up in real care
+        decisions, especially when you are comparing {page.metroA} and {page.metroB} or deciding whether a quote looks reasonable.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides updated annually. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>California often requires wider budget buffers because local market spreads can be large even within the same metro region.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First thing to compare</strong>
+          <p>Keep care tier and room type fixed, then compare {page.metroA} against {page.metroB} before comparing providers.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Open the estimator with one California quote, save it as a baseline, then stress-test a higher-care scenario.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>California market snapshot</h2>
+        <ul class="checklist">
+          <li>Metro labor and housing pressure can raise care costs quickly.</li>
+          <li>Coastal versus inland comparisons often matter as much as state-to-state comparisons.</li>
+          <li>Provider mix and waitlist pressure can change quote leverage even inside the same city.</li>
+          <li>Written care tier schedules are essential because base rent alone is rarely enough.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Anchor with at least one written California quote.</li>
+          <li>Use the state page to choose the right metro comparison.</li>
+          <li>Model one higher-care scenario before you judge affordability.</li>
+          <li>Use official licensing pages to validate provider claims and waiver context.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Often useful when you want a broader operator mix and a wide spread of quote structures to compare.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful when you want to stress-test how higher labor and housing pressure can change the same care plan.</p>
+        </div>
+      </div>
+      <p class="note">Keep the room type, care tier, and included services identical so the location difference is easy to read.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official California checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these sources to confirm licensure, oversight context, and waiver language before you compare two communities on price alone.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Quote validation workflow</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-on fees in writing.</li>
+          <li>Document whether medication management, transport, and therapies are bundled or separate.</li>
+          <li>Ask how reassessments change the monthly total.</li>
+          <li>Compare one quote from each metro before you compare multiple providers in one city.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Common California quote traps</h2>
+        <ul class="checklist">
+          <li>Base rent shown without a clear care tier line item.</li>
+          <li>Move-in fees separated from the monthly conversation.</li>
+          <li>Metro pressure explained vaguely instead of with a clear fee schedule.</li>
+          <li>Provider claims about waiver or program fit without documentation.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Gives you a broad-market California baseline.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, staffing premium, room type spread</td>
+            <td>Shows how a tighter or higher-pressure market changes the same plan.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Use the estimator after you fill this table so the comparison turns into a true monthly and annual scenario.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in California</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">Watch for base-rent comparisons that hide care tier jumps and recurring add-ons.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Secure-unit assumptions, staffing intensity, and activity structure can widen the premium.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Hourly schedules can become expensive quickly in higher-pressure metros, especially when daily hours rise.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity and staffing make the price structure very different from residential care settings.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the California guide?</summary>
+        <p class="note">Use it to understand local pricing pressure and official checks, then model your own range with a quote or budget in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Metro labor, housing, and operator mix can create meaningful differences even for similar care levels.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in California quotes?</summary>
+        <p class="note">Start with the care tier schedule, room type, add-on fees, and the provider licensure context.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a California plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your California quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with California preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

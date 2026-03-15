@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Assisted Living vs Nursing Home: How Families Should Compare Cost and Care',
+  datePublished: '2026-03-12',
+  dateModified: '2026-03-12',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is assisted living always cheaper than a nursing home?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Usually yes, but the gap can narrow when assisted living requires a high care tier, frequent add-ons, or outside private-duty support.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When is nursing home care the better fit?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nursing home care is usually the better fit when clinical oversight, rehabilitation, complex transfers, or 24-hour medical supervision are the real need.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How should families compare the two options fairly?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Keep the same resident profile, compare total monthly cost instead of base price alone, and model what happens if support needs rise within the next year.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Assisted Living vs Nursing Home: How Families Should Compare Cost and Care"
+  description="A practical assisted living vs nursing home guide covering care fit, cost structure, funding context, and how to compare quotes without missing the real long-term budget."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Care comparison guide</span>
+      <h1>Assisted living vs nursing home: how families should compare cost and care</h1>
+      <p class="section-lead">
+        Updated: Mar 2026. The biggest mistake families make is treating this as a price comparison first. The safer approach
+        is to match the real support need, then compare total monthly cost, reassessment risk, and likely next-step care changes.
+      </p>
+      <div class="tag">Last updated: Mar 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Assisted living is usually the lower-cost path, but only if the resident does not actually need ongoing clinical oversight.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Where families get misled</strong>
+          <p>A low assisted living quote can stop being low once care tiers, night supervision, and outside help are added.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Run one scenario for current needs and a second scenario for the next likely support level before you commit.</p>
+        </div>
+      </div>
+      <div class="toc">
+        <details open>
+          <summary><span class="toc-title">On this page</span></summary>
+          <div class="chip-grid">
+            <a class="chip" href="#where-the-decision-really-starts">Where the decision starts</a>
+            <a class="chip" href="#cost-structure">Cost structure</a>
+            <a class="chip" href="#fit-signals">Fit signals</a>
+            <a class="chip" href="#funding-context">Funding context</a>
+            <a class="chip" href="#transition-risk">Transition risk</a>
+            <a class="chip" href="#questions-to-ask">Questions to ask</a>
+            <a class="chip" href="#official-references">Official references</a>
+            <a class="chip" href="#guide-actions">Next actions</a>
+          </div>
+        </details>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Compare both options</a>
+        <a class="btn secondary" href="/care-types/">See care type overview</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="where-the-decision-really-starts">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What assisted living is built for</h2>
+        <ul class="checklist">
+          <li>Daily living help, medication support, meals, housing, and social structure.</li>
+          <li>Residents whose medical issues are mostly stable and managed outside the building.</li>
+          <li>Families who want support without moving immediately into a clinical setting.</li>
+          <li>Budgets that can tolerate care tier changes but not full nursing rates.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What nursing home care is built for</h2>
+        <ul class="checklist">
+          <li>Clinical supervision, skilled nursing, rehab, and higher-acuity safety needs.</li>
+          <li>Residents with complex transfers, frequent health events, or substantial medical oversight.</li>
+          <li>Families whose biggest concern is safety and medical continuity, not social lifestyle.</li>
+          <li>Cases where the resident would likely outgrow assisted living quickly.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cost-structure">
+    <div class="container card">
+      <h2>How the cost structure actually differs</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Assisted living pricing</h3>
+          <p>Usually starts with base rent, room type, meals, and common services, then grows through care tiers, medication help, escorts, continence support, or other add-ons.</p>
+        </div>
+        <div>
+          <h3>Nursing home pricing</h3>
+          <p>Usually reflects a more clinical cost structure from the start, with higher staffing intensity and less separation between hospitality and medical support.</p>
+        </div>
+        <div>
+          <h3>What families miss</h3>
+          <p>The first assisted living number can look easier, but it often excludes the next likely care tier and any extra private-duty support the family may still need.</p>
+        </div>
+        <div>
+          <h3>Best comparison method</h3>
+          <p>Compare total monthly cost, one-time move-in charges, reassessment risk, and what the next support level would do to the budget.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn" href="/estimator/">Model the monthly difference</a>
+        <a class="btn secondary" href="/guides/move-in-fees/">Review move-in costs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fit-signals">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Signs assisted living may still fit</h2>
+        <ul class="checklist">
+          <li>The resident mainly needs help with daily routines, not ongoing nursing care.</li>
+          <li>Nighttime risk and medical instability are limited.</li>
+          <li>The family wants more independence and social structure than a nursing setting provides.</li>
+          <li>A one-tier-higher scenario still looks financially survivable.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Signs nursing home care may be the safer fit</h2>
+        <ul class="checklist">
+          <li>Clinical needs are already central to the decision.</li>
+          <li>Transfers, rehabilitation, wound care, or frequent monitoring are part of daily reality.</li>
+          <li>Recent hospitalizations or rapid decline make near-term escalation likely.</li>
+          <li>The family is otherwise trying to recreate nursing support through multiple assisted living add-ons.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="funding-context">
+    <div class="container card">
+      <h2>Funding context changes the decision more than many families expect</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Assisted living</h3>
+          <p>Often depends on private pay, long-term care insurance, asset strategy, or limited state waiver support rather than broad ongoing medical coverage.</p>
+        </div>
+        <div>
+          <h3>Nursing home care</h3>
+          <p>Can involve a different public-program pathway for eligible residents, especially once long-term institutional-level care is part of the conversation.</p>
+        </div>
+      </div>
+      <p class="note">Do not assume a provider's short verbal explanation of coverage is enough. Check your state guide and the official program pages before treating the plan as affordable.</p>
+    </div>
+  </section>
+
+  <section class="section" id="transition-risk">
+    <div class="container card">
+      <h2>Transition risk is the part families most often under-budget</h2>
+      <ul class="checklist">
+        <li>If assisted living is chosen now, ask what happens if needs rise within 6 to 12 months.</li>
+        <li>Budget for a reassessment, a higher tier, new add-ons, or a later move to a nursing setting.</li>
+        <li>Ask whether the current provider can bridge a decline safely or whether a second move becomes likely.</li>
+        <li>Use two scenarios in the estimator so the family can see the price gap before a crisis forces the decision.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="questions-to-ask">
+    <div class="container card">
+      <h2>Questions to ask before comparing these two care levels</h2>
+      <ul class="checklist">
+        <li>What is the real reason this resident may need a nursing environment instead of assisted living?</li>
+        <li>What services would still need to be purchased on top of the assisted living quote?</li>
+        <li>How fast could the resident outgrow the current care level?</li>
+        <li>What does the next likely support step cost?</li>
+        <li>Which public-program or waiver assumptions are being built into the provider explanation?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>Is assisted living always cheaper than a nursing home?</summary>
+        <p class="note">Usually yes, but the gap can narrow when assisted living requires a high care tier, frequent add-ons, or outside private-duty support.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>When is nursing home care the better fit?</summary>
+        <p class="note">Nursing home care is usually the better fit when clinical oversight, rehabilitation, complex transfers, or 24-hour medical supervision are the real need.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>How should families compare the two options fairly?</summary>
+        <p class="note">Keep the same resident profile, compare total monthly cost instead of base price alone, and model what happens if support needs rise within the next year.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Use your state guide for local licensing and program rules that shape how these care types are actually delivered in your market.</p>
+      <ul class="checklist">
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for federal nursing facility and long-term care program context.</li>
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for nursing home and coverage guidance families commonly review during care transitions.</li>
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for aging services and state resource navigation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Check local pricing context and program rules before you trust a quote.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Compare current needs against a higher-support scenario.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Quote checklist</strong>
+          <p class="note">Use a structured question list before you call providers.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>California</strong>
+          <p class="note">Large metro spread and higher staffing pressure.</p>
+          <a class="tag" href="/state-costs/california/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Texas</strong>
+          <p class="note">Fast growth, diverse operators, and wide market variation.</p>
+          <a class="tag" href="/state-costs/texas/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Florida</strong>
+          <p class="note">Heavy retiree demand and strong comparison value for families relocating.</p>
+          <a class="tag" href="/state-costs/florida/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

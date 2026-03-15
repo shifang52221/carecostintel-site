@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Georgia',
+  metroA: 'Atlanta',
+  metroB: 'Savannah',
+  updated: 'Mar 2026',
+  description:
+    'Georgia senior care planning guide with city-comparison cues, official licensing and waiver checks, and estimator-first next steps.'
+};
+
+const sources = [
+  {
+    label: 'Georgia DCH long-term care regulation',
+    href: 'https://dch.georgia.gov/locations/healthcare-facility-regulation/long-term-care',
+    note: 'Official state oversight page for long-term care regulation.'
+  },
+  {
+    label: 'Georgia Assisted Living Communities rules',
+    href: 'https://rules.sos.ga.gov/gac/111-8-63',
+    note: 'Official rules for assisted living communities in Georgia.'
+  },
+  {
+    label: 'Georgia Elderly and Disabled Waiver Program',
+    href: 'https://georgia.gov/apply-elderly-and-disabled-waiver-program',
+    note: 'Official waiver program page relevant when community-based support is part of the comparison.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Georgia Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-03-12',
+  dateModified: '2026-03-12',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should families use the Georgia guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare local market signals, confirm licensing and waiver context, and then model a real Georgia quote inside the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Atlanta and Savannah price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Demand, staffing pressure, operator mix, and local market conditions can create meaningful differences between those two markets.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should families validate first in Georgia quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with room type, care tier structure, add-on fees, and the exact licensure or waiver language connected to the quote.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Georgia Senior Care Costs | Georgia Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Georgia senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Georgia is a strong planning state for comparison work because city-level differences can be
+        meaningful, provider category language matters, and official waiver and licensing context can change how a quote should be read.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Georgia families should compare city, care tier, and provider category together instead of trusting a single statewide story.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Hold room type and support level constant, then compare {page.metroA} and {page.metroB} before narrowing to one operator.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Take one Georgia quote, then model a second market or higher-support version of the same plan in the estimator.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Georgia market snapshot</h2>
+        <ul class="checklist">
+          <li>Metro-to-metro comparison matters because local demand and operator mix can shift the same support plan noticeably.</li>
+          <li>Provider category and state-rule context matter when facilities sound similar but operate under different assumptions.</li>
+          <li>Care tier design and add-on structure often explain more than the base quote.</li>
+          <li>Written fee schedules remain the safest comparison tool.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written Georgia quote from the target market.</li>
+          <li>Use a second city to test whether the first quote is unusually high or low.</li>
+          <li>Check the official state pages before relying on provider summaries of licensure or waiver fit.</li>
+          <li>Run a higher-support scenario if needs may rise soon.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where the comparison gets more useful</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful as a strong comparison point when you want to see how one of Georgia's largest markets prices the same resident profile.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as a second in-state anchor when families need to separate metro pressure from provider-specific differences.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the market difference stays easy to read.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Georgia checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these official pages to confirm facility category, oversight context, and the waiver language behind provider explanations.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>The long-term care regulation page helps families verify the oversight structure behind provider claims.</li>
+          <li>The assisted living community rules matter when a provider uses category language loosely during the sales process.</li>
+          <li>The Elderly and Disabled Waiver Program matters when community-based support is still part of the affordability conversation.</li>
+          <li>These checks reduce the risk of comparing options that sound similar but fit different regulatory paths.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for Georgia</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-ons in writing.</li>
+          <li>Ask whether the quote assumes a certain licensure category or waiver fit.</li>
+          <li>Separate one-time move-in costs from recurring monthly costs.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before building a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common Georgia quote traps</h2>
+        <ul class="checklist">
+          <li>Provider category or waiver language used vaguely without showing how it applies to the resident.</li>
+          <li>Base price shown without a clear care tier schedule.</li>
+          <li>Move-in fees and first-year increases left outside the monthly quote discussion.</li>
+          <li>Communities compared with different room or support assumptions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Normalize each option in the estimator.</li>
+          <li>Keep room, care, and add-on assumptions consistent across the comparison.</li>
+          <li>Use the official Georgia pages to verify the licensure and waiver language behind the quote.</li>
+          <li>Ask for recent rate-increase patterns if the provider will share them.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Shows how one of the state's largest markets prices the same support plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, reassessment structure, move-in fees</td>
+            <td>Provides a second in-state anchor before provider-by-provider comparison.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Use the estimator after filling this table so the family can see the monthly and annual effect more clearly.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Georgia</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">Compare provider category, care tier design, and included services before trusting the headline number.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security and staffing assumptions can widen premiums quickly across markets and operators.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Community-based support still deserves comparison, especially when waiver-based planning remains realistic.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the structure enough that direct comparisons need separate care-level review.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should families use the Georgia guide?</summary>
+        <p class="note">Use it to compare local market signals, confirm licensing and waiver context, and then model a real Georgia quote inside the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Demand, staffing pressure, operator mix, and local market conditions can create meaningful differences between those two markets.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should families validate first in Georgia quotes?</summary>
+        <p class="note">Start with room type, care tier structure, add-on fees, and the exact licensure or waiver language connected to the quote.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a Georgia plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Georgia quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before narrowing the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Georgia preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Home Care vs Assisted Living: The 2026 Cost Tipping Point',
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'At what point does home care cost more than assisted living?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'There is no universal threshold, but many families see the gap narrow or reverse once daily hours and supervision needs rise into the mid-to-high range.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is home care always the cheaper starting option?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Not always. It can look cheaper at low hours, but total cost rises quickly when schedules become longer, split, overnight, or harder to staff.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How should I compare the two options fairly?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use the same care assumptions for both paths, include add-ons and one-time costs, and then compare the monthly and annual totals in the estimator.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Home Care vs Assisted Living: The 2026 Cost Tipping Point"
+  description="A practical guide to comparing home care and assisted living costs, tipping points, care tradeoffs, and the right way to model both paths."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Comparison guide</span>
+      <h1>Home care vs assisted living: the cost tipping point</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. Families often compare these two paths too loosely. This guide helps you compare them with the
+        same care assumptions so you can see when home care still works, when assisted living starts to make more sense, and where the real hidden costs sit.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Quick answer</strong>
+          <p>Home care often wins at lower support levels, but assisted living can become more efficient once daily coverage, supervision, and coordination costs rise.</p>
+        </div>
+        <div class="summary-card">
+          <strong>What families miss</strong>
+          <p>They compare hourly care to base rent, instead of comparing full monthly care needs to the full monthly residential package.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Run one home care scenario and one assisted living scenario in the estimator with the same real-world care assumptions.</p>
+        </div>
+      </div>
+      <div class="toc">
+        <details open>
+          <summary><span class="toc-title">On this page</span></summary>
+          <div class="chip-grid">
+            <a class="chip" href="#comparison-frame">Comparison frame</a>
+            <a class="chip" href="#where-home-care-wins">Where home care wins</a>
+            <a class="chip" href="#where-assisted-living-wins">Where assisted living wins</a>
+            <a class="chip" href="#hidden-costs">Hidden costs</a>
+            <a class="chip" href="#decision-factors">Decision factors</a>
+            <a class="chip" href="#scenario-workflow">Scenario workflow</a>
+            <a class="chip" href="#official-references">Official references</a>
+            <a class="chip" href="#guide-actions">Next actions</a>
+          </div>
+        </details>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Compare both paths</a>
+        <a class="btn secondary" href="/care-types/">Review care types</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="comparison-frame">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>How to compare the two fairly</h2>
+        <ul class="checklist">
+          <li>Use the same care need profile for both options.</li>
+          <li>Count total monthly home care hours, not idealized low-hour schedules.</li>
+          <li>Include room type, care tier, and add-ons for assisted living.</li>
+          <li>Separate one-time costs from recurring monthly costs.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What the tipping point really means</h2>
+        <ul class="checklist">
+          <li>It is the point where the monthly cost gap becomes small, disappears, or reverses.</li>
+          <li>It often arrives sooner when supervision needs are rising, not just when hours rise.</li>
+          <li>It can shift by city, staffing market, and schedule complexity.</li>
+          <li>It should be judged with a second higher-support scenario, not only today's needs.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="where-home-care-wins">
+    <div class="container card">
+      <h2>Where home care often wins</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Lower daily support needs</h3>
+          <p>Home care often makes the most sense when the resident needs limited help, the schedule is stable, and overnight supervision is not yet part of the plan.</p>
+        </div>
+        <div>
+          <h3>Strong home fit</h3>
+          <p>The math improves when the home is safe, the layout works, and the family does not need to pay for major modifications or intense coordination.</p>
+        </div>
+        <div>
+          <h3>High preference for aging in place</h3>
+          <p>For some families, staying home has meaningful emotional or lifestyle value that justifies a narrower cost advantage.</p>
+        </div>
+        <div>
+          <h3>Reliable informal support</h3>
+          <p>If family can cover gaps predictably, the paid schedule may stay lighter for longer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="where-assisted-living-wins">
+    <div class="container card">
+      <h2>Where assisted living often wins</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Longer daily schedules</h3>
+          <p>Once home care stretches into longer days, split shifts, or consistent supervision, the cost gap often narrows quickly.</p>
+        </div>
+        <div>
+          <h3>Bundled support</h3>
+          <p>Meals, housekeeping, social structure, and built-in staffing can reduce the number of separate services the family needs to coordinate.</p>
+        </div>
+        <div>
+          <h3>Rising care complexity</h3>
+          <p>Medication support, mobility assistance, and reassessment-based care often become easier to manage in a residential setting.</p>
+        </div>
+        <div>
+          <h3>Safety and isolation concerns</h3>
+          <p>Assisted living can become more compelling when the family is not only buying hours, but also supervision, routine, and lower household risk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="hidden-costs">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Hidden home care costs</h2>
+        <ul class="checklist">
+          <li>Minimum shift lengths and schedule inefficiency.</li>
+          <li>Weekend, overnight, and holiday premiums.</li>
+          <li>Home modifications, equipment, and supplies.</li>
+          <li>Care management or family coordination time.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Hidden assisted living costs</h2>
+        <ul class="checklist">
+          <li>Care tier changes after assessment.</li>
+          <li>Medication management, transport, and other add-ons.</li>
+          <li>Move-in or community fees.</li>
+          <li>Annual increases that stack on top of care changes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="decision-factors">
+    <div class="container card">
+      <h2>Decision factors beyond cost</h2>
+      <ul class="checklist">
+        <li>How much coordination the family can sustain.</li>
+        <li>Whether the home remains safe as needs rise.</li>
+        <li>How much social structure the resident benefits from.</li>
+        <li>How quickly the family may need a higher-support backup plan.</li>
+        <li>Whether the lowest-cost option still feels stable six to twelve months from now.</li>
+      </ul>
+      <p class="note">The cheapest option at today's care level is not always the safest or cheapest option over the next year.</p>
+    </div>
+  </section>
+
+  <section class="section" id="scenario-workflow">
+    <div class="container card">
+      <h2>A clean scenario workflow</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Scenario A: Home care today</h3>
+          <p>Enter realistic daily hours, likely schedule complexity, and any recurring overhead that belongs in the monthly total.</p>
+        </div>
+        <div>
+          <h3>Scenario B: Assisted living now</h3>
+          <p>Use a real quote or realistic room and care assumptions, including likely add-ons and move-in structure.</p>
+        </div>
+        <div>
+          <h3>Scenario C: Higher support</h3>
+          <p>Increase care needs in both paths so the family can see which option bends faster under pressure.</p>
+        </div>
+        <div>
+          <h3>Decision use</h3>
+          <p>Compare the monthly and annual delta, then use quality-of-life and safety factors to decide if a small cost gap is worth the tradeoff.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn" href="/estimator/">Run the comparison</a>
+        <a class="btn secondary" href="/guides/cost-planning-checklist/">Use the planning checklist</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>At what point does home care cost more than assisted living?</summary>
+        <p class="note">There is no universal threshold, but many families see the gap narrow or reverse once daily hours and supervision needs rise into the mid-to-high range.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Is home care always the cheaper starting option?</summary>
+        <p class="note">Not always. It can look cheaper at low hours, but total cost rises quickly when schedules become longer, split, overnight, or harder to staff.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>How should I compare the two options fairly?</summary>
+        <p class="note">Use the same care assumptions for both paths, include add-ons and one-time costs, and then compare the monthly and annual totals in the estimator.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Check your state licensing pages to confirm how care settings and in-home services are defined locally.</p>
+      <ul class="checklist">
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for community-based aging services context.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for long-term care oversight context.</li>
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for consumer-facing coverage and care-setting terminology.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Quote checklist</strong>
+          <p class="note">Prepare cleaner provider-by-provider comparisons.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>California</strong>
+          <p class="note">Metro spreads and staffing pressure.</p>
+          <a class="tag" href="/state-costs/california/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Texas</strong>
+          <p class="note">Growth-driven demand and operator mix.</p>
+          <a class="tag" href="/state-costs/texas/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Florida</strong>
+          <p class="note">Retiree demand and local market differences.</p>
+          <a class="tag" href="/state-costs/florida/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

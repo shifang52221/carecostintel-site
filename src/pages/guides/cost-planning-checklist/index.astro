@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Senior Care Cost Planning Checklist (2026 Edition)',
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How many quotes should I collect?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A practical starting point is 3 to 5 quotes in your target market so you can see the real spread and spot outliers.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How big should the budget buffer be?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Many families start with a 10 percent planning buffer above the median estimate, especially if care needs may rise.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What if I only know rough details right now?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Run a baseline scenario with what you know today, then a second scenario with one higher care level so your plan is not too narrow.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Senior Care Cost Planning Checklist (2026 Edition)"
+  description="A practical senior care planning checklist for collecting the right inputs, stress-testing costs, and preparing better questions before you request quotes."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Planning checklist</span>
+      <h1>Senior care cost planning checklist</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. This guide helps families collect the inputs that actually change the monthly total, avoid
+        thin first estimates, and walk into provider calls with better questions and a calmer plan.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>What this does</strong>
+          <p>It turns a vague care search into a clear list of pricing inputs, documents, and comparison points.</p>
+        </div>
+        <div class="summary-card">
+          <strong>What families miss</strong>
+          <p>Most under-budgeting starts with missing care tier details, hidden add-ons, or no higher-care backup scenario.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Use this checklist first, then enter the results in the estimator so the range reflects real decision inputs.</p>
+        </div>
+      </div>
+      <div class="toc">
+        <details open>
+          <summary><span class="toc-title">On this page</span></summary>
+          <div class="chip-grid">
+            <a class="chip" href="#use-this-checklist">How to use it</a>
+            <a class="chip" href="#core-inputs">Core inputs</a>
+            <a class="chip" href="#quote-readiness">Quote readiness</a>
+            <a class="chip" href="#visit-notes">Visit notes</a>
+            <a class="chip" href="#scenario-plan">Scenario plan</a>
+            <a class="chip" href="#official-references">Official references</a>
+            <a class="chip" href="#guide-actions">Next actions</a>
+          </div>
+        </details>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Start the estimator</a>
+        <a class="btn secondary" href="/guides/quote-collection-guide/">Open quote checklist</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="use-this-checklist">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>How to use this checklist well</h2>
+        <ul class="checklist">
+          <li>Spend 30 to 45 minutes gathering the baseline details before you compare communities or agencies.</li>
+          <li>Use written fee schedules whenever possible instead of relying on verbal summaries.</li>
+          <li>Run one current-needs scenario and one higher-needs scenario.</li>
+          <li>Treat the median estimate as the real budget anchor, not the optimistic low end.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What this checklist protects against</h2>
+        <ul class="checklist">
+          <li>Comparing providers with mismatched room type or care assumptions.</li>
+          <li>Missing recurring add-ons that were not part of the first quote.</li>
+          <li>Ignoring annual increases or reassessment timing.</li>
+          <li>Making a move decision before the family sees the budget gap clearly.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="core-inputs">
+    <div class="container card">
+      <h2>The core inputs to gather before you price anything</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Care need profile</h3>
+          <ul class="checklist">
+            <li>Daily living tasks that need help today.</li>
+            <li>Medication complexity and supervision needs.</li>
+            <li>Mobility, fall, or transfer support requirements.</li>
+            <li>Cognitive, memory, or behavior-related concerns.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Care setting assumptions</h3>
+          <ul class="checklist">
+            <li>Home care, assisted living, memory care, or nursing home as the current best-fit path.</li>
+            <li>Room type or occupancy assumption.</li>
+            <li>Expected hours per day if home care is still being compared.</li>
+            <li>Whether a higher-support setting is likely within 12 months.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Budget inputs</h3>
+          <ul class="checklist">
+            <li>Current monthly income sources.</li>
+            <li>Fixed expenses that continue after the move.</li>
+            <li>Available family contribution or bridge funding, if any.</li>
+            <li>Room for a 5 to 10 percent annual increase buffer.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Location inputs</h3>
+          <ul class="checklist">
+            <li>Primary target city or county.</li>
+            <li>One lower-cost comparison market to stress-test location impact.</li>
+            <li>Travel needs for family visits or medical support.</li>
+            <li>State-specific programs or waiver questions to verify.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quote-readiness">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What to request from every provider</h2>
+        <ul class="checklist">
+          <li>Base rent or hourly rate in writing.</li>
+          <li>Full care tier schedule and reassessment rules.</li>
+          <li>Recurring add-on fees such as medication help, transport, therapy, or supplies.</li>
+          <li>One-time move-in, community, or deposit charges.</li>
+          <li>Recent annual increase history if the provider will share it.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Questions that make quotes comparable</h2>
+        <ul class="checklist">
+          <li>What exactly is included in the quoted monthly price?</li>
+          <li>What changes the total after reassessment?</li>
+          <li>What services are separate line items instead of bundled?</li>
+          <li>How quickly can rates change after a health or behavior shift?</li>
+          <li>What is refundable if the move does not work out?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="visit-notes">
+    <div class="container card">
+      <h2>Notes to capture during tours or intake calls</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Pricing clarity</h3>
+          <ul class="checklist">
+            <li>Whether the quote reflects the real care level or only the entry-level price.</li>
+            <li>How room size or occupancy changes the total.</li>
+            <li>Whether the provider uses bundled or a la carte pricing.</li>
+            <li>Whether move-in incentives expire quickly.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Operational signals</h3>
+          <ul class="checklist">
+            <li>Staffing stability and visible workflow quality.</li>
+            <li>How the team explains reassessments and care changes.</li>
+            <li>How family updates are handled.</li>
+            <li>Whether the provider answers fee questions cleanly or vaguely.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">If a provider cannot clearly explain the full monthly structure, treat that as a pricing risk, not just a communication issue.</p>
+    </div>
+  </section>
+
+  <section class="section" id="scenario-plan">
+    <div class="container card">
+      <h2>Two scenarios every family should run</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Scenario A: Baseline now</h3>
+          <p>Use the current care level, target location, and one written quote or realistic budget. This becomes the working baseline.</p>
+        </div>
+        <div>
+          <h3>Scenario B: Higher support</h3>
+          <p>Increase care intensity, change room type if likely, or add more daily home care hours. Compare the monthly and annual delta.</p>
+        </div>
+      </div>
+      <p class="note">If the family is uncertain, the safer decision anchor is usually the higher-support scenario, not the cheapest current quote.</p>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn" href="/estimator/">Build both scenarios</a>
+        <a class="btn secondary" href="/guides/price-factors/">See pricing drivers</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How many quotes should I collect?</summary>
+        <p class="note">A practical starting point is 3 to 5 quotes in your target market so you can see the real spread and spot outliers.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>How big should the budget buffer be?</summary>
+        <p class="note">Many families start with a 10 percent planning buffer above the median estimate, especially if care needs may rise.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What if I only know rough details right now?</summary>
+        <p class="note">Run a baseline scenario with what you know today, then a second scenario with one higher care level so your plan is not too narrow.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Use your state guide to verify licensing terms and consumer protections mentioned here.</p>
+      <ul class="checklist">
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for aging services and local support context.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for long-term care oversight context.</li>
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for coverage language and care-setting terminology.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Quote workflow</strong>
+          <p class="note">Use a cleaner provider-by-provider comparison process.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>California</strong>
+          <p class="note">Metro spreads and staffing pressure.</p>
+          <a class="tag" href="/state-costs/california/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Texas</strong>
+          <p class="note">Growth-driven demand and operator mix.</p>
+          <a class="tag" href="/state-costs/texas/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Florida</strong>
+          <p class="note">Retiree demand and waitlist patterns.</p>
+          <a class="tag" href="/state-costs/florida/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

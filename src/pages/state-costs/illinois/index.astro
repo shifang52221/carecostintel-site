@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Illinois',
+  metroA: 'Chicago',
+  metroB: 'Springfield',
+  updated: 'Feb 2026',
+  description:
+    'Illinois senior care planning guide with metro comparison cues, official state checks, and estimator-first next steps.'
+};
+
+const sources = [
+  {
+    label: 'Illinois Supportive Living Program',
+    href: 'https://hfs.illinois.gov/medicalprograms/slf.html',
+    note: "Program context for the state's supportive living pathway."
+  },
+  {
+    label: 'Illinois Community Care Program',
+    href: 'https://ilaging.illinois.gov/programs/ccp.html',
+    note: 'Home and community-based support program context.'
+  },
+  {
+    label: 'Illinois assisted living and shared housing oversight',
+    href: 'https://dph.illinois.gov/topics-services/health-care-regulation/assisted-living.html',
+    note: 'Licensing and regulatory context from IDPH.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Illinois Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the Illinois guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare Illinois market patterns, check official program and oversight pages, and then model your own quote in the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Chicago and Springfield price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Metro pressure, staffing competition, and provider mix can change the same care plan meaningfully across those markets.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in Illinois quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with care tier design, add-on fees, room type assumptions, and the relevant Illinois program or licensing context.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Illinois Senior Care Costs | Illinois Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Illinois senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Illinois is useful for planning because families can compare a high-pressure metro against
+        a lower-pressure in-state market while also checking supportive living, community care, and oversight context.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Illinois planning usually improves when families compare metro pressure and state program fit at the same time.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Keep room type and care tier fixed, then compare {page.metroA} against {page.metroB} before you compare providers.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Anchor the estimator with one Illinois quote and then test a second scenario that changes either care level or market.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Illinois market snapshot</h2>
+        <ul class="checklist">
+          <li>Metro pricing pressure can change the same care plan substantially inside one state.</li>
+          <li>Provider structure often matters more than the first advertised monthly number.</li>
+          <li>Supportive living and community-based programs are worth checking before families assume one residential path is the only fit.</li>
+          <li>Written fee schedules remain the cleanest way to compare two Illinois options fairly.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written Illinois quote.</li>
+          <li>Use a second market to test whether location is driving the difference.</li>
+          <li>Check the state program and oversight pages before relying on provider summaries.</li>
+          <li>Run a higher-support scenario if the family expects care needs to rise.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful when you want to see how major metro labor and housing pressure affect the same room and care assumptions.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as a second in-state anchor when you want to know whether the quote problem is really the market, not the care model.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the location comparison stays meaningful.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Illinois checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these state pages to understand the relevant program and licensing language before you compare two options on price alone.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>Supportive Living Program can matter when families are exploring state-linked alternatives to higher-cost care paths.</li>
+          <li>Community Care Program matters when staying in the community is still part of the comparison set.</li>
+          <li>IDPH oversight pages help families understand how assisted living and shared housing are framed in Illinois.</li>
+          <li>These checks are often the difference between a clean comparison and a misleading one.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for Illinois</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-on fees in writing.</li>
+          <li>Confirm whether the quote assumes a particular level of support or reassessment result.</li>
+          <li>Separate one-time move-in charges from the recurring monthly number.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before narrowing to a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common Illinois quote traps</h2>
+        <ul class="checklist">
+          <li>Program names mentioned without clarifying whether they actually apply to the family's path.</li>
+          <li>Base rent shown without a transparent care-tier structure.</li>
+          <li>Different room types compared as if they were equal.</li>
+          <li>Chicago-area quotes treated as though they represent the whole state.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Use the estimator to normalize every option.</li>
+          <li>Keep room and care assumptions fixed across comparisons.</li>
+          <li>Use official state pages to confirm what program or provider labels actually mean.</li>
+          <li>Ask for the full first-year cost structure, not just the move-in number.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Shows how a major Illinois metro prices the same plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, move-in structure, reassessment rules</td>
+            <td>Gives you a second in-state anchor before provider-by-provider comparison.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Move this comparison into the estimator when you are ready to see the monthly and annual difference clearly.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Illinois</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">The real spread often comes from care-tier design and add-ons, not just the first monthly number.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security and staffing assumptions can widen the premium quickly across markets.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Community-based options still deserve comparison when support levels are moderate and location pressure is high.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the structure enough that a direct price comparison needs separate review.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the Illinois guide?</summary>
+        <p class="note">Use it to compare Illinois market patterns, check official program and oversight pages, and then model your own quote in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Metro pressure, staffing competition, and provider mix can change the same care plan meaningfully across those markets.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in Illinois quotes?</summary>
+        <p class="note">Start with care tier design, add-on fees, room type assumptions, and the relevant Illinois program or licensing context.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for an Illinois plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Illinois quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Illinois preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

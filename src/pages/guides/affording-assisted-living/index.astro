@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'How to Afford Assisted Living in 2026',
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Does Medicare pay for assisted living?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Medicare does not pay for long-term assisted living room and board, though it may cover some short-term medical services under limited conditions.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can Medicaid help with assisted living?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Some states offer Medicaid-related assisted living or home and community-based service pathways, but eligibility and covered services vary by state.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I do if there is a budget gap?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use the estimator to measure the gap clearly, then test lower-cost markets, shared rooms, lower-cost care alternatives, or different funding timelines.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="How to Afford Assisted Living in 2026"
+  description="A practical guide to affording assisted living in 2026, including funding paths, gap planning, timeline strategy, and safer budgeting decisions."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Funding guide</span>
+      <h1>How to afford assisted living in 2026</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. Affordability is not just about finding the lowest quote. It is about matching the real care
+        timeline to realistic funding sources so a move does not create a second crisis six months later.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Quick answer</strong>
+          <p>The safest plan starts with a true monthly range, then matches short-term and long-term funding sources to that range.</p>
+        </div>
+        <div class="summary-card">
+          <strong>What breaks budgets</strong>
+          <p>Families often plan for base rent, but not care tier growth, annual increases, or the timing of benefits and asset changes.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Use the estimator first, then test one lower-cost scenario and one higher-care scenario before you commit to a funding plan.</p>
+        </div>
+      </div>
+      <div class="toc">
+        <details open>
+          <summary><span class="toc-title">On this page</span></summary>
+          <div class="chip-grid">
+            <a class="chip" href="#monthly-range">Monthly range</a>
+            <a class="chip" href="#funding-paths">Funding paths</a>
+            <a class="chip" href="#gap-plan">Budget gap plan</a>
+            <a class="chip" href="#timeline-plan">Timeline plan</a>
+            <a class="chip" href="#mistakes">Common mistakes</a>
+            <a class="chip" href="#official-references">Official references</a>
+            <a class="chip" href="#guide-actions">Next actions</a>
+          </div>
+        </details>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Estimate assisted living costs</a>
+        <a class="btn secondary" href="/state-costs/">See state cost guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="monthly-range">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Start with the true monthly range</h2>
+        <ul class="checklist">
+          <li>Use total monthly cost, not just base rent.</li>
+          <li>Include care tier fees, medication support, transport, and any likely add-ons.</li>
+          <li>Separate one-time move-in costs from recurring monthly costs.</li>
+          <li>Model a second scenario if care needs may rise within the next year.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Why this step matters first</h2>
+        <ul class="checklist">
+          <li>You cannot judge whether a funding path works until the size of the real monthly gap is clear.</li>
+          <li>Families often overestimate how long bridge funding can carry the plan.</li>
+          <li>It is easier to solve a known gap than a vague affordability fear.</li>
+          <li>The estimator gives the family one shared decision anchor instead of multiple assumptions.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="funding-paths">
+    <div class="container card">
+      <h2>The main funding paths families usually evaluate</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Current income and assets</h3>
+          <p>Pensions, Social Security, annuities, savings, and home-sale proceeds often form the base of the plan.</p>
+        </div>
+        <div>
+          <h3>Long-term care insurance</h3>
+          <p>Policies can reduce the gap meaningfully, but only if benefit triggers, elimination periods, and daily caps are verified early.</p>
+        </div>
+        <div>
+          <h3>Veterans-related support</h3>
+          <p>Eligible veterans and surviving spouses may have additional benefit paths worth checking before move-in.</p>
+        </div>
+        <div>
+          <h3>State Medicaid-related pathways</h3>
+          <p>Some states offer programs tied to assisted living or community-based support, but service scope and wait times differ widely.</p>
+        </div>
+        <div>
+          <h3>Bridge funding</h3>
+          <p>Bridge solutions can help during a transition such as a home sale, but they should support a timeline, not replace one.</p>
+        </div>
+        <div>
+          <h3>Family contribution</h3>
+          <p>Shared support can work, but it needs a clear amount, duration, and fallback plan to avoid future strain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gap-plan">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>How to respond to a budget gap</h2>
+        <ul class="checklist">
+          <li>Test a nearby lower-cost city or state, not just another provider in the same market.</li>
+          <li>Compare shared versus private room assumptions.</li>
+          <li>Check whether assisted living is still the right setting versus home care, memory care, or other support paths.</li>
+          <li>Rebuild the budget around the median scenario, not the cheapest quote.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What not to do</h2>
+        <ul class="checklist">
+          <li>Do not rely on promotional pricing without understanding the later rate structure.</li>
+          <li>Do not assume family help is open-ended if no one has agreed to exact terms.</li>
+          <li>Do not ignore one-time fees just because they are outside the monthly quote.</li>
+          <li>Do not use short-term funding to solve a long-term affordability problem without a written timeline.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="timeline-plan">
+    <div class="container card">
+      <h2>Build a timeline, not just a number</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Next 90 days</h3>
+          <ul class="checklist">
+            <li>Collect written quotes and confirm the full fee structure.</li>
+            <li>Verify benefit programs and policy details.</li>
+            <li>Decide which assets or bridge sources are truly available.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Next 12 months</h3>
+          <ul class="checklist">
+            <li>Plan for annual increases and likely care reassessments.</li>
+            <li>Decide what happens if the baseline plan becomes more expensive.</li>
+            <li>Review whether a lower-cost market remains the fallback option.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">A realistic plan usually has a primary path, a backup path, and a date when the family agrees to re-evaluate affordability.</p>
+    </div>
+  </section>
+
+  <section class="section" id="mistakes">
+    <div class="container card">
+      <h2>Common affordability mistakes</h2>
+      <ul class="checklist">
+        <li>Planning from base rent instead of total monthly cost.</li>
+        <li>Assuming assisted living is automatically cheaper than every alternative in the target market.</li>
+        <li>Waiting too long to confirm insurance, waiver, or veteran-related eligibility.</li>
+        <li>Ignoring the cost of a move that happens faster than expected.</li>
+        <li>Choosing a provider before the family has agreed on the funding timeline.</li>
+      </ul>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/guides/cost-planning-checklist/">Use the planning checklist</a>
+        <a class="btn" href="/guides/price-factors/">Review pricing drivers</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>Does Medicare pay for assisted living?</summary>
+        <p class="note">Medicare does not pay for long-term assisted living room and board, though it may cover some short-term medical services under limited conditions.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Can Medicaid help with assisted living?</summary>
+        <p class="note">Some states offer Medicaid-related assisted living or home and community-based service pathways, but eligibility and covered services vary by state.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I do if there is a budget gap?</summary>
+        <p class="note">Use the estimator to measure the gap clearly, then test lower-cost markets, shared rooms, lower-cost care alternatives, or different funding timelines.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Use your state guide to verify the local program names and licensing terms that may apply.</p>
+      <ul class="checklist">
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for consumer coverage language and care-setting terminology.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for long-term care oversight context.</li>
+        <li><a href="https://www.acl.gov/">Administration for Community Living (ACL)</a> for aging service network context.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the checklist</strong>
+          <p class="note">Collect the inputs that make funding decisions cleaner.</p>
+          <a class="tag" href="/guides/cost-planning-checklist/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>New York</strong>
+          <p class="note">High-spread urban market checks and program context.</p>
+          <a class="tag" href="/state-costs/new-york/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Pennsylvania</strong>
+          <p class="note">Regional contrasts and licensing context.</p>
+          <a class="tag" href="/state-costs/pennsylvania/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Illinois</strong>
+          <p class="note">Supportive living and in-home program checks.</p>
+          <a class="tag" href="/state-costs/illinois/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Pennsylvania',
+  metroA: 'Philadelphia',
+  metroB: 'Pittsburgh',
+  updated: 'Feb 2026',
+  description:
+    'Pennsylvania senior care planning guide with metro comparison cues, official state checks, and estimator-first next steps.'
+};
+
+const sources = [
+  {
+    label: 'Pennsylvania personal care home and assisted living licensing',
+    href: 'https://www.pa.gov/agencies/dhs/resources/licensing/pch-alr-licensing.html',
+    note: 'Licensing and oversight context for personal care homes and assisted living residences.'
+  },
+  {
+    label: 'Pennsylvania personal care home services',
+    href: 'https://www.pa.gov/agencies/dhs/resources/personal-care-home-services.html',
+    note: 'Program and service context from the state.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Pennsylvania Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use the Pennsylvania guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Use it to compare the state's major metro patterns, check official licensing context, and then model your own quote in the estimator."
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Philadelphia and Pittsburgh price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Market structure, staffing pressure, and provider mix can create meaningful differences across those two metro areas.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I validate first in Pennsylvania quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with care tier structure, included services, move-in fees, and the relevant licensing context for the provider.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Pennsylvania Senior Care Costs | Pennsylvania Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Pennsylvania senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Pennsylvania is useful for planning because metro differences can be meaningful without
+        being obvious in the first quote. This guide helps families compare {page.metroA} and {page.metroB}, check the right
+        state pages, and move into a cleaner estimate.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Pennsylvania usually rewards careful metro comparison because provider structure and local market pressure can shift the real monthly total.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Keep room type and care tier fixed, then compare {page.metroA} against {page.metroB} before narrowing to one provider.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Anchor the estimator with one Pennsylvania quote and test a second scenario before you assume the first quote is representative.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Pennsylvania market snapshot</h2>
+        <ul class="checklist">
+          <li>Metro and suburban spreads can matter more than families expect.</li>
+          <li>Provider pricing structure often explains quote differences better than headline rent alone.</li>
+          <li>Licensing terms are important because settings may sound similar while operating under different categories.</li>
+          <li>Written fee schedules are essential if you want a fair city-to-city comparison.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written quote from your target market.</li>
+          <li>Use a second Pennsylvania market to check whether the first quote is unusually high or low.</li>
+          <li>Check the state licensing pages before relying on provider terminology.</li>
+          <li>Run a higher-support scenario if the family is uncertain about near-term care progression.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where to look first</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful when you want to see how a larger, denser market structures price, staffing pressure, and service bundles.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as a second anchor when you want to test whether the same plan works better in a different Pennsylvania market.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the market comparison stays clean.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Pennsylvania checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these pages to confirm the state's terminology and oversight context before you compare two providers on price alone.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>Pennsylvania distinguishes between provider categories in ways families should understand before comparing quotes.</li>
+          <li>Licensing context helps explain why two communities may describe similar services differently.</li>
+          <li>Official service pages can clarify what a provider category is expected to offer.</li>
+          <li>These checks reduce the risk of comparing two settings that only sound similar.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for Pennsylvania</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-on fees in writing.</li>
+          <li>Confirm whether assessments change the monthly total quickly.</li>
+          <li>Separate one-time move-in charges from recurring monthly charges.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before narrowing to a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common Pennsylvania quote traps</h2>
+        <ul class="checklist">
+          <li>Different provider categories compared as if they were identical products.</li>
+          <li>Base rent shown without line-item care details.</li>
+          <li>Move-in fees separated from the affordability conversation.</li>
+          <li>Comparing quotes with different room or care assumptions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Use the estimator to normalize both quotes.</li>
+          <li>Document the care tier and included services for every option.</li>
+          <li>Use the state pages to confirm what the provider category actually means.</li>
+          <li>Ask for the recent rate increase pattern if the provider will share it.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, bundled services</td>
+            <td>Shows how a larger Pennsylvania market prices the same plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, add-ons, move-in structure</td>
+            <td>Gives you a second in-state anchor before you compare providers.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Fill this table first, then move the comparison into the estimator so the budget impact is easier to read.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Pennsylvania</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">The most important differences often show up in care structure and fees, not in the first headline number.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security, staffing, and behavior-support assumptions can widen the premium quickly.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Hourly schedules can still compete at lower support levels, but the math shifts fast as daily hours grow.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the quote structure enough that comparisons need separate care-level review.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use the Pennsylvania guide?</summary>
+        <p class="note">Use it to compare the state's major metro patterns, check official licensing context, and then model your own quote in the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Market structure, staffing pressure, and provider mix can create meaningful differences across those two metro areas.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I validate first in Pennsylvania quotes?</summary>
+        <p class="note">Start with care tier structure, included services, move-in fees, and the relevant licensing context for the provider.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a Pennsylvania plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Pennsylvania quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Pennsylvania preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

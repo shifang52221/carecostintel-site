@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const page = {
+  state: 'Connecticut',
+  metroA: 'Hartford',
+  metroB: 'New Haven',
+  updated: 'Mar 2026',
+  description:
+    'Connecticut senior care planning guide with city-comparison cues, assisted living service oversight checks, and CHCPE planning context.'
+};
+
+const sources = [
+  {
+    label: 'Connecticut DPH Home Health Unit',
+    href: 'https://portal.ct.gov/dph/practitioner-licensing--investigations/home-health-unit',
+    note: 'Official Connecticut Department of Public Health page for Assisted Living Services Agency oversight and related licensing context.'
+  },
+  {
+    label: 'Connecticut Home Care Program for Elders',
+    href: 'https://portal.ct.gov/dss/health-and-home-care/long-term-services-and-supports/connecticut-home-care-program-for-elders',
+    note: 'Official Connecticut DSS page for CHCPE eligibility and long-term services planning context.'
+  },
+  {
+    label: 'Connecticut Bureau of Aging',
+    href: 'https://portal.ct.gov/aginganddisability/agency-admin/bureau-of-aging',
+    note: 'Official statewide aging-services page for local support and program navigation.'
+  }
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Connecticut Senior Care Costs',
+  areaServed: { '@type': 'AdministrativeArea', name: page.state },
+  datePublished: '2026-03-12',
+  dateModified: '2026-03-12',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should families use the Connecticut guide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use it to compare local market signals, confirm assisted living service oversight and CHCPE context, and then model a real Connecticut quote inside the estimator.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Hartford and New Haven price the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Labor pressure, operator mix, local demand, and building costs can create meaningful differences between those two Connecticut markets.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should families validate first in Connecticut quotes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with room type, care tier structure, add-on fees, and the exact assisted living services or CHCPE language behind the quote.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout title="Connecticut Senior Care Costs | Connecticut Planning Guide" description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning guide</span>
+      <h1>Connecticut senior care costs</h1>
+      <p class="section-lead">
+        Updated: {page.updated}. Connecticut is a useful planning state because assisted living service oversight should be
+        checked directly, CHCPE context still matters in many affordability conversations, and metro differences can
+        materially change how a family interprets a quote.
+      </p>
+      <div class="tag">Last updated: {page.updated}</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Connecticut families should compare city, care tier, and state-program context together instead of treating every quote as the same private-pay product.</p>
+        </div>
+        <div class="summary-card">
+          <strong>First comparison</strong>
+          <p>Hold room type and support level steady, then compare {page.metroA} and {page.metroB} before narrowing to one provider.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Take one Connecticut quote, then model a second market or higher-support version of the same plan in the estimator.</p>
+        </div>
+      </div>
+      <div class="chip-grid" style="margin-top: 14px;">
+        <a class="chip" href="#market-snapshot">Market snapshot</a>
+        <a class="chip" href="#official-checks">Official checks</a>
+        <a class="chip" href="#program-context">Program context</a>
+        <a class="chip" href="#city-comparison">City comparison</a>
+        <a class="chip" href="#care-patterns">Care patterns</a>
+        <a class="chip" href="#next-steps">Next steps</a>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Run the estimator</a>
+        <a class="btn secondary" href="/state-costs/">All state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="market-snapshot">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Connecticut market snapshot</h2>
+        <ul class="checklist">
+          <li>Metro-level comparison matters because the same resident profile can price differently across Connecticut markets.</li>
+          <li>Care tier design and included services often explain more than base rent alone.</li>
+          <li>Assisted living service language and CHCPE language should be checked before providers are treated as interchangeable.</li>
+          <li>Written fee schedules remain the safest comparison tool.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use this guide well</h2>
+        <ul class="checklist">
+          <li>Start with one written Connecticut quote from the market you actually want.</li>
+          <li>Use a second city to pressure-test whether the first quote is unusually high or low.</li>
+          <li>Check the official state pages before relying on provider summaries of assisted living service oversight or CHCPE fit.</li>
+          <li>Run one higher-support scenario if the resident may need more help soon.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>{page.metroA} versus {page.metroB}: where families usually learn the most</h2>
+      <div class="grid-2">
+        <div>
+          <h3>{page.metroA}</h3>
+          <p>Useful as a larger-market anchor when you want to see how one of Connecticut's busiest care markets prices the same support plan.</p>
+        </div>
+        <div>
+          <h3>{page.metroB}</h3>
+          <p>Useful as an in-state contrast when families need to separate metro pressure from provider-specific differences.</p>
+        </div>
+      </div>
+      <p class="note">Keep room type, care tier, and included services identical so the city comparison stays clean.</p>
+    </div>
+  </section>
+
+  <section class="section" id="official-checks">
+    <div class="container card">
+      <h2>Official Connecticut checks before you trust a quote</h2>
+      <ul class="checklist">
+        {sources.map((source) => (
+          <li><a href={source.href}>{source.label}</a> for {source.note}</li>
+        ))}
+      </ul>
+      <p class="note">Use these official pages to confirm assisted living services oversight, CHCPE context, and statewide aging-services language behind provider explanations.</p>
+    </div>
+  </section>
+
+  <section class="section" id="program-context">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Program and oversight context</h2>
+        <ul class="checklist">
+          <li>Connecticut assisted living planning matters because assisted living services, not just the building, are part of what the family is comparing.</li>
+          <li>CHCPE matters when home and community-based support is still part of the affordability discussion.</li>
+          <li>The Bureau of Aging matters when families need statewide and local support beyond provider marketing.</li>
+          <li>These checks reduce the risk of comparing options that sound similar but fit different program or service assumptions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Quote workflow for Connecticut</h2>
+        <ul class="checklist">
+          <li>Ask for base rent, care tier schedule, and add-ons in writing.</li>
+          <li>Ask whether the quote is being framed in a straight private-pay context or alongside CHCPE planning.</li>
+          <li>Separate one-time move-in charges from recurring monthly costs.</li>
+          <li>Compare one {page.metroA} quote and one {page.metroB} quote before narrowing to a shortlist.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common Connecticut quote traps</h2>
+        <ul class="checklist">
+          <li>Assisted living service or CHCPE language discussed casually without showing how it applies to the resident.</li>
+          <li>Base rent shown without a clear care tier schedule.</li>
+          <li>Move-in fees and first-year increases separated from the monthly conversation.</li>
+          <li>Providers compared with different room or support assumptions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to reduce the noise</h2>
+        <ul class="checklist">
+          <li>Normalize each option in the estimator.</li>
+          <li>Keep room, care, and add-on assumptions constant across the comparison.</li>
+          <li>Use the official Connecticut pages to verify the assisted living service and CHCPE language behind the quote.</li>
+          <li>Ask for recent rate-increase patterns if the provider will share them.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="city-comparison">
+    <div class="container card">
+      <h2>City comparison table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{page.metroA}</td>
+            <td>Base rent, care tier schedule, add-on bundle</td>
+            <td>Shows how one major Connecticut market prices the same support plan.</td>
+          </tr>
+          <tr>
+            <td>{page.metroB}</td>
+            <td>Base rent, reassessment structure, move-in fees</td>
+            <td>Provides a second in-state anchor before provider-by-provider comparison.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Use the estimator after filling this table so the monthly and annual difference is easier for the family to judge.</p>
+    </div>
+  </section>
+
+  <section class="section" id="care-patterns">
+    <div class="container card">
+      <h2>Care-type patterns to watch in Connecticut</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">The biggest differences usually show up in care tiers, add-ons, and how assisted living services are described in writing.</p>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Security and staffing assumptions can widen the premium quickly across cities and operators.</p>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Community-based alternatives still deserve comparison, especially when CHCPE remains part of the planning discussion.</p>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical intensity changes the structure enough that direct comparisons need separate care-level review.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare care types</a>
+        <a class="btn" href="/guides/price-factors/">Pricing drivers guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should families use the Connecticut guide?</summary>
+        <p class="note">Use it to compare local market signals, confirm assisted living service oversight and CHCPE context, and then model a real Connecticut quote inside the estimator.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do {page.metroA} and {page.metroB} price the same?</summary>
+        <p class="note">No. Labor pressure, operator mix, local demand, and market structure can create meaningful differences between those two metros.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should families validate first in Connecticut quotes?</summary>
+        <p class="note">Start with room type, care tier structure, add-on fees, and the exact assisted living service or CHCPE language behind the quote.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container card">
+      <h2>Next steps for a Connecticut plan</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note">Model your Connecticut quote or budget and save the baseline.</p>
+          <a class="tag" href="/estimator/">Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Use the quote checklist</strong>
+          <p class="note">Collect comparable fee schedules before you narrow the list.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Return to your estimate</strong>
+          <p class="note">Go back with Connecticut preselected and continue the comparison.</p>
+          <a class="tag" href="/estimator/" data-back-estimate data-back-label>Back to estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

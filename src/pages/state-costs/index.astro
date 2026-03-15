@@ -1,0 +1,384 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const stateList = [
+  { name: 'Alabama', url: '/state-costs/alabama/' },
+  { name: 'Alaska', url: '/state-costs/alaska/' },
+  { name: 'Arizona', url: '/state-costs/arizona/' },
+  { name: 'Arkansas', url: '/state-costs/arkansas/' },
+  { name: 'California', url: '/state-costs/california/' },
+  { name: 'Colorado', url: '/state-costs/colorado/' },
+  { name: 'Connecticut', url: '/state-costs/connecticut/' },
+  { name: 'Delaware', url: '/state-costs/delaware/' },
+  { name: 'District of Columbia', url: '/state-costs/district-of-columbia/' },
+  { name: 'Florida', url: '/state-costs/florida/' },
+  { name: 'Georgia', url: '/state-costs/georgia/' },
+  { name: 'Hawaii', url: '/state-costs/hawaii/' },
+  { name: 'Idaho', url: '/state-costs/idaho/' },
+  { name: 'Illinois', url: '/state-costs/illinois/' },
+  { name: 'Indiana', url: '/state-costs/indiana/' },
+  { name: 'Iowa', url: '/state-costs/iowa/' },
+  { name: 'Kansas', url: '/state-costs/kansas/' },
+  { name: 'Kentucky', url: '/state-costs/kentucky/' },
+  { name: 'Louisiana', url: '/state-costs/louisiana/' },
+  { name: 'Maine', url: '/state-costs/maine/' },
+  { name: 'Maryland', url: '/state-costs/maryland/' },
+  { name: 'Massachusetts', url: '/state-costs/massachusetts/' },
+  { name: 'Michigan', url: '/state-costs/michigan/' },
+  { name: 'Minnesota', url: '/state-costs/minnesota/' },
+  { name: 'Mississippi', url: '/state-costs/mississippi/' },
+  { name: 'Missouri', url: '/state-costs/missouri/' },
+  { name: 'Montana', url: '/state-costs/montana/' },
+  { name: 'Nebraska', url: '/state-costs/nebraska/' },
+  { name: 'Nevada', url: '/state-costs/nevada/' },
+  { name: 'New Hampshire', url: '/state-costs/new-hampshire/' },
+  { name: 'New Jersey', url: '/state-costs/new-jersey/' },
+  { name: 'New Mexico', url: '/state-costs/new-mexico/' },
+  { name: 'New York', url: '/state-costs/new-york/' },
+  { name: 'North Carolina', url: '/state-costs/north-carolina/' },
+  { name: 'North Dakota', url: '/state-costs/north-dakota/' },
+  { name: 'Ohio', url: '/state-costs/ohio/' },
+  { name: 'Oklahoma', url: '/state-costs/oklahoma/' },
+  { name: 'Oregon', url: '/state-costs/oregon/' },
+  { name: 'Pennsylvania', url: '/state-costs/pennsylvania/' },
+  { name: 'Rhode Island', url: '/state-costs/rhode-island/' },
+  { name: 'South Carolina', url: '/state-costs/south-carolina/' },
+  { name: 'South Dakota', url: '/state-costs/south-dakota/' },
+  { name: 'Tennessee', url: '/state-costs/tennessee/' },
+  { name: 'Texas', url: '/state-costs/texas/' },
+  { name: 'Utah', url: '/state-costs/utah/' },
+  { name: 'Vermont', url: '/state-costs/vermont/' },
+  { name: 'Virginia', url: '/state-costs/virginia/' },
+  { name: 'Washington', url: '/state-costs/washington/' },
+  { name: 'West Virginia', url: '/state-costs/west-virginia/' },
+  { name: 'Wisconsin', url: '/state-costs/wisconsin/' },
+  { name: 'Wyoming', url: '/state-costs/wyoming/' }
+];
+
+const featuredStates = [
+  { name: 'California', note: 'Metro premiums, labor pressure, and wide city spreads.', href: '/state-costs/california/' },
+  { name: 'Texas', note: 'Growth markets, operator mix, and large metro differences.', href: '/state-costs/texas/' },
+  { name: 'Florida', note: 'Retiree demand, waitlists, and strong coastal vs inland contrasts.', href: '/state-costs/florida/' },
+  { name: 'New York', note: 'Dense metro markets versus upstate price differences.', href: '/state-costs/new-york/' },
+  { name: 'Pennsylvania', note: 'A useful contrast between major metros and lower-cost regions.', href: '/state-costs/pennsylvania/' },
+  { name: 'Arizona', note: 'Fast-growth retiree markets with shifting provider capacity.', href: '/state-costs/arizona/' }
+];
+
+const regionGroups = [
+  {
+    name: 'Northeast',
+    note: 'Dense metros and higher wage pressure often widen the gap between city and suburban quotes.',
+    links: [
+      { name: 'New York', href: '/state-costs/new-york/' },
+      { name: 'Massachusetts', href: '/state-costs/massachusetts/' },
+      { name: 'Pennsylvania', href: '/state-costs/pennsylvania/' },
+      { name: 'New Jersey', href: '/state-costs/new-jersey/' }
+    ]
+  },
+  {
+    name: 'Midwest',
+    note: 'Metro versus rural spreads can be large even when a state feels generally affordable.',
+    links: [
+      { name: 'Illinois', href: '/state-costs/illinois/' },
+      { name: 'Ohio', href: '/state-costs/ohio/' },
+      { name: 'Michigan', href: '/state-costs/michigan/' },
+      { name: 'Minnesota', href: '/state-costs/minnesota/' }
+    ]
+  },
+  {
+    name: 'South',
+    note: 'Fast-growth metros can price very differently from nearby secondary markets.',
+    links: [
+      { name: 'Florida', href: '/state-costs/florida/' },
+      { name: 'Texas', href: '/state-costs/texas/' },
+      { name: 'Georgia', href: '/state-costs/georgia/' },
+      { name: 'North Carolina', href: '/state-costs/north-carolina/' }
+    ]
+  },
+  {
+    name: 'West',
+    note: 'Housing, labor, and distance can create larger pricing gaps between local markets.',
+    links: [
+      { name: 'California', href: '/state-costs/california/' },
+      { name: 'Washington', href: '/state-costs/washington/' },
+      { name: 'Arizona', href: '/state-costs/arizona/' },
+      { name: 'Colorado', href: '/state-costs/colorado/' }
+    ]
+  }
+];
+
+const siteUrl = Astro.site?.origin ?? 'http://localhost:4321';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: 'State Guides', item: `${siteUrl}/state-costs/` }
+  ]
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'State senior care cost guides',
+  itemListElement: stateList.map((state, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: state.name,
+    url: `${siteUrl}${state.url}`
+  }))
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How should I use state guides?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use state guides for market context, then run the estimator with a real quote or budget to build a personalized plan.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Are these exact facility prices?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. We do not publish state-level numeric averages without a licensed dataset.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Why do states differ so much?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Labor costs, real estate, operator mix, demand, and regulations can create major differences between states and metro areas.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Senior Care Costs by State | State Planning Guides"
+  description="Browse state senior care planning guides organized for scanability, local comparison, and strong routing into the estimator and quote-validation workflows."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">State planning hub</span>
+      <h1>Senior care costs by state, organized for real planning work</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. These state guides are designed to help you move quickly from broad market context to a
+        practical next step: compare the right state, understand the likely local pressure points, and then validate the
+        estimate with quotes.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides updated annually. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Use state pages for</strong>
+          <p>Location context, metro comparison ideas, official checks, and a clean route into quote validation.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Do not use them for</strong>
+          <p>Exact provider pricing. The strongest workflow still requires written local quotes and fee schedules.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Pick your state, then open the estimator with one real quote or budget so you can test a personalized range.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 16px;">
+        <a class="btn" href="/estimator/">Open the estimator</a>
+        <a class="btn secondary" href="#all-state-guides">Browse all states</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-3">
+      <div class="card feature">
+        <h2>Start with a featured market</h2>
+        <p class="note">Useful when you need a fast benchmark in a large or high-interest state.</p>
+        <a class="tag" href="#featured-states">See featured states</a>
+      </div>
+      <div class="card feature">
+        <h2>Browse by region</h2>
+        <p class="note">Useful when you are deciding between nearby states or trying to understand a regional pricing pattern.</p>
+        <a class="tag" href="#regional-browse">Jump to region browse</a>
+      </div>
+      <div class="card feature">
+        <h2>Search the full list</h2>
+        <p class="note">Useful when you already know the target state and just want the guide fast.</p>
+        <a class="tag" href="#all-state-guides">Open the state finder</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="featured-states">
+    <div class="container">
+      <h2>Start with the most-used state guides</h2>
+      <p class="section-lead">These pages usually help first because they cover states with large metro contrasts, strong demand, or frequent comparison interest.</p>
+      <div class="grid-3">
+        {featuredStates.map((state) => (
+          <div class="card feature">
+            <h3>{state.name}</h3>
+            <p>{state.note}</p>
+            <a class="tag" href={state.href}>Open guide</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="regional-browse">
+    <div class="container card">
+      <h2>Browse by region</h2>
+      <p class="note">Use regional grouping when you want to sanity-check a state against similar labor, housing, and demand conditions.</p>
+      <div class="grid-2">
+        {regionGroups.map((group) => (
+          <div class="feature">
+            <h3>{group.name}</h3>
+            <p class="note">{group.note}</p>
+            <div class="chip-grid">
+              {group.links.map((link) => (
+                <a class="chip" href={link.href}>{link.name}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="all-state-guides">
+    <div class="container card">
+      <h2>Find your state guide</h2>
+      <p class="note">Search by state name or abbreviation, then filter by region if you are comparing multiple markets.</p>
+      <div class="table-toolbar">
+        <div class="field">
+          <label for="stateSearch">Search state</label>
+          <input id="stateSearch" type="text" placeholder="e.g., CA or California" data-state-search />
+        </div>
+        <div class="field">
+          <label for="stateRegion">Region</label>
+          <select id="stateRegion" data-state-region>
+            <option value="">All regions</option>
+            <option value="west">West</option>
+            <option value="midwest">Midwest</option>
+            <option value="south">South</option>
+            <option value="northeast">Northeast</option>
+          </select>
+        </div>
+      </div>
+      <div class="controls" style="margin-bottom: 12px;">
+        <span class="tag" data-state-count>Showing 51 guides</span>
+        <button class="btn secondary" type="button" data-state-clear>Clear filters</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>State</th>
+            <th>Guide</th>
+            <th>Estimator</th>
+          </tr>
+        </thead>
+        <tbody data-state-table></tbody>
+      </table>
+      <p class="note">We do not publish state-level numeric averages without a licensed dataset. Use the estimator with real local context for a personalized planning range.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>How state guides improve the estimator</h2>
+        <ul class="checklist">
+          <li>They tell you which local factors to sanity-check before you compare quotes.</li>
+          <li>They show which cities or market types you should compare side by side.</li>
+          <li>They route you to official licensing or program pages that affect availability and price.</li>
+          <li>They make the estimator result easier to explain to family members or advisors.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>How to use a state guide correctly</h2>
+        <ul class="checklist">
+          <li>Use the guide for context, not for exact provider pricing.</li>
+          <li>Anchor your estimate with one written quote or a real budget.</li>
+          <li>Compare one city-to-city scenario before you compare multiple facilities.</li>
+          <li>Request written care tier schedules and fee lists before deciding.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>Guide context versus real quotes</h2>
+      <div class="grid-2">
+        <div>
+          <h3>What state guides are strong at</h3>
+          <ul class="checklist">
+            <li>Showing local market pressure and why price spreads exist.</li>
+            <li>Pointing to official state oversight and program pages.</li>
+            <li>Giving you a comparison workflow before you call providers.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What only real quotes can tell you</h3>
+          <ul class="checklist">
+            <li>Your exact room type and unit cost.</li>
+            <li>The provider's care tier rubric and reassessment rules.</li>
+            <li>Move-in fees, add-ons, and contract-level differences.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 12px;">
+        <a class="btn secondary" href="/guides/quote-collection-guide/">How to collect quotes</a>
+        <a class="btn" href="/estimator/">Run the estimator</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How should I use state guides?</summary>
+        <p class="note">Use state guides for market context, then run the estimator with a real quote or budget to build a personalized plan.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Are these exact facility prices?</summary>
+        <p class="note">No. We do not publish state-level numeric averages without a licensed dataset.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Why do states differ so much?</summary>
+        <p class="note">Labor costs, operator mix, housing, demand, and regulation can create large differences between states and even between two cities in the same state.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>When should I go from the state page into the estimator?</summary>
+        <p class="note">As soon as you have one real quote or a realistic monthly budget. That is when the planning work gets much more concrete.</p>
+      </details>
+    </div>
+  </section>
+
+  <script src="/state-tools.js" is:inline></script>
+</BaseLayout>

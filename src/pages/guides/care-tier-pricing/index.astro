@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Understanding Care Tier Pricing and Reassessments',
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is a care tier?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A care tier is a pricing level tied to the amount of support, supervision, or service intensity a resident needs.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can care tiers increase after move-in?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Reassessments after health, mobility, or cognitive changes are one of the most common reasons monthly costs rise.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I ask for in writing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ask for the tier schedule, reassessment timing, trigger examples, and which services are included versus billed separately.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Understanding Care Tier Pricing and Reassessments"
+  description="A practical guide to care tier pricing, reassessment triggers, and how to budget for tier changes before they surprise your plan."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Pricing guide</span>
+      <h1>Understanding care tier pricing and reassessments</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. Care tiers are one of the biggest reasons a quote that looked manageable at move-in becomes
+        harder to carry later. This guide helps families understand how tier pricing works and how to plan for it before signing.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Quick answer</strong>
+          <p>Care tiers are pricing layers that reflect support intensity, and they are often more important than base rent when long-term affordability is judged.</p>
+        </div>
+        <div class="summary-card">
+          <strong>What families miss</strong>
+          <p>The first tier may not hold for long if mobility, medication, supervision, or behavior needs rise after move-in.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Take one real quote, then model a one-tier-higher scenario in the estimator before treating the first quote as the real budget.</p>
+        </div>
+      </div>
+      <div class="toc">
+        <details open>
+          <summary><span class="toc-title">On this page</span></summary>
+          <div class="chip-grid">
+            <a class="chip" href="#what-a-tier-means">What a tier means</a>
+            <a class="chip" href="#how-tiers-are-set">How tiers are set</a>
+            <a class="chip" href="#common-triggers">Common triggers</a>
+            <a class="chip" href="#reassessment-rules">Reassessment rules</a>
+            <a class="chip" href="#budgeting-for-change">Budgeting for change</a>
+            <a class="chip" href="#questions-to-ask">Questions to ask</a>
+            <a class="chip" href="#official-references">Official references</a>
+            <a class="chip" href="#guide-actions">Next actions</a>
+          </div>
+        </details>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Model a higher tier</a>
+        <a class="btn secondary" href="/guides/quote-collection-guide/">See quote workflow</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-a-tier-means">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What a care tier usually means</h2>
+        <ul class="checklist">
+          <li>A lower tier often reflects lighter daily assistance.</li>
+          <li>A middle tier may include more hands-on mobility or medication support.</li>
+          <li>A higher tier usually means more frequent staff involvement or supervision.</li>
+          <li>Different providers use different labels, so the written rubric matters more than the name alone.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Why tiers matter so much</h2>
+        <ul class="checklist">
+          <li>They can move the monthly total faster than annual rent increases.</li>
+          <li>They are often reassessed after changes in health or support needs.</li>
+          <li>Two providers with similar base rent can become very different once tier structure is included.</li>
+          <li>Families who budget only for entry-tier pricing often under-plan.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-tiers-are-set">
+    <div class="container card">
+      <h2>How care tiers are usually set</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Assessment inputs</h3>
+          <p>Providers often look at mobility, transfers, daily living tasks, medication support, supervision needs, and behavior or cognitive changes.</p>
+        </div>
+        <div>
+          <h3>Operational differences</h3>
+          <p>Some communities bundle more services inside each tier, while others separate them into add-ons. That is why the written fee schedule matters.</p>
+        </div>
+        <div>
+          <h3>Resident profile timing</h3>
+          <p>The first assessment may reflect only current needs, not the near-term trend the family already expects.</p>
+        </div>
+        <div>
+          <h3>Market context</h3>
+          <p>In tighter labor markets, the same support need may be priced more aggressively because staff intensity is harder to supply.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="common-triggers">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Common triggers for a tier increase</h2>
+        <ul class="checklist">
+          <li>More help with bathing, dressing, or transfers.</li>
+          <li>Medication regimens that become more complex.</li>
+          <li>Greater fall risk or nighttime supervision needs.</li>
+          <li>New cognitive or behavioral support needs.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Where surprises usually happen</h2>
+        <ul class="checklist">
+          <li>The family hears a tier label but not the exact services inside it.</li>
+          <li>Reassessment cadence is mentioned, but triggers are vague.</li>
+          <li>Add-ons sit outside the tier and are not included in the first quote.</li>
+          <li>No one models what the next tier would do to the budget.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reassessment-rules">
+    <div class="container card">
+      <h2>How reassessments usually work</h2>
+      <ul class="checklist">
+        <li>Many communities reassess on a schedule, after a health event, or when staff observe a meaningful care change.</li>
+        <li>Some communities communicate tier changes clearly in writing, while others rely too much on verbal explanation.</li>
+        <li>The safest approach is to ask how often reassessments happen and for examples of the specific triggers.</li>
+        <li>Families should also ask whether there is an internal review or appeal path if they disagree with a reassessment outcome.</li>
+      </ul>
+      <p class="note">If the reassessment process feels vague before move-in, assume the pricing risk is higher than it looks.</p>
+    </div>
+  </section>
+
+  <section class="section" id="budgeting-for-change">
+    <div class="container card">
+      <h2>How to budget for tier changes without guessing</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Baseline plan</h3>
+          <p>Use the current quote and current tier as the starting point, but do not stop there.</p>
+        </div>
+        <div>
+          <h3>Tier-up plan</h3>
+          <p>Model one higher tier or one more intensive care scenario so the family sees the likely next budget step.</p>
+        </div>
+        <div>
+          <h3>Buffer plan</h3>
+          <p>Add a planning buffer for annual increases and for the fact that not every care change waits for the next yearly review.</p>
+        </div>
+        <div>
+          <h3>Comparison plan</h3>
+          <p>Compare two providers with different tier structures, not just different base rent, so the long-term picture is clearer.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn" href="/estimator/">Run a tier-up scenario</a>
+        <a class="btn secondary" href="/guides/price-factors/">Review pricing drivers</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="questions-to-ask">
+    <div class="container card">
+      <h2>Questions to ask before you accept a tiered quote</h2>
+      <ul class="checklist">
+        <li>What tier does the provider recommend today, and why?</li>
+        <li>What services are included in that tier versus billed separately?</li>
+        <li>What events or care changes usually trigger a reassessment?</li>
+        <li>How often are reassessments performed?</li>
+        <li>Can the provider show the written rubric and fee schedule?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>What is a care tier?</summary>
+        <p class="note">A care tier is a pricing level tied to the amount of support, supervision, or service intensity a resident needs.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Can care tiers increase after move-in?</summary>
+        <p class="note">Yes. Reassessments after health, mobility, or cognitive changes are one of the most common reasons monthly costs rise.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I ask for in writing?</summary>
+        <p class="note">Ask for the tier schedule, reassessment timing, trigger examples, and which services are included versus billed separately.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Pair these references with your state licensing page for the exact local assessment and disclosure rules.</p>
+      <ul class="checklist">
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for federal long-term care guidance and terminology.</li>
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for aging services and planning context.</li>
+        <li><a href="https://www.nia.nih.gov/">National Institute on Aging (NIA)</a> for aging and care-planning context.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Quote checklist</strong>
+          <p class="note">Prepare the questions that expose tier-related price risk.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>California</strong>
+          <p class="note">Metro spreads and staffing pressure.</p>
+          <a class="tag" href="/state-costs/california/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Texas</strong>
+          <p class="note">Growth-driven demand and operator mix.</p>
+          <a class="tag" href="/state-costs/texas/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Florida</strong>
+          <p class="note">Retiree demand and local market differences.</p>
+          <a class="tag" href="/state-costs/florida/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

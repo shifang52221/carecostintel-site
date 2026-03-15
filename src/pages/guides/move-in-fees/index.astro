@@ -1,0 +1,313 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Move-In Fees and One-Time Senior Care Costs Explained',
+  datePublished: '2026-03-12',
+  dateModified: '2026-03-12',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What counts as a move-in fee?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Move-in fees can include community fees, assessments, deposits, paperwork charges, and other one-time setup costs that sit outside the recurring monthly bill.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Are move-in fees always refundable?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Some deposits may be refundable, while many community, assessment, or administrative fees are partially refundable or not refundable at all.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How should families compare move-in costs across providers?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Compare total entry cash required, refund rules, and which services the provider says are included in the one-time charges.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Move-In Fees and One-Time Senior Care Costs Explained"
+  description="A practical guide to move-in fees, deposits, and other one-time senior care costs so families can compare providers fairly and avoid under-budgeting the first month."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Fee guide</span>
+      <h1>Move-in fees and one-time senior care costs explained</h1>
+      <p class="section-lead">
+        Updated: Mar 2026. Families often focus on monthly rent and forget that the hardest cash-flow moment can be the first
+        month. This guide explains what usually shows up in move-in charges, which terms need to be in writing, and how to compare
+        providers without letting one-time fees hide in the background.
+      </p>
+      <div class="tag">Last updated: Mar 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Fast answer</strong>
+          <p>Move-in fees are the one-time charges that often sit outside the monthly quote and can materially change the cash needed to get started.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Most common mistake</strong>
+          <p>Families compare monthly rent but do not line up community fees, deposits, assessments, and refund rules side by side.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Ask each provider for a written entry-cost sheet, then compare total cash required before month two even begins.</p>
+        </div>
+      </div>
+      <div class="toc">
+        <details open>
+          <summary><span class="toc-title">On this page</span></summary>
+          <div class="chip-grid">
+            <a class="chip" href="#what-counts">What counts</a>
+            <a class="chip" href="#common-line-items">Common line items</a>
+            <a class="chip" href="#refund-rules">Refund rules</a>
+            <a class="chip" href="#negotiation">Negotiation</a>
+            <a class="chip" href="#entry-workflow">Entry workflow</a>
+            <a class="chip" href="#questions-to-ask">Questions to ask</a>
+            <a class="chip" href="#official-references">Official references</a>
+            <a class="chip" href="#guide-actions">Next actions</a>
+          </div>
+        </details>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Plan total cost</a>
+        <a class="btn secondary" href="/guides/quote-collection-guide/">Use quote workflow</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-counts">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What usually counts as a move-in cost</h2>
+        <ul class="checklist">
+          <li>Community or entrance fees.</li>
+          <li>Care assessments or nurse evaluations.</li>
+          <li>Security, damage, or apartment hold deposits.</li>
+          <li>Paperwork, administration, or setup charges.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Why families miss the real total</h2>
+        <ul class="checklist">
+          <li>One-time fees are often described verbally instead of shown inside the quote summary.</li>
+          <li>Some costs are framed as refundable without clear written conditions.</li>
+          <li>The provider may separate move-in charges from first-month recurring costs.</li>
+          <li>Furnishings, supplies, and transition logistics can sit outside the provider paperwork entirely.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="common-line-items">
+    <div class="container card">
+      <h2>Common line items families should compare line by line</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Provider-side fees</h3>
+          <p>Community fee, assessment fee, paperwork charges, apartment preparation, first medication setup, or deposits tied to the unit.</p>
+        </div>
+        <div>
+          <h3>Resident-side setup costs</h3>
+          <p>Furniture, medical equipment, transportation, clothing changes, room personalization, and other practical move expenses.</p>
+        </div>
+        <div>
+          <h3>Cash-flow timing</h3>
+          <p>Ask whether all charges are due before move-in, on move-in day, or with the first monthly invoice.</p>
+        </div>
+        <div>
+          <h3>Comparison rule</h3>
+          <p>Do not compare provider A and provider B until each charge is labeled as one-time, recurring, refundable, or nonrefundable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="refund-rules">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Refundability matters more than the headline fee</h2>
+        <ul class="checklist">
+          <li>A higher deposit can be less risky than a lower nonrefundable community fee.</li>
+          <li>Partial refunds often depend on timing, notice periods, or room condition.</li>
+          <li>Families should ask whether any fee transfers within the same operator network.</li>
+          <li>The written contract matters more than the sales summary.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What should be in writing</h2>
+        <ul class="checklist">
+          <li>Which charges are refundable and which are not.</li>
+          <li>The exact conditions that reduce or eliminate a refund.</li>
+          <li>The timeline for receiving any refund.</li>
+          <li>Whether the provider can change the fee before move-in is finalized.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="negotiation">
+    <div class="container card">
+      <h2>Where negotiation sometimes works</h2>
+      <ul class="checklist">
+        <li>Community or entrance fees can sometimes soften when occupancy is weaker or the resident is moving in on a short timeline.</li>
+        <li>Providers may offer incentives through a fee waiver rather than by lowering monthly pricing.</li>
+        <li>Move-in timing, competing offers, and apartment availability can affect flexibility.</li>
+        <li>Ask about the fee in writing and compare at least two communities before assuming a charge is fixed.</li>
+      </ul>
+      <p class="note">The goal is not aggressive bargaining. It is making sure the provider treats the quote as a full financial picture rather than a partial one.</p>
+    </div>
+  </section>
+
+  <section class="section" id="entry-workflow">
+    <div class="container card">
+      <h2>A cleaner way to build the entry-cost plan</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Step 1: Capture all one-time charges</h3>
+          <p>Ask each provider for a written list of every entry fee and when each amount is due.</p>
+        </div>
+        <div>
+          <h3>Step 2: Separate recurring costs</h3>
+          <p>Do not let monthly care, rent, and add-ons blur together with deposits or onboarding charges.</p>
+        </div>
+        <div>
+          <h3>Step 3: Add transition spending</h3>
+          <p>Include transportation, setup, room items, supplies, and the family's other real first-month expenses.</p>
+        </div>
+        <div>
+          <h3>Step 4: Compare cash required</h3>
+          <p>Judge the plan by how much cash is needed to move in and stabilize, not only by the ongoing monthly budget.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn" href="/estimator/">Model total cost</a>
+        <a class="btn secondary" href="/guides/cost-planning-checklist/">Use planning checklist</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="questions-to-ask">
+    <div class="container card">
+      <h2>Questions to ask before signing anything</h2>
+      <ul class="checklist">
+        <li>What is every one-time charge tied to this move?</li>
+        <li>Which of these charges are refundable, partially refundable, or never refundable?</li>
+        <li>When is each payment due?</li>
+        <li>What costs are not listed here but usually happen during move-in?</li>
+        <li>Will the provider give the full entry-cost sheet in writing before the deposit is due?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>What counts as a move-in fee?</summary>
+        <p class="note">Move-in fees can include community fees, assessments, deposits, paperwork charges, and other one-time setup costs that sit outside the recurring monthly bill.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Are move-in fees always refundable?</summary>
+        <p class="note">No. Some deposits may be refundable, while many community, assessment, or administrative fees are partially refundable or not refundable at all.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>How should families compare move-in costs across providers?</summary>
+        <p class="note">Compare total entry cash required, refund rules, and which services the provider says are included in the one-time charges.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Use your state guide to review local long-term care disclosure, licensing, and resident-agreement context before treating any fee explanation as final.</p>
+      <ul class="checklist">
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for consumer-facing long-term care information families often use while comparing settings.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for long-term care oversight context.</li>
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for aging services and planning support context.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Use local rules and market context before trusting fee explanations.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Combine one-time and recurring costs into a fuller budget view.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Quote checklist</strong>
+          <p class="note">Use a structured question list before you commit to a community.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>California</strong>
+          <p class="note">Useful when fee pressure and move-in timing are both important.</p>
+          <a class="tag" href="/state-costs/california/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Texas</strong>
+          <p class="note">Helpful for comparing fast-growth markets and operator variation.</p>
+          <a class="tag" href="/state-costs/texas/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Florida</strong>
+          <p class="note">Relevant for retiree demand, relocation, and high quote variability.</p>
+          <a class="tag" href="/state-costs/florida/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

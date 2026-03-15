@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Why does memory care cost more than assisted living?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Memory care usually costs more because it requires more staffing, more safety structure, and more specialized support.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I ask in a memory care quote?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ask about staffing, secure-unit support, behavior-related pricing, and how reassessments change the monthly total.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can home care still be a better fit?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sometimes, but families should compare home care hours and supervision needs carefully because costs can escalate quickly.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Memory Care Costs in 2026: What Drives the Premium"
+  description="Understand why memory care costs more, which quote components matter most, and how to compare memory care against other support options."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Care cost guide</span>
+      <h1>Memory care costs in 2026: what drives the premium</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. Memory care usually costs more because the care model itself is more intensive. This guide
+        helps you see where that premium comes from and which quote details deserve the closest review.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Quick answer</strong>
+          <p>The premium usually reflects staffing, secure environments, and support intensity, not just room and board.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Most important comparison</strong>
+          <p>Compare staffing assumptions and reassessment rules, not just the headline monthly price.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Run the estimator twice: once for the current support level and once for a higher-supervision scenario.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 16px;">
+        <a class="btn" href="/estimator/">Estimate memory care</a>
+        <a class="btn secondary" href="/state-costs/">See state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What usually drives the memory care premium</h2>
+        <ul class="checklist">
+          <li>Higher staffing and supervision needs.</li>
+          <li>Secure-unit and safety requirements.</li>
+          <li>Behavior support and cognitive programming.</li>
+          <li>More frequent care reassessment and support changes.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What families should verify early</h2>
+        <ul class="checklist">
+          <li>Whether the premium is bundled or separate from base rent.</li>
+          <li>How behavior changes affect tier placement.</li>
+          <li>What staffing assumptions are actually included in the quote.</li>
+          <li>Whether temporary overlap with home care needs to be budgeted too.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>Questions to ask before you compare two memory care quotes</h2>
+      <ul class="checklist">
+        <li>What support level or secure-unit assumption is built into the monthly price?</li>
+        <li>How often can reassessments raise the monthly total?</li>
+        <li>What support is included overnight or during higher-need periods?</li>
+        <li>Which fees are one-time versus recurring?</li>
+        <li>How would a comparable home care plan look at the same supervision level?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>When home care still deserves a comparison</h2>
+        <p>Home care can still be worth comparing in early-stage situations, but the math changes quickly once supervision becomes more constant.</p>
+        <a class="tag" href="/guides/home-care-vs-assisted/">Compare home care and residential care</a>
+      </div>
+      <div class="card">
+        <h2>Planning workflow that reduces surprises</h2>
+        <ul class="checklist">
+          <li>Run a baseline scenario with today’s needs.</li>
+          <li>Run a second scenario with more supervision.</li>
+          <li>Validate with a state guide and written quote details.</li>
+          <li>Use the higher scenario when the family is uncertain.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Use state licensing guidance to confirm secure-unit requirements.</p>
+      <ul class="checklist">
+        <li><a href="https://www.nia.nih.gov/">National Institute on Aging (NIA)</a> for dementia and caregiving context.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for long-term care oversight context.</li>
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for coverage language and consumer guidance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Quote checklist</strong>
+          <p class="note">Prepare the questions that make memory care quotes comparable.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>

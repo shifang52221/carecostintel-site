@@ -1,0 +1,308 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Which guide should I start with?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with the cost planning checklist if you are early in the process, or go straight to the guide that matches your immediate question.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How do these guides relate to the estimator?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Each guide helps you choose better inputs, validate quotes, and interpret the estimator range with more confidence.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How often are the guides updated?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Guides are reviewed annually and refreshed when planning assumptions or major cost drivers shift.'
+      }
+    }
+  ]
+};
+
+const intentCards = [
+  {
+    title: 'I need a realistic budget',
+    text: 'Start with the planning checklist, then move into the pricing drivers guide before you run the estimator.',
+    href: '/guides/cost-planning-checklist/',
+    label: 'Start here'
+  },
+  {
+    title: 'I need to compare care types',
+    text: 'Use care-specific guides to understand when assisted living, memory care, home care, or nursing home costs diverge.',
+    href: '#care-type-map',
+    label: 'Compare care types'
+  },
+  {
+    title: 'I need better quotes',
+    text: 'Follow the quote workflow so you compare the same room type, care tier, and fee structure every time.',
+    href: '/guides/quote-collection-guide/',
+    label: 'Get the workflow'
+  },
+  {
+    title: 'I need local context',
+    text: 'Use state guides when you want to understand why local markets price differently before you call providers.',
+    href: '/state-costs/',
+    label: 'Browse state guides'
+  }
+];
+
+const readingPath = [
+  'Define the care setting and likely support level.',
+  'Use a guide to understand the cost driver that matters most.',
+  'Run the estimator with one real quote or budget.',
+  'Validate the result with state context and a quote checklist.'
+];
+---
+<BaseLayout
+  title="Senior Care Cost Guides | Planning Library"
+  description="Explore senior care planning guides organized by question and care type, with strong pathways into the estimator, state guides, and quote-validation workflows."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Planning library</span>
+      <h1>Senior care guides built around the questions families actually ask</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. This guide hub is designed to help people move from uncertainty to a clean next step:
+        pick the right question, read the smallest useful guide, and then validate the answer in the estimator or a state page.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides updated annually. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>Best for</strong>
+          <p>Families deciding what to read first, what to compare next, and how to turn research into a practical budget.</p>
+        </div>
+        <div class="summary-card">
+          <strong>How to use this hub</strong>
+          <p>Choose the question you need answered, read one focused guide, then move into the estimator or a state guide.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Trust standard</strong>
+          <p>Every guide is reviewed for planning accuracy, source transparency, and people-first readability.</p>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 16px;">
+        <a class="btn" href="/estimator/">Open the estimator</a>
+        <a class="btn secondary" href="/state-costs/">Browse state guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Choose the guide that answers your immediate question</h2>
+      <p class="section-lead">This hub works best when you enter by intent, not by reading everything from top to bottom.</p>
+      <div class="grid-2">
+        {intentCards.map((card) => (
+          <div class="card feature">
+            <h3>{card.title}</h3>
+            <p>{card.text}</p>
+            <a class="tag" href={card.href}>{card.label}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>How this guide hub supports the estimator</h2>
+        <ul class="checklist">
+          <li>Explains which inputs matter most before you model a range.</li>
+          <li>Shows which pricing drivers deserve a second scenario.</li>
+          <li>Prepares you to compare written quotes instead of marketing claims.</li>
+          <li>Routes you into state guides when geography is the real issue.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Recommended reading path</h2>
+        <ul class="checklist">
+          {readingPath.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <a class="tag" href="/guides/cost-planning-checklist/">Start the reading path</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>Guide credibility and review</h2>
+      <p class="note">These pages are designed for planning and comparison, not lead-gen fluff or thin search pages.</p>
+      <ul class="checklist">
+        <li>Editorial review aligned with our <a href="/editorial-policy/">Editorial Policy</a>.</li>
+        <li>Methods and sources published in <a href="/data-sources/">Data Sources</a> and <a href="/methodology/">Methodology</a>.</li>
+        <li>Clear pathways into state guides, official references, and the estimator.</li>
+        <li>Written for families making decisions, not just chasing keywords.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Start with the core planning guides</h2>
+      <p class="section-lead">These are the highest-leverage guides for most first-time visitors.</p>
+      <div class="grid-3">
+        <div class="card feature">
+          <h3>Cost planning checklist</h3>
+          <p>Gather the right details before you tour facilities or call agencies.</p>
+          <a class="tag" href="/guides/cost-planning-checklist/">Read guide</a>
+        </div>
+        <div class="card feature">
+          <h3>What impacts pricing most</h3>
+          <p>See which levers change the monthly total fastest and which ones are easy to miss.</p>
+          <a class="tag" href="/guides/price-factors/">Read guide</a>
+        </div>
+        <div class="card feature">
+          <h3>How to collect reliable quotes</h3>
+          <p>Normalize fee schedules and compare quotes without being misled by base rent alone.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Read guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="care-type-map">
+    <div class="container card">
+      <h2>Browse by care type</h2>
+      <p class="note">Pick the care setting that matches your decision, then move into the most relevant deep dive.</p>
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Assisted living</h3>
+          <p class="note">Cost inflation, care tier jumps, move-in fees, and affordability tactics.</p>
+          <div class="controls">
+            <a class="tag" href="/guides/assisted-living-costs-2026/">Cost trends</a>
+            <a class="tag" href="/guides/affording-assisted-living/">Affordability</a>
+          </div>
+        </div>
+        <div class="feature">
+          <h3>Memory care</h3>
+          <p class="note">Premium drivers, secure-unit assumptions, and when a higher-support plan becomes the realistic choice.</p>
+          <div class="controls">
+            <a class="tag" href="/guides/memory-care-costs/">Memory care costs</a>
+            <a class="tag" href="/guides/care-tier-pricing/">Care tiers</a>
+          </div>
+        </div>
+        <div class="feature">
+          <h3>Home care</h3>
+          <p class="note">Hourly schedules, tipping points, and when in-home care starts to overtake residential options.</p>
+          <div class="controls">
+            <a class="tag" href="/guides/home-care-hourly-vs-live-in/">Hourly vs live-in</a>
+            <a class="tag" href="/guides/home-care-vs-assisted/">Home vs assisted</a>
+          </div>
+        </div>
+        <div class="feature">
+          <h3>Nursing home</h3>
+          <p class="note">Clinical staffing, coverage context, and how medical intensity shifts the budget.</p>
+          <div class="controls">
+            <a class="tag" href="/guides/nursing-home-costs/">Nursing home costs</a>
+            <a class="tag" href="/guides/assisted-vs-nursing-home/">Compare care settings</a>
+          </div>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 14px;">
+        <a class="btn secondary" href="/care-types/">Compare all care types</a>
+        <a class="btn" href="/estimator/">Model a scenario</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Quote and fee strategy</h2>
+      <p class="section-lead">Use these guides when your biggest problem is hidden fees, shifting care tiers, or apples-to-oranges quotes.</p>
+      <div class="grid-3">
+        <div class="card feature">
+          <h3>Collecting care quotes</h3>
+          <p>Step-by-step structure for gathering quotes you can actually compare.</p>
+          <a class="tag" href="/guides/quote-collection-guide/">Read guide</a>
+        </div>
+        <div class="card feature">
+          <h3>Care tier pricing</h3>
+          <p>Understand reassessments, tier changes, and how small wording differences move cost.</p>
+          <a class="tag" href="/guides/care-tier-pricing/">Read guide</a>
+        </div>
+        <div class="card feature">
+          <h3>Move-in fees explained</h3>
+          <p>Plan for one-time fees, deposits, and refund terms before you commit.</p>
+          <a class="tag" href="/guides/move-in-fees/">Read guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>Related tools and local context</h2>
+      <p class="note">The strongest workflow usually moves through all three layers below.</p>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>Estimator</strong>
+          <p class="note">Turn a guide into a modeled budget range.</p>
+          <a class="tag" href="/estimator/">Open tool</a>
+        </div>
+        <div class="feature">
+          <strong>State guides</strong>
+          <p class="note">Check how geography changes the comparison before you trust the number.</p>
+          <a class="tag" href="/state-costs/">Open state hub</a>
+        </div>
+        <div class="feature">
+          <strong>Care type map</strong>
+          <p class="note">Compare settings when the main decision is fit, not just price.</p>
+          <a class="tag" href="/care-types/">Open comparison</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>Which guide should I start with?</summary>
+        <p class="note">Start with the cost planning checklist if you are early in the process, or jump to the guide that matches your immediate question.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>How do these guides relate to the estimator?</summary>
+        <p class="note">They help you choose better inputs, interpret the range, and compare quotes with less guesswork.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>How often are the guides updated?</summary>
+        <p class="note">Guides are reviewed annually and refreshed when planning assumptions or major cost drivers shift.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>Do these guides replace professional advice?</summary>
+        <p class="note">No. They are for planning and comparison, not medical, legal, or financial advice.</p>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

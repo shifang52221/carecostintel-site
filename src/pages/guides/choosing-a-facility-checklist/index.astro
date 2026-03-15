@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Choosing a Senior Care Facility: Full Checklist',
+  datePublished: '2026-02-01',
+  dateModified: '2026-02-01',
+  author: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  reviewedBy: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' },
+  publisher: { '@type': 'Organization', name: 'CareCost Intelligence Editorial Team' }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How many facilities should a family tour?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Two is the minimum for context, but three usually gives a much stronger comparison on both pricing and care quality.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I bring to a tour?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bring the resident care summary, medication list, current budget range, and a checklist for fee and staffing questions.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the biggest red flag during a tour?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A provider who avoids written fee details or gives vague answers about staffing, reassessment, or ongoing pricing changes should be treated as a higher-risk option.'
+      }
+    }
+  ]
+};
+---
+<BaseLayout
+  title="Choosing a Senior Care Facility: Full Checklist"
+  description="A practical facility tour and comparison checklist covering fees, staffing, environment, care fit, and the questions that reduce expensive surprises."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="section">
+    <div class="container">
+      <span class="pill">Decision checklist</span>
+      <h1>Choosing a senior care facility</h1>
+      <p class="section-lead">
+        Updated: Feb 2026. Facility decisions are easier when families use the same checklist across every tour instead
+        of relying on memory, sales language, or first impressions. This guide helps you compare cost, care quality, and fit in one workflow.
+      </p>
+      <div class="tag">Last updated: Feb 2026</div>
+      <div class="editorial-meta">Reviewed by CareCost Intelligence Editorial Team</div>
+      <div class="author-box">
+        <div class="author-title">Editorial review</div>
+        <div class="author-meta">
+          <div>
+            <strong>CareCost Intelligence Editorial Team</strong>
+            <p class="note">
+              Planning guides are reviewed on a recurring schedule. Read our <a href="/editorial-policy/">Editorial Policy</a>,
+              <a href="/data-sources/">Data Sources</a>, or <a href="/contact/">report a correction</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <strong>What this does</strong>
+          <p>It gives families one repeatable structure for tours, quote review, and final comparison.</p>
+        </div>
+        <div class="summary-card">
+          <strong>What families miss</strong>
+          <p>Most regret starts with vague fee understanding, weak staffing questions, or no written comparison notes.</p>
+        </div>
+        <div class="summary-card">
+          <strong>Best next step</strong>
+          <p>Use this checklist with the estimator so every tour note is tied to a real cost scenario, not just an impression.</p>
+        </div>
+      </div>
+      <div class="toc">
+        <details open>
+          <summary><span class="toc-title">On this page</span></summary>
+          <div class="chip-grid">
+            <a class="chip" href="#before-the-tour">Before the tour</a>
+            <a class="chip" href="#pricing-and-contracts">Pricing and contracts</a>
+            <a class="chip" href="#staffing-and-care">Staffing and care</a>
+            <a class="chip" href="#environment-and-life">Environment and life</a>
+            <a class="chip" href="#special-needs">Special needs</a>
+            <a class="chip" href="#decision-sheet">Decision sheet</a>
+            <a class="chip" href="#red-flags">Red flags</a>
+            <a class="chip" href="#official-references">Official references</a>
+            <a class="chip" href="#guide-actions">Next actions</a>
+          </div>
+        </details>
+      </div>
+      <div class="controls">
+        <a class="btn" href="/estimator/">Estimate costs first</a>
+        <a class="btn secondary" href="/guides/quote-collection-guide/">Use quote workflow</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="before-the-tour">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Before the tour</h2>
+        <ul class="checklist">
+          <li>Bring the resident care summary and medication list.</li>
+          <li>Know the rough monthly budget range you are trying to protect.</li>
+          <li>Decide the room type and care path you are actually comparing.</li>
+          <li>Print or save a checklist so every facility is scored the same way.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What a good tour should produce</h2>
+        <ul class="checklist">
+          <li>A written fee structure or clear next step to receive one.</li>
+          <li>A believable explanation of staffing and reassessment practices.</li>
+          <li>A sense of how daily life actually feels on the floor.</li>
+          <li>Enough information to enter a realistic scenario into the estimator.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing-and-contracts">
+    <div class="container card">
+      <h2>Pricing and contract questions</h2>
+      <ul class="checklist">
+        <li>What is the full monthly price for the expected care level?</li>
+        <li>Which services are included, and which are separate line items?</li>
+        <li>What triggers a care-tier reassessment and price change?</li>
+        <li>What move-in, community, deposit, or one-time fees apply?</li>
+        <li>What has the rate increase pattern looked like recently?</li>
+        <li>Can the facility share a sample agreement or contract summary?</li>
+      </ul>
+      <p class="note">If the provider is reluctant to put pricing in writing, treat that as meaningful risk, not a small inconvenience.</p>
+    </div>
+  </section>
+
+  <section class="section" id="staffing-and-care">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Staffing and care quality</h2>
+        <ul class="checklist">
+          <li>Ask about staffing stability, not just staffing levels.</li>
+          <li>Ask how nights, weekends, and emergencies are handled.</li>
+          <li>Ask who manages medication support and care-plan changes.</li>
+          <li>Ask how family communication works when something changes.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>What strong answers sound like</h2>
+        <ul class="checklist">
+          <li>Specific, clear processes instead of general reassurance.</li>
+          <li>Comfort sharing how care needs are re-evaluated.</li>
+          <li>Transparent answers about who is on site and when.</li>
+          <li>A willingness to explain both strengths and limitations.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="environment-and-life">
+    <div class="container card">
+      <h2>Environment and daily-life questions</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Physical environment</h3>
+          <ul class="checklist">
+            <li>Cleanliness, lighting, noise, and general maintenance.</li>
+            <li>Ease of navigation and visible safety support.</li>
+            <li>Dining quality and schedule flexibility.</li>
+            <li>Outdoor space or walking access if that matters to the resident.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resident life</h3>
+          <ul class="checklist">
+            <li>Whether activities feel real, not only listed on a calendar.</li>
+            <li>Whether residents appear engaged or isolated.</li>
+            <li>How transportation and appointments are handled.</li>
+            <li>Whether the setting feels like it fits the resident's personality and pace.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="special-needs">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Special needs to validate</h2>
+        <ul class="checklist">
+          <li>Memory support and secure-unit practices.</li>
+          <li>Mobility, transfers, and fall-risk management.</li>
+          <li>Behavior or supervision needs.</li>
+          <li>Rehab, therapy, or clinical coordination requirements.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>When to slow down the decision</h2>
+        <ul class="checklist">
+          <li>If the family is unsure about the correct care level.</li>
+          <li>If the pricing structure changes depending on the assessment outcome.</li>
+          <li>If multiple providers give very different answers about the same need profile.</li>
+          <li>If the resident may need a higher-support setting soon.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="decision-sheet">
+    <div class="container card">
+      <h2>Use a simple decision sheet after every tour</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Cost confidence</h3>
+          <p>Did the facility explain the full monthly structure clearly enough to model the real budget?</p>
+        </div>
+        <div>
+          <h3>Care confidence</h3>
+          <p>Did the staffing, responsiveness, and reassessment process feel trustworthy and specific?</p>
+        </div>
+        <div>
+          <h3>Fit confidence</h3>
+          <p>Did the environment, routine, and resident life feel appropriate for the person who may move there?</p>
+        </div>
+        <div>
+          <h3>Overall confidence</h3>
+          <p>Would the family still feel comfortable if the care tier or monthly total increased sooner than hoped?</p>
+        </div>
+      </div>
+      <p class="note">Use the estimator report next to this score sheet so feelings and numbers are being judged together, not separately.</p>
+    </div>
+  </section>
+
+  <section class="section" id="red-flags">
+    <div class="container card">
+      <h2>Red flags that deserve extra caution</h2>
+      <ul class="checklist">
+        <li>No clear written fee schedule.</li>
+        <li>Vague reassessment rules or unclear tier logic.</li>
+        <li>Defensive answers about staffing or turnover.</li>
+        <li>Pressure to commit before the family has time to compare.</li>
+        <li>A visible mismatch between the marketing story and the lived environment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2>FAQ</h2>
+      <details class="guide-toggle">
+        <summary>How many facilities should a family tour?</summary>
+        <p class="note">Two is the minimum for context, but three usually gives a much stronger comparison on both pricing and care quality.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What should I bring to a tour?</summary>
+        <p class="note">Bring the resident care summary, medication list, current budget range, and a checklist for fee and staffing questions.</p>
+      </details>
+      <details class="guide-toggle">
+        <summary>What is the biggest red flag during a tour?</summary>
+        <p class="note">A provider who avoids written fee details or gives vague answers about staffing, reassessment, or ongoing pricing changes should be treated as a higher-risk option.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <h2 id="official-references">Official references</h2>
+      <p class="note" data-official-note>Validate any provider claim against your state licensing and oversight pages before you decide.</p>
+      <ul class="checklist">
+        <li><a href="https://www.medicare.gov/">Medicare.gov</a> for facility selection and consumer guidance.</li>
+        <li><a href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a> for federal care standards context.</li>
+        <li><a href="https://acl.gov/">Administration for Community Living (ACL)</a> for aging services and local support context.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-guide-actions>
+    <div class="container card">
+      <h2 id="guide-actions">Next actions</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong data-guide-actions-state-title>Your state guide</strong>
+          <p class="note" data-guide-actions-state-note>Local pricing context for your market.</p>
+          <a class="tag" href="/state-costs/" data-guide-actions-state-link>Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Run the estimator</strong>
+          <p class="note" data-guide-actions-estimator-note>Model a range using your care tier and room type.</p>
+          <a class="tag" href="/estimator/" data-guide-actions-estimator-link>Open estimator</a>
+        </div>
+        <div class="feature">
+          <strong>Planning checklist</strong>
+          <p class="note">Collect the inputs that make tours and quotes more comparable.</p>
+          <a class="tag" href="/guides/cost-planning-checklist/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card related-state-guides">
+      <h2 id="related-state-guides">Related state guides</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <strong>California</strong>
+          <p class="note">Metro spreads and staffing pressure.</p>
+          <a class="tag" href="/state-costs/california/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Texas</strong>
+          <p class="note">Growth-driven demand and operator mix.</p>
+          <a class="tag" href="/state-costs/texas/">Open guide</a>
+        </div>
+        <div class="feature">
+          <strong>Florida</strong>
+          <p class="note">Retiree demand and local market differences.</p>
+          <a class="tag" href="/state-costs/florida/">Open guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/guide-tools.js" is:inline></script>
+</BaseLayout>
